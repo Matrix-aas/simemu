@@ -1,0 +1,12 @@
+[package]
+name = "simemu-bridge"
+version.workspace = true
+edition.workspace = true
+license-file.workspace = true
+authors.workspace = true
+description = "VAG MQB drivetrain CAN rest-bus encoder, SIMOS18.1 CAN descriptor parser, and BeamNG.drive UDP bridge"
+
+[dependencies]
+simemu-physics = { path = "../simemu-physics" }
+serde.workspace = true
+serde_json.workspace = true

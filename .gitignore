@@ -1,0 +1,52 @@
+# Rust / Cargo build & profiling artifacts
+/target/
+**/*.rs.bk
+*.exe
+*.pdb
+*.dll
+*.so
+*.dylib
+*.profraw
+*.profdata
+perf.data*
+
+# Python virtual environment & caches
+/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local non-git vault (user-supplied ECU/TCU firmwares, FRFs, vendor PDFs, PCB photos, local tools)
+/vault/
+
+# Ephemeral runtime state & temporary ELF builds
+/build/
+
+# Legacy / ad-hoc binary & image patterns (safety net against accidental commits)
+*.bin
+!/rom/sboot.bin
+!/rom/dflash.bin
+*.eep
+*.frf
+*.pdf
+*.dng
+*.DNG
+
+# OS / IDE / Local Secrets
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+.env
+.env.*
+
+# Local AI agent & browser automation state
+/.agents/
+/.claude/
+/.cursor/
+/.gemini/
+/.playwright-mcp/

@@ -1,0 +1,310 @@
+<div id="app">
+<header id="top">
+  <span class="brand">SIMEMU</span>
+  <span class="chip" data-tip="tip_conn"><span id="h-conn" class="lamp"></span><b id="h-conn-t">—</b></span>
+  <span class="chip click shrink" data-go="fw" data-tip="tip_h_ecu">ECU <span id="h-ecu-l" class="lamp"></span><b id="h-ecu">—</b></span>
+  <span class="chip click shrink" data-go="fw" data-tip="tip_h_tcu">TCU <span id="h-tcu-l" class="lamp"></span><b id="h-tcu">—</b></span>
+  <span class="chip" data-tip="tip_h_preset"><span data-i18n="preset"></span> <b id="h-preset">—</b></span>
+  <span class="chip click shrink" data-go="build" data-tip="tip_h_build">⛭ <b id="h-build">—</b></span>
+  <span class="chip" data-tip="tip_h_time">t <b id="h-time" class="mono">—</b></span>
+  <span class="chip" data-tip="rtf_tip">RTF <b id="h-rtf" class="mono">—</b></span>
+  <span class="chip click" data-go="overview" data-tip="tip_h_engine"><span id="h-eng-l" class="lamp"></span><b id="h-eng">—</b></span>
+  <span class="chip click" data-go="channels" data-alarmfilter="1" data-tip="tip_h_alarms"><span id="h-alarm-l" class="lamp"></span><span data-i18n="alarms"></span> <b id="h-alarms">0</b></span>
+  <span class="chip click" data-go="dyno" data-tip="tip_h_safety"><span id="h-safe-l" class="lamp"></span><b id="h-safe">—</b></span>
+  <span class="chip click" data-go="rec" data-tip="tip_h_rec"><b id="h-rec">REC —</b></span>
+  <span class="sp"></span>
+  <button id="b-pause" data-tip="tip_pause"></button>
+  <button id="b-sound" data-tip="tip_sound"></button>
+  <button id="b-asound" data-tip="tip_asound"></button>
+  <button id="b-dock" data-tip="tip_dock">⇥</button>
+  <button id="b-help" data-tip="tip_help">?</button>
+  <button id="b-lang">RU / EN</button>
+</header>
+
+<nav id="nav"></nav>
+
+<main id="main">
+<!-- ===== 1 overview ===== -->
+<section class="view" data-view="overview">
+  <div class="stack w7">
+    <div class="panel" id="p-keyvals"><h3 data-i18n="p_keyvals"></h3><div class="body"><div id="ov-tiles" class="tiles"></div></div></div>
+    <div class="panel" id="p-ovalarms"><h3 data-i18n="p_alarms"></h3><div class="body"><div id="ov-alarms"></div></div></div>
+  </div>
+  <div class="panel w5" id="p-why"><h3 data-i18n="p_why"></h3><div class="body"><div id="ov-verdict"></div><div id="ov-lights" class="lights"></div></div></div>
+  <div class="panel w12" id="p-ovgbx"><h3><span data-i18n="p_ovgbx"></span><span id="ov-gbx-sub" class="sub"></span></h3><div class="body"><div id="ov-gbx"></div></div></div>
+  <div class="panel w12" id="p-ovchart"><h3 data-i18n="p_ovchart"></h3><div class="body"><canvas id="ov-chart" class="chart"></canvas></div></div>
+</section>
+
+<!-- ===== 2 gauges ===== -->
+<section class="view" data-view="gauges">
+  <div class="panel w12" id="p-gauges"><h3><span data-i18n="p_gauges"></span><span id="g-sub" class="sub"></span></h3><div class="body">
+    <div class="row"><div id="g-pages" class="gpages"></div><span class="sp"></span>
+      <button id="g-addpage" data-i18n="g_addpage"></button><button id="g-renpage" data-i18n="g_renpage"></button><button id="g-delpage" class="danger" data-i18n="g_delpage"></button>
+      <button id="g-edit" data-i18n="g_edit" data-tip="tip_g_edit"></button><button id="g-reset" class="danger" data-i18n="g_reset"></button></div>
+    <div id="g-grid" class="ggrid"></div>
+    <div class="note" data-i18n="g_note"></div>
+  </div></div>
+</section>
+
+<!-- ===== 3 charts ===== -->
+<section class="view" data-view="charts">
+  <div class="panel w12" id="p-chart"><h3><span data-i18n="p_chart"></span><span id="c-sub" class="sub"></span></h3><div class="body">
+    <div class="row"><div id="c-chips" class="chips"></div><button id="c-add" data-i18n="add_channel"></button><span class="sp"></span>
+      <label data-i18n="window"></label><select id="c-win"><option value="10">10 s</option><option value="30" selected>30 s</option><option value="60">60 s</option><option value="300">5 min</option><option value="0" data-i18n="all"></option></select>
+      <button id="c-live" data-i18n="follow_live" data-tip="tip_c_live"></button>
+      <select id="c-sets" data-tip="tip_c_sets"></select><button id="c-save" data-i18n="c_save"></button></div>
+    <canvas id="c-canvas" class="tall interactive"></canvas>
+    <div class="note" data-i18n="chart_help"></div>
+    <div class="scroll"><table id="c-stats"></table></div>
+  </div></div>
+</section>
+
+<!-- ===== 4 all channels ===== -->
+<section class="view" data-view="channels">
+  <div class="panel w12" id="p-allch"><h3><span data-i18n="p_allch"></span><span id="ch-sub" class="sub"></span></h3><div class="body">
+    <div class="row"><input id="ch-filter" type="search" style="width:260px" data-i18n-ph="filter_ph">
+      <select id="ch-group"></select>
+      <label><input id="ch-alarms" type="checkbox"> <span data-i18n="only_alarms"></span></label>
+      <label><input id="ch-nan" type="checkbox" checked> <span data-i18n="show_unavail"></span></label>
+      <span class="sp"></span><button id="ch-reset" data-i18n="reset_stats" data-tip="tip_reset_stats"></button></div>
+    <div class="note" data-i18n="ch_note"></div>
+    <div class="scroll tall"><table id="ch-table"></table></div>
+  </div></div>
+</section>
+
+<!-- ===== 5 recorder ===== -->
+<section class="view" data-view="rec">
+  <div class="panel w5" id="p-rec"><h3 data-i18n="p_rec"></h3><div class="body">
+    <div class="hint" data-i18n="rec_hint"></div>
+    <div class="row"><b data-i18n="rec_channels"></b><span id="r-nch" class="muted"></span><span class="sp"></span>
+      <button id="r-addch" data-i18n="add_channel"></button><button id="r-fromchart" data-i18n="r_fromchart"></button><button id="r-all" data-i18n="r_all"></button><button id="r-none" data-i18n="r_none"></button></div>
+    <div id="r-chips" class="chips"></div>
+    <div class="row"><button id="r-start" class="big primary" data-i18n="r_start"></button><button id="r-stop" class="big" data-i18n="r_stop"></button>
+      <input id="r-label" type="text" style="width:150px" data-i18n-ph="r_label_ph"><button id="r-mark" data-i18n="r_mark" data-tip="tip_r_mark"></button><button id="r-clear" class="danger" data-i18n="r_clear"></button></div>
+    <div id="r-status" class="kv"></div>
+  </div></div>
+  <div class="panel w7" id="p-sets"><h3 data-i18n="p_datasets"></h3><div class="body">
+    <div class="row"><button id="r-fetch" data-i18n="r_fetch"></button><button id="r-csv" data-i18n="r_csv"></button>
+      <label class="chip click"><span data-i18n="r_import"></span><input id="r-file" type="file" accept=".csv,text/csv" style="display:none"></label></div>
+    <table id="r-sets"></table>
+    <div class="note" data-i18n="r_sets_note"></div>
+  </div></div>
+  <div class="panel w12" id="p-play"><h3><span data-i18n="p_play"></span><span id="r-play-sub" class="sub"></span></h3><div class="body">
+    <div class="row"><button id="r-play" data-i18n="r_play"></button><select id="r-speed"><option value="0.25">0.25×</option><option value="1" selected>1×</option><option value="4">4×</option><option value="10">10×</option></select>
+      <input id="r-scrub" type="range" min="0" max="1000" value="0" style="flex:1"><b id="r-cursor" class="mono"></b></div>
+    <canvas id="r-canvas" class="tall interactive"></canvas>
+    <div class="scroll"><table id="r-values"></table></div>
+  </div></div>
+</section>
+
+<!-- ===== 6 dyno ===== -->
+<section class="view" data-view="dyno">
+  <div class="panel w5" id="p-dymode"><h3 data-i18n="p_dymode"></h3><div class="body">
+    <div class="row" id="dy-modes"></div>
+    <div id="dy-mode-body"></div>
+    <div id="dy-live" class="kv" style="margin-top:6px"></div>
+  </div></div>
+  <div class="panel w7" id="p-dychart"><h3><span data-i18n="p_dychart"></span><span id="dy-sub" class="sub"></span></h3><div class="body">
+    <div class="row"><label data-i18n="std"></label><select id="dy-std"></select>
+      <label data-i18n="power_unit"></label><select id="dy-pu"><option value="ps">PS</option><option value="kw">kW</option><option value="hp">hp (SAE)</option></select>
+      <label><input id="dy-showraw" type="checkbox" checked> <span data-i18n="show_raw"></span></label></div>
+    <canvas id="dy-canvas" class="chart interactive" style="height:340px"></canvas>
+    <div class="note" data-i18n="dy_chart_note"></div>
+  </div></div>
+  <div class="panel w7" id="p-runs"><h3 data-i18n="p_runs"></h3><div class="body">
+    <div class="row"><button id="dy-report" data-i18n="dy_report"></button><button id="dy-csv" data-i18n="dy_csv"></button><button id="dy-compare" data-i18n="dy_compare"></button><span class="sp"></span><button id="dy-delall" class="danger" data-i18n="dy_delall"></button></div>
+    <div class="scroll"><table id="dy-runs"></table></div>
+    <div id="dy-cmp"></div>
+  </div></div>
+  <div class="panel w5" id="p-corr"><h3 data-i18n="p_corr"></h3><div class="body">
+    <div id="dy-corr"></div>
+    <div class="note" data-i18n="corr_note"></div>
+  </div></div>
+  <div class="panel w7" id="p-safety"><h3><span data-i18n="p_safety"></span><span id="sf-sub" class="sub"></span></h3><div class="body">
+    <div class="hint" data-i18n="sf_hint"></div>
+    <div class="row"><label><input id="sf-en" type="checkbox"> <b data-i18n="sf_arm"></b></label><span class="sp"></span><button id="sf-apply" data-i18n="apply"></button><button id="sf-reset" data-i18n="sf_reset"></button></div>
+    <table id="sf-table"></table>
+    <div id="sf-trip"></div>
+  </div></div>
+  <div class="panel w5" id="p-loss"><h3 data-i18n="p_loss"></h3><div class="body"><div id="dy-loss"></div></div></div>
+  <div class="panel w12" id="p-dytable"><h3 data-i18n="p_dytable"></h3><div class="body"><div class="scroll"><table id="dy-table"></table></div></div></div>
+</section>
+
+<!-- ===== 7 health ===== -->
+<section class="view" data-view="health">
+  <div class="panel w8" id="p-hdiag"><h3><span data-i18n="p_hdiag"></span><span id="h-sub" class="sub"></span></h3><div class="body">
+    <div class="row"><label data-i18n="h_color"></label><select id="h-mode"><option value="health" data-i18n="h_m_health"></option><option value="temp" data-i18n="h_m_temp"></option><option value="stress" data-i18n="h_m_stress"></option></select>
+      <div class="legend" id="h-legend"></div></div>
+    <div id="h-svg"></div>
+    <div class="note" data-i18n="h_note"></div>
+  </div></div>
+  <div class="panel w4" id="p-hdetail"><h3 data-i18n="p_hdetail"></h3><div class="body"><div id="h-detail"></div></div></div>
+  <div class="panel w12" id="p-hlog"><h3><span data-i18n="p_hlog"></span><span class="sub" id="h-log-sub"></span></h3><div class="body">
+    <div class="row"><button id="h-logclear" data-i18n="clear"></button></div>
+    <div class="scroll"><table id="h-log"></table></div>
+    <div id="h-backend-events"></div>
+  </div></div>
+</section>
+
+<!-- ===== 8 calibration ===== -->
+<section class="view" data-view="cal">
+  <div class="panel w12" id="p-calbar"><h3 data-i18n="p_calbar"></h3><div class="body">
+    <div class="row"><b data-i18n="presets"></b><span id="cal-presets"></span><span class="sp"></span>
+      <span id="cal-cks" class="chip click" data-go="fw"></span><button id="b-export" class="primary" data-i18n="export" data-tip="tip_export"></button></div>
+  </div></div>
+  <div class="calgrid">
+    <div class="panel" id="p-mapbrowser"><h3 data-i18n="p_maps"></h3><div class="body">
+      <div class="row"><button id="mb-cur" class="on" data-i18n="mb_cur"></button><button id="mb-damos" data-i18n="mb_damos"></button></div>
+      <div id="mb-damos-ctl" hidden>
+        <input id="mb-q" type="search" style="width:100%" data-i18n-ph="search">
+        <div class="row"><select id="mb-cat" style="flex:1"></select><select id="mb-kind"><option value="" data-i18n="kind_all"></option><option>MAP</option><option>CURVE</option><option>VALUE</option></select></div>
+      </div>
+      <div id="maplist" class="maplist"></div>
+    </div></div>
+    <div class="panel" id="p-editor"><h3><span data-i18n="p_editor"></span><span id="ed-sub" class="sub"></span></h3><div class="body">
+      <div id="map-head"></div>
+      <div class="toolbar" id="ed-tools">
+        <span class="grp"><button data-ev="table" class="on" data-i18n="ev_table"></button><button data-ev="diff" data-i18n="ev_diff"></button><button data-ev="3d" data-i18n="ev_3d"></button></span>
+        <span class="grp"><input id="ed-val" type="number" step="any" style="width:90px" data-tip="tip_ed_val">
+          <button data-op="set" data-tip="tip_op_set">=</button><button data-op="add" data-tip="tip_op_add">+</button><button data-op="sub" data-tip="tip_op_sub">−</button><button data-op="mul" data-tip="tip_op_mul">×</button><button data-op="pct" data-tip="tip_op_pct">%</button></span>
+        <span class="grp"><button data-op="ih" data-tip="tip_op_ih">⇿</button><button data-op="iv" data-tip="tip_op_iv">⇳</button><button data-op="i2" data-tip="tip_op_i2">⊞</button><button data-op="smooth" data-tip="tip_op_smooth">≈</button><button data-op="stock" data-tip="tip_op_stock" data-i18n="stock"></button></span>
+        <span class="grp"><button id="ed-undo" data-tip="tip_undo">↶</button><button id="ed-redo" data-tip="tip_redo">↷</button></span>
+        <span class="grp"><button id="b-write" class="primary" data-i18n="write" data-tip="tip_write"></button><button id="b-discard" data-i18n="discard"></button><button id="b-tostock" class="danger" data-i18n="to_stock"></button></span>
+        <span id="map-edits" class="warn"></span>
+      </div>
+      <div id="ed-sel" class="note mono"></div>
+      <div id="ed-table" class="scroll" style="max-height:calc(100vh - 360px)"><table id="matrix" class="matrix"></table></div>
+      <div id="ed-3d" hidden><canvas id="ed-canvas" class="tall interactive"></canvas><div class="row"><label><input id="ed-3dstock" type="checkbox" checked> <span data-i18n="show_stock_wire"></span></label><span class="note" data-i18n="ed_3d_help"></span></div></div>
+      <div id="ed-trace" class="note"></div>
+      <div class="note" data-i18n="map_note"></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== 9 diagnostics ===== -->
+<section class="view" data-view="diag">
+  <div class="panel w6" id="p-uds-ecu"><h3>UDS — ECU SIMOS18.1 <span class="sub">0x7E0 → 0x7E8</span></h3><div class="body" data-uds="ecu"></div></div>
+  <div class="panel w6" id="p-uds-tcu"><h3>UDS — <span id="uds-tcu-name">TCU</span> <span class="sub">0x7E1 → 0x7E9</span></h3><div class="body" data-uds="tcu"></div></div>
+  <div class="panel w6" id="p-immo"><h3 data-i18n="immo"></h3><div class="body"><div id="immo-verdict"></div><div id="immo" class="kv"></div><div class="note" data-i18n="immo_expl"></div></div></div>
+  <div class="panel w6" id="p-boards"><h3 data-i18n="boards"></h3><div class="body"><table id="boards"></table><div class="note" data-i18n="boards_note"></div></div></div>
+  <div class="panel w12" id="p-mech"><h3><span data-i18n="p_mech"></span><span id="mech-sub" class="sub"></span></h3><div class="body"><div id="mech"></div><div class="note" data-i18n="mech_note"></div></div></div>
+</section>
+
+<!-- ===== 0 CAN ===== -->
+<section class="view" data-view="can">
+  <div class="panel w12" id="p-can"><h3><span data-i18n="p_can"></span><span id="can-sub" class="sub"></span></h3><div class="body">
+    <div class="row"><button id="can-pause" data-i18n="pause"></button><button id="can-clear" data-i18n="clear"></button>
+      <select id="can-mode"><option value="trace" data-i18n="can_trace"></option><option value="fixed" data-i18n="can_fixed"></option></select>
+      <select id="can-src"><option value="" data-i18n="all"></option><option>ECU</option><option>TCU</option></select>
+      <input id="can-filter" type="text" style="width:240px" data-i18n-ph="can_filter_ph" data-tip="tip_can_filter">
+      <span class="sp"></span><span id="can-stat" class="mono muted"></span></div>
+    <div class="note" data-i18n="can_note"></div>
+    <div class="scroll tall"><table id="can-table"></table></div>
+  </div></div>
+</section>
+
+<!-- ===== - firmware ===== -->
+<section class="view" data-view="fw">
+  <div class="panel w6" id="p-images"><h3 data-i18n="p_images"></h3><div class="body">
+    <table id="img-table"></table>
+    <div class="note" data-i18n="img_note"></div>
+    <div class="row"><b data-i18n="immo"></b><span class="sp"></span><button id="immo-lab" data-tip="tip_immo_lab" data-i18n="immo_lab_b"></button><button id="immo-dump" data-tip="tip_immo_dump" data-i18n="immo_dump_b"></button></div>
+  </div></div>
+  <div class="panel w6" id="p-cks"><h3 data-i18n="checksums"></h3><div class="body">
+    <table id="cks"></table><div id="asw1-note" class="note warn"></div><div class="note" data-i18n="cks_note"></div>
+    <h4 data-i18n="img_notes_h"></h4><div id="img-notes"></div>
+    <div class="row"><button id="b-export2" class="primary" data-i18n="export"></button></div>
+  </div></div>
+  <div class="panel w12" id="p-fwcompat"><h3 data-i18n="p_fwcompat"></h3><div class="body"><div id="fw-compat"></div><div class="note" data-i18n="bd_note"></div></div></div>
+  <div class="panel w12" id="p-fwboards"><h3 data-i18n="boards"></h3><div class="body"><table id="fw-boards"></table></div></div>
+</section>
+
+<!-- ===== c pre-flash check ===== -->
+<section class="view" data-view="check">
+  <div class="panel w12" id="p-ck"><h3 data-i18n="p_ck"></h3><div class="body">
+    <div class="note" data-i18n="ck_note"></div>
+    <div class="row"><label data-i18n="ck_image"></label><select id="ck-image" style="flex:1"></select></div>
+    <div class="row"><label data-i18n="ck_ref"></label><select id="ck-ref" style="flex:1"></select></div>
+    <div class="row"><label data-i18n="ck_slot" data-tip="tip_ck_slot"></label><select id="ck-slot"></select><span class="sp"></span>
+      <button id="ck-run" class="big primary" data-i18n="ck_run" data-tip="tip_ck_run"></button><button id="ck-cancel" data-i18n="ck_cancel"></button></div>
+    <div id="ck-prog"></div>
+  </div></div>
+  <div class="panel w12" id="p-ck-res"><h3 data-i18n="ck_result"></h3><div class="body"><div id="ck-res"></div></div></div>
+</section>
+
+<!-- ===== b bench build ===== -->
+<section class="view" data-view="build">
+  <div class="panel w7" id="p-bd-form"><h3 data-i18n="p_bd_form"></h3><div class="body"><div id="bd-form"></div><div class="note" data-i18n="bd_note"></div></div></div>
+  <div class="panel w5" id="p-bd-side"><h3 data-i18n="p_bd_side"></h3><div class="body">
+    <div id="bd-status" class="kv"></div>
+    <div class="row"><button id="bd-start" class="big primary" data-i18n="bd_start" data-tip="tip_bd_start"></button><button id="bd-discard" data-i18n="bd_discard"></button></div>
+    <h4 data-i18n="bd_presets"></h4><div id="bd-presets" class="row"></div>
+    <h4 data-i18n="bd_saved"></h4><table id="bd-saved"></table>
+    <div class="row"><input id="bd-name" type="text" style="flex:1" maxlength="64"><button id="bd-saveb" data-i18n="bd_save"></button></div>
+    <div id="bd-dir" class="note mono"></div>
+  </div></div>
+  <div class="panel w7" id="p-bd-eff"><h3 data-i18n="p_bd_eff"></h3><div class="body"><table id="bd-effects"></table></div></div>
+  <div class="panel w5" id="p-bd-compat"><h3 data-i18n="p_bd_compat"></h3><div class="body"><div id="bd-compat"></div></div></div>
+  <div class="panel w12" id="p-bd-specs"><h3 data-i18n="p_bd_specs"></h3><div class="body"><div id="bd-specs"></div></div></div>
+  <div class="panel w12" id="p-bd-log"><h3 data-i18n="p_bd_log"></h3><div class="body"><div id="bd-log" class="scroll"></div></div></div>
+</section>
+
+<!-- ===== = setup ===== -->
+<section class="view" data-view="setup">
+  <div class="panel w6" id="p-cfg"><h3 data-i18n="p_cfg"></h3><div class="body">
+    <div class="row"><label data-i18n="engine"></label><select id="cfg-engine" style="flex:1"></select></div>
+    <div class="row"><label data-i18n="drivetrain"></label><select id="cfg-dt" style="flex:1"></select></div>
+    <div class="row"><label data-tip="tip_ron">RON</label><input id="cfg-ron" type="number" step="1">
+      <label data-i18n="amb_t"></label><input id="cfg-temp" type="number" step="1"></div>
+    <div class="row"><label data-i18n="altitude"></label><input id="cfg-alt" type="number" step="10">
+      <label data-i18n="humidity"></label><input id="cfg-hum" type="number" step="1"></div>
+    <div class="row"><button id="b-config" class="primary" data-i18n="apply_config"></button>
+      <button data-preset="cold_soak" data-i18n="cold_soak" data-tip="tip_cold_soak"></button>
+      <button data-preset="warm_soak" data-i18n="warm_soak" data-tip="tip_warm_soak"></button>
+      <button data-preset="power_cycle" class="danger" data-i18n="power_cycle" data-tip="tip_power_cycle"></button></div>
+    <div class="note" data-i18n="config_hint"></div>
+    <div id="cfg-now" class="kv"></div>
+  </div></div>
+  <div class="panel w6" id="p-ui"><h3 data-i18n="p_ui"></h3><div class="body">
+    <div class="row"><button id="ui-alarms" data-i18n="ui_alarms"></button><button id="ui-reset" class="danger" data-i18n="ui_reset"></button></div>
+    <div class="note" data-i18n="ui_note"></div>
+    <h4 data-i18n="log"></h4>
+    <div class="scroll"><table id="ui-log"></table></div>
+  </div></div>
+</section>
+
+<!-- ===== a sound ===== -->
+<section class="view" data-view="sound">
+  <div class="panel w4" id="p-snd-ctl"><h3 data-i18n="p_snd_ctl"></h3><div class="body" id="snd-ctl"></div></div>
+  <div class="panel w8" id="p-snd-spec"><h3 data-i18n="p_snd_spec"></h3><div class="body"><canvas id="snd-spec" style="width:100%;height:320px;display:block"></canvas></div></div>
+  <div class="panel w8" id="p-snd-mix"><h3 data-i18n="p_snd_mix"></h3><div class="body" id="snd-mix"></div></div>
+  <div class="panel w4" id="p-snd-harn"><h3 data-i18n="p_snd_harn"></h3><div class="body" id="snd-harn"></div></div>
+</section>
+</main>
+
+<aside id="dock">
+  <h5 data-i18n="d_power"></h5>
+  <div class="grid2">
+    <button id="b-ign" class="big" data-tip="tip_ign"></button>
+    <button id="b-start" class="big" data-i18n="start_btn" data-tip="tip_start"></button>
+  </div>
+  <h5 data-i18n="d_pedals"></h5>
+  <div class="slider" data-tip="tip_pedal"><label data-i18n="pedal"></label><input id="pedal" type="range" min="0" max="100" value="0"><b id="pedal-v">—</b></div>
+  <div class="slider" data-tip="tip_brake"><label data-i18n="brake"></label><input id="brake" type="range" min="0" max="100" value="0"><b id="brake-v">—</b></div>
+  <h5 data-i18n="selector"></h5>
+  <div id="sel" class="sel"></div>
+  <div class="grid2" style="margin-top:4px"><button id="b-tip-down" disabled data-tip="tip_tiptronic">M −</button><button id="b-tip-up" disabled data-tip="tip_tiptronic">M +</button></div>
+  <div class="row"><label data-i18n="drive_profile"></label><select id="drive-profile" data-tip="tip_drive_profile"><option value="2">2 — normal</option><option value="3">3 — sport</option></select></div>
+  <h5 data-i18n="bench"></h5>
+  <select id="bench-mode" data-tip="tip_bench_mode"><option value="road" data-i18n="road"></option><option value="engine_dyno" data-i18n="engine_dyno"></option><option value="ac_dyno" data-i18n="ac_dyno"></option><option value="chassis_dyno" data-i18n="chassis_dyno"></option><option value="road_load_dyno" data-i18n="road_load_dyno"></option></select>
+  <div class="row"><label id="bench-tl"></label><input id="bench-rpm" type="number" value="2000" min="0" max="7500" step="100" style="width:80px"><button id="b-bench" data-i18n="apply"></button></div>
+  <div id="bench-now" class="note"></div>
+  <h5 data-i18n="d_quick"></h5>
+  <div id="quick" class="quick"></div>
+  <div class="note" data-i18n="keys_hint"></div>
+</aside>
+
+<footer id="foot"><span id="foot-msg" class="msg"></span><span id="foot-stat" class="mono"></span></footer>
+</div>
+<div id="tip"></div>
+<div id="modal"><div class="box"><h3><span id="m-title"></span><span class="x" id="m-x">✕</span></h3><div class="mbody" id="m-body"></div><div class="mfoot" id="m-foot"></div></div></div>

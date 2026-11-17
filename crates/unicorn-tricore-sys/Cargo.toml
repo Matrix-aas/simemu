@@ -1,0 +1,15 @@
+[package]
+name = "unicorn-tricore-sys"
+version.workspace = true
+edition.workspace = true
+license-file.workspace = true
+authors.workspace = true
+description = "Minimal raw FFI bindings to libunicorn 2.1.x (TriCore subset)"
+links = "unicorn"
+build = "build.rs"
+
+[features]
+default = []
+link = []
+
+[dependencies]

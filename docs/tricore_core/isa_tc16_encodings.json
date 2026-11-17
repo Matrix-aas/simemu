@@ -1,0 +1,10706 @@
+{
+ "source": "vault/docs/infineon/tcarch_vol2_a4.pdf (pdftotext -layout)",
+ "mnemonics": [
+  "ABS",
+  "ABS.B",
+  "ABS.H",
+  "ABSDIF",
+  "ABSDIF.B",
+  "ABSDIF.H",
+  "ABSDIFS",
+  "ABSDIFS.H",
+  "ABSS",
+  "ABSS.H",
+  "ADD",
+  "ADD.A",
+  "ADD.B",
+  "ADD.F",
+  "ADD.H",
+  "ADDC",
+  "ADDI",
+  "ADDIH",
+  "ADDIH.A",
+  "ADDS",
+  "ADDS.H",
+  "ADDS.HU",
+  "ADDS.U",
+  "ADDSC.A",
+  "ADDSC.AT",
+  "ADDX",
+  "AND",
+  "AND.AND.T",
+  "AND.ANDN.T",
+  "AND.EQ",
+  "AND.GE",
+  "AND.GE.U",
+  "AND.LT",
+  "AND.LT.U",
+  "AND.NE",
+  "AND.NOR.T",
+  "AND.OR.T",
+  "AND.T",
+  "ANDN",
+  "ANDN.T",
+  "BISR",
+  "BMERGE",
+  "BSPLIT",
+  "CACHEA.I",
+  "CACHEA.W",
+  "CACHEA.WI",
+  "CACHEI.I",
+  "CACHEI.W",
+  "CACHEI.WI",
+  "CADD",
+  "CADDN",
+  "CALL",
+  "CALLA",
+  "CALLI",
+  "CLO",
+  "CLO.H",
+  "CLS",
+  "CLS.H",
+  "CLZ",
+  "CLZ.H",
+  "CMOV",
+  "CMOVN",
+  "CMP.F",
+  "CSUB",
+  "CSUBN",
+  "DEBUG",
+  "DEXTR",
+  "DISABLE",
+  "DIV",
+  "DIV.F",
+  "DIV.U",
+  "DSYNC",
+  "DVADJ",
+  "DVINIT",
+  "DVINIT.B",
+  "DVINIT.BU",
+  "DVINIT.H",
+  "DVINIT.HU",
+  "DVINIT.U",
+  "DVSTEP",
+  "DVSTEP.U",
+  "ENABLE",
+  "EQ",
+  "EQ.A",
+  "EQ.B",
+  "EQ.H",
+  "EQ.W",
+  "EQANY.B",
+  "EQANY.H",
+  "EQZ.A",
+  "EXTR",
+  "EXTR.U",
+  "FCALL",
+  "FCALLA",
+  "FCALLI",
+  "FRET",
+  "FTOI",
+  "FTOIZ",
+  "FTOQ31",
+  "FTOQ31Z",
+  "FTOU",
+  "FTOUZ",
+  "GE",
+  "GE.A",
+  "GE.U",
+  "IMASK",
+  "INS.T",
+  "INSERT",
+  "INSN.T",
+  "ISYNC",
+  "ITOF",
+  "IXMAX",
+  "IXMAX.U",
+  "IXMIN",
+  "IXMIN.U",
+  "J",
+  "JA",
+  "JEQ",
+  "JEQ.A",
+  "JGE",
+  "JGE.U",
+  "JGEZ",
+  "JGTZ",
+  "JI",
+  "JL",
+  "JLA",
+  "JLEZ",
+  "JLI",
+  "JLT",
+  "JLT.U",
+  "JLTZ",
+  "JNE",
+  "JNE.A",
+  "JNED",
+  "JNEI",
+  "JNZ",
+  "JNZ.A",
+  "JNZ.T",
+  "JZ",
+  "JZ.A",
+  "JZ.T",
+  "LD.A",
+  "LD.B",
+  "LD.BU",
+  "LD.D",
+  "LD.DA",
+  "LD.H",
+  "LD.HU",
+  "LD.Q",
+  "LD.W",
+  "LDLCX",
+  "LDMST",
+  "LDUCX",
+  "LEA",
+  "LOOP",
+  "LOOPU",
+  "LT",
+  "LT.A",
+  "LT.B",
+  "LT.BU",
+  "LT.H",
+  "LT.HU",
+  "LT.U",
+  "LT.W",
+  "LT.WU",
+  "MADD",
+  "MADD.F",
+  "MADD.H",
+  "MADD.Q",
+  "MADD.U",
+  "MADDM.H",
+  "MADDMS.H",
+  "MADDR.H",
+  "MADDR.Q",
+  "MADDRS.H",
+  "MADDRS.Q",
+  "MADDS",
+  "MADDS.H",
+  "MADDS.Q",
+  "MADDS.U",
+  "MADDSU.H",
+  "MADDSUM.H",
+  "MADDSUMS.H",
+  "MADDSUR.H",
+  "MADDSURS.H",
+  "MADDSUS.H",
+  "MAX",
+  "MAX.B",
+  "MAX.BU",
+  "MAX.H",
+  "MAX.HU",
+  "MAX.U",
+  "MFCR",
+  "MIN",
+  "MIN.B",
+  "MIN.BU",
+  "MIN.H",
+  "MIN.HU",
+  "MIN.U",
+  "MOV",
+  "MOV.A",
+  "MOV.AA",
+  "MOV.D",
+  "MOV.U",
+  "MOVH",
+  "MOVH.A",
+  "MSUB",
+  "MSUB.F",
+  "MSUB.H",
+  "MSUB.Q",
+  "MSUB.U",
+  "MSUBAD.H",
+  "MSUBADM.H",
+  "MSUBADMS.H",
+  "MSUBADR.H",
+  "MSUBADRS.H",
+  "MSUBADS.H",
+  "MSUBM.H",
+  "MSUBMS.H",
+  "MSUBR.H",
+  "MSUBR.Q",
+  "MSUBRS.H",
+  "MSUBRS.Q",
+  "MSUBS",
+  "MSUBS.H",
+  "MSUBS.Q",
+  "MSUBS.U",
+  "MTCR",
+  "MUL",
+  "MUL.F",
+  "MUL.H",
+  "MUL.Q",
+  "MUL.U",
+  "MULM.H",
+  "MULMS.H",
+  "MULR.H",
+  "MULR.Q",
+  "MULS",
+  "MULS.U",
+  "NAND",
+  "NAND.T",
+  "NE",
+  "NE.A",
+  "NEZ.A",
+  "NOP",
+  "NOR",
+  "NOR.T",
+  "NOT",
+  "OR",
+  "OR.AND.T",
+  "OR.ANDN.T",
+  "OR.EQ",
+  "OR.GE",
+  "OR.GE.U",
+  "OR.LT",
+  "OR.LT.U",
+  "OR.NE",
+  "OR.NOR.T",
+  "OR.OR.T",
+  "OR.T",
+  "ORN",
+  "ORN.T",
+  "PACK",
+  "PARITY",
+  "Q31TOF",
+  "QSEED.F",
+  "RESTORE",
+  "RET",
+  "RFE",
+  "RFM",
+  "RSLCX",
+  "RSTV",
+  "RSUB",
+  "RSUBS",
+  "RSUBS.U",
+  "SAT.B",
+  "SAT.BU",
+  "SAT.H",
+  "SAT.HU",
+  "SEL",
+  "SELN",
+  "SH",
+  "SH.AND.T",
+  "SH.ANDN.T",
+  "SH.EQ",
+  "SH.GE",
+  "SH.GE.U",
+  "SH.H",
+  "SH.LT",
+  "SH.LT.U",
+  "SH.NAND.T",
+  "SH.NE",
+  "SH.NOR.T",
+  "SH.OR.T",
+  "SH.ORN.T",
+  "SH.XNOR.T",
+  "SH.XOR.T",
+  "SHA",
+  "SHA.H",
+  "SHAS",
+  "ST.A",
+  "ST.B",
+  "ST.D",
+  "ST.DA",
+  "ST.H",
+  "ST.Q",
+  "ST.T",
+  "ST.W",
+  "STLCX",
+  "STUCX",
+  "SUB",
+  "SUB.A",
+  "SUB.B",
+  "SUB.F",
+  "SUB.H",
+  "SUBC",
+  "SUBS",
+  "SUBS.H",
+  "SUBS.HU",
+  "SUBS.U",
+  "SUBX",
+  "SVLCX",
+  "SWAP.W",
+  "SYSCALL",
+  "TRAPSV",
+  "TRAPV",
+  "UNPACK",
+  "UPDFL",
+  "UTOF",
+  "XNOR",
+  "XNOR.T",
+  "XOR",
+  "XOR.EQ",
+  "XOR.GE",
+  "XOR.GE.U",
+  "XOR.LT",
+  "XOR.LT.U",
+  "XOR.NE",
+  "XOR.T"
+ ],
+ "encodings": [
+  {
+   "mnemonic": "ABS",
+   "operands": "D[c], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-2",
+   "line": 2423
+  },
+  {
+   "mnemonic": "ABS.B",
+   "operands": "D[c], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "5CH"
+   ],
+   "page": "3-3",
+   "line": 2469
+  },
+  {
+   "mnemonic": "ABS.H",
+   "operands": "D[c], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "7CH"
+   ],
+   "page": "3-3",
+   "line": 2481
+  },
+  {
+   "mnemonic": "ABSDIF",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-5",
+   "line": 2560
+  },
+  {
+   "mnemonic": "ABSDIF",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-5",
+   "line": 2569
+  },
+  {
+   "mnemonic": "ABSDIF.B",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "4EH"
+   ],
+   "page": "3-6",
+   "line": 2617
+  },
+  {
+   "mnemonic": "ABSDIF.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "6EH"
+   ],
+   "page": "3-6",
+   "line": 2629
+  },
+  {
+   "mnemonic": "ABSDIFS",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-8",
+   "line": 2708
+  },
+  {
+   "mnemonic": "ABSDIFS",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-8",
+   "line": 2717
+  },
+  {
+   "mnemonic": "ABSDIFS.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "6FH"
+   ],
+   "page": "3-9",
+   "line": 2762
+  },
+  {
+   "mnemonic": "ABSS",
+   "operands": "D[c], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-10",
+   "line": 2812
+  },
+  {
+   "mnemonic": "ABSS.H",
+   "operands": "D[c], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "7DH"
+   ],
+   "page": "3-11",
+   "line": 2857
+  },
+  {
+   "mnemonic": "ADD",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-12",
+   "line": 2910
+  },
+  {
+   "mnemonic": "ADD",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-12",
+   "line": 2919
+  },
+  {
+   "mnemonic": "ADD",
+   "operands": "D[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 194,
+   "fixed": [],
+   "page": "3-12",
+   "line": 2928
+  },
+  {
+   "mnemonic": "ADD",
+   "operands": "D[a], D[15], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 146,
+   "fixed": [],
+   "page": "3-12",
+   "line": 2939
+  },
+  {
+   "mnemonic": "ADD",
+   "operands": "D[15], D[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 154,
+   "fixed": [],
+   "page": "3-12",
+   "line": 2950
+  },
+  {
+   "mnemonic": "ADD",
+   "operands": "D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 66,
+   "fixed": [],
+   "page": "3-13",
+   "line": 2969
+  },
+  {
+   "mnemonic": "ADD",
+   "operands": "D[a], D[15], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 18,
+   "fixed": [],
+   "page": "3-13",
+   "line": 2980
+  },
+  {
+   "mnemonic": "ADD",
+   "operands": "D[15], D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 26,
+   "fixed": [],
+   "page": "3-13",
+   "line": 2991
+  },
+  {
+   "mnemonic": "ADD.A",
+   "operands": "A[c], A[a], A[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-15",
+   "line": 3055
+  },
+  {
+   "mnemonic": "ADD.A",
+   "operands": "A[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 176,
+   "fixed": [],
+   "page": "3-15",
+   "line": 3063
+  },
+  {
+   "mnemonic": "ADD.A",
+   "operands": "A[a], A[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 48,
+   "fixed": [],
+   "page": "3-15",
+   "line": 3073
+  },
+  {
+   "mnemonic": "ADD.B",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "40H"
+   ],
+   "page": "3-16",
+   "line": 3120
+  },
+  {
+   "mnemonic": "ADD.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "60H"
+   ],
+   "page": "3-16",
+   "line": 3132
+  },
+  {
+   "mnemonic": "ADDC",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-18",
+   "line": 3210
+  },
+  {
+   "mnemonic": "ADDC",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-18",
+   "line": 3220
+  },
+  {
+   "mnemonic": "ADDI",
+   "operands": "D[c], D[a], const16",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 27,
+   "fixed": [],
+   "page": "3-19",
+   "line": 3265
+  },
+  {
+   "mnemonic": "ADDIH",
+   "operands": "D[c], D[a], const16",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 155,
+   "fixed": [],
+   "page": "3-20",
+   "line": 3308
+  },
+  {
+   "mnemonic": "ADDIH.A",
+   "operands": "A[c], A[a], const16",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 17,
+   "fixed": [],
+   "page": "3-21",
+   "line": 3350
+  },
+  {
+   "mnemonic": "ADDS",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-22",
+   "line": 3394
+  },
+  {
+   "mnemonic": "ADDS",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-22",
+   "line": 3403
+  },
+  {
+   "mnemonic": "ADDS",
+   "operands": "D[a], D[b],",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 34,
+   "fixed": [],
+   "page": "3-22",
+   "line": 3412
+  },
+  {
+   "mnemonic": "ADDS.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "62H"
+   ],
+   "page": "3-24",
+   "line": 3471
+  },
+  {
+   "mnemonic": "ADDS.HU",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "63H"
+   ],
+   "page": "3-24",
+   "line": 3481
+  },
+  {
+   "mnemonic": "ADDS.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-26",
+   "line": 3546
+  },
+  {
+   "mnemonic": "ADDS.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-26",
+   "line": 3555
+  },
+  {
+   "mnemonic": "ADDSC.A",
+   "operands": "A[c], A[b], D[a], n",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "60H"
+   ],
+   "page": "3-27",
+   "line": 3607
+  },
+  {
+   "mnemonic": "ADDSC.A",
+   "operands": "A[a], A[b], D[15], n",
+   "format": "SRRS",
+   "mode": null,
+   "size": 2,
+   "op1": 16,
+   "fixed": [],
+   "page": "3-27",
+   "line": 3615
+  },
+  {
+   "mnemonic": "ADDSC.AT",
+   "operands": "A[c], A[b], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "62H"
+   ],
+   "page": "3-27",
+   "line": 3625
+  },
+  {
+   "mnemonic": "ADDX",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-29",
+   "line": 3679
+  },
+  {
+   "mnemonic": "ADDX",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-29",
+   "line": 3689
+  },
+  {
+   "mnemonic": "AND",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-30",
+   "line": 3739
+  },
+  {
+   "mnemonic": "AND",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-30",
+   "line": 3747
+  },
+  {
+   "mnemonic": "AND",
+   "operands": "D[15], const8",
+   "format": "SC",
+   "mode": null,
+   "size": 2,
+   "op1": 22,
+   "fixed": [],
+   "page": "3-30",
+   "line": 3755
+  },
+  {
+   "mnemonic": "AND",
+   "operands": "D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 38,
+   "fixed": [],
+   "page": "3-30",
+   "line": 3765
+  },
+  {
+   "mnemonic": "AND.AND.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 71,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-32",
+   "line": 3828
+  },
+  {
+   "mnemonic": "AND.ANDN.T",
+   "operands": "D[c], D[a,] pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 71,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-32",
+   "line": 3836
+  },
+  {
+   "mnemonic": "AND.NOR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 71,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-32",
+   "line": 3844
+  },
+  {
+   "mnemonic": "AND.OR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 71,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-32",
+   "line": 3852
+  },
+  {
+   "mnemonic": "AND.EQ",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "20H"
+   ],
+   "page": "3-34",
+   "line": 3907
+  },
+  {
+   "mnemonic": "AND.EQ",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "20H"
+   ],
+   "page": "3-34",
+   "line": 3915
+  },
+  {
+   "mnemonic": "AND.GE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "24H"
+   ],
+   "page": "3-35",
+   "line": 3961
+  },
+  {
+   "mnemonic": "AND.GE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "24H"
+   ],
+   "page": "3-35",
+   "line": 3969
+  },
+  {
+   "mnemonic": "AND.GE.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "25H"
+   ],
+   "page": "3-35",
+   "line": 3977
+  },
+  {
+   "mnemonic": "AND.GE.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "25H"
+   ],
+   "page": "3-35",
+   "line": 3985
+  },
+  {
+   "mnemonic": "AND.LT",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "22H"
+   ],
+   "page": "3-37",
+   "line": 4041
+  },
+  {
+   "mnemonic": "AND.LT",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "22H"
+   ],
+   "page": "3-37",
+   "line": 4049
+  },
+  {
+   "mnemonic": "AND.LT.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "23H"
+   ],
+   "page": "3-37",
+   "line": 4057
+  },
+  {
+   "mnemonic": "AND.LT.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "23H"
+   ],
+   "page": "3-37",
+   "line": 4065
+  },
+  {
+   "mnemonic": "AND.NE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "21H"
+   ],
+   "page": "3-39",
+   "line": 4117
+  },
+  {
+   "mnemonic": "AND.NE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "21H"
+   ],
+   "page": "3-39",
+   "line": 4125
+  },
+  {
+   "mnemonic": "AND.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 135,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-40",
+   "line": 4166
+  },
+  {
+   "mnemonic": "ANDN",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-41",
+   "line": 4208
+  },
+  {
+   "mnemonic": "ANDN",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-41",
+   "line": 4216
+  },
+  {
+   "mnemonic": "ANDN.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 135,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-42",
+   "line": 4257
+  },
+  {
+   "mnemonic": "BISR",
+   "operands": "const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 173,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-43",
+   "line": 4305
+  },
+  {
+   "mnemonic": "BISR",
+   "operands": "const8",
+   "format": "SC",
+   "mode": null,
+   "size": 2,
+   "op1": 224,
+   "fixed": [],
+   "page": "3-43",
+   "line": 4325
+  },
+  {
+   "mnemonic": "BMERGE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "01H",
+    "0H"
+   ],
+   "page": "3-45",
+   "line": 4392
+  },
+  {
+   "mnemonic": "BSPLIT",
+   "operands": "E[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "09H",
+    "0H"
+   ],
+   "page": "3-46",
+   "line": 4435
+  },
+  {
+   "mnemonic": "CACHEA.I",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "2EH"
+   ],
+   "page": "3-47",
+   "line": 4486
+  },
+  {
+   "mnemonic": "CACHEA.I",
+   "operands": "P[b]",
+   "format": "BO",
+   "mode": "Bit Reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-47",
+   "line": 4495
+  },
+  {
+   "mnemonic": "CACHEA.I",
+   "operands": "P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "1EH"
+   ],
+   "page": "3-47",
+   "line": 4508
+  },
+  {
+   "mnemonic": "CACHEA.I",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-47",
+   "line": 4522
+  },
+  {
+   "mnemonic": "CACHEA.I",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "1EH"
+   ],
+   "page": "3-48",
+   "line": 4541
+  },
+  {
+   "mnemonic": "CACHEA.W",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "2CH"
+   ],
+   "page": "3-49",
+   "line": 4593
+  },
+  {
+   "mnemonic": "CACHEA.W",
+   "operands": "P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-49",
+   "line": 4602
+  },
+  {
+   "mnemonic": "CACHEA.W",
+   "operands": "P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-49",
+   "line": 4615
+  },
+  {
+   "mnemonic": "CACHEA.W",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-49",
+   "line": 4629
+  },
+  {
+   "mnemonic": "CACHEA.W",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-50",
+   "line": 4649
+  },
+  {
+   "mnemonic": "CACHEA.WI",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "2DH"
+   ],
+   "page": "3-51",
+   "line": 4700
+  },
+  {
+   "mnemonic": "CACHEA.WI",
+   "operands": "P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-51",
+   "line": 4709
+  },
+  {
+   "mnemonic": "CACHEA.WI",
+   "operands": "P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-51",
+   "line": 4722
+  },
+  {
+   "mnemonic": "CACHEA.WI",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-51",
+   "line": 4736
+  },
+  {
+   "mnemonic": "CACHEA.WI",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-52",
+   "line": 4756
+  },
+  {
+   "mnemonic": "CACHEI.W",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "2BH"
+   ],
+   "page": "3-53",
+   "line": 4806
+  },
+  {
+   "mnemonic": "CACHEI.W",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "0BH"
+   ],
+   "page": "3-53",
+   "line": 4815
+  },
+  {
+   "mnemonic": "CACHEI.W",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-53",
+   "line": 4825
+  },
+  {
+   "mnemonic": "CACHEI.I",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "2AH"
+   ],
+   "page": "3-55",
+   "line": 4879
+  },
+  {
+   "mnemonic": "CACHEI.I",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "0AH"
+   ],
+   "page": "3-55",
+   "line": 4888
+  },
+  {
+   "mnemonic": "CACHEI.I",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "1AH"
+   ],
+   "page": "3-55",
+   "line": 4898
+  },
+  {
+   "mnemonic": "CACHEI.WI",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "2FH"
+   ],
+   "page": "3-57",
+   "line": 4955
+  },
+  {
+   "mnemonic": "CACHEI.WI",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-57",
+   "line": 4964
+  },
+  {
+   "mnemonic": "CACHEI.WI",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "1FH"
+   ],
+   "page": "3-57",
+   "line": 4974
+  },
+  {
+   "mnemonic": "CADD",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 171,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-59",
+   "line": 5031
+  },
+  {
+   "mnemonic": "CADD",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 43,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-59",
+   "line": 5041
+  },
+  {
+   "mnemonic": "CADD",
+   "operands": "D[a], D[15], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 138,
+   "fixed": [],
+   "page": "3-59",
+   "line": 5051
+  },
+  {
+   "mnemonic": "CADDN",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 171,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-61",
+   "line": 5113
+  },
+  {
+   "mnemonic": "CADDN",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 43,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-61",
+   "line": 5123
+  },
+  {
+   "mnemonic": "CADDN",
+   "operands": "D[a], D[15], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 202,
+   "fixed": [],
+   "page": "3-61",
+   "line": 5133
+  },
+  {
+   "mnemonic": "CALL",
+   "operands": "disp24",
+   "format": "B",
+   "mode": null,
+   "size": 4,
+   "op1": 109,
+   "fixed": [],
+   "page": "3-63",
+   "line": 5201
+  },
+  {
+   "mnemonic": "CALL",
+   "operands": "disp8",
+   "format": "SB",
+   "mode": null,
+   "size": 2,
+   "op1": 92,
+   "fixed": [],
+   "page": "3-63",
+   "line": 5225
+  },
+  {
+   "mnemonic": "CALLA",
+   "operands": "disp24",
+   "format": "B",
+   "mode": null,
+   "size": 4,
+   "op1": 237,
+   "fixed": [],
+   "page": "3-65",
+   "line": 5295
+  },
+  {
+   "mnemonic": "CALLI",
+   "operands": "A[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 45,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-66",
+   "line": 5351
+  },
+  {
+   "mnemonic": "CLO",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-68",
+   "line": 5416
+  },
+  {
+   "mnemonic": "CLO.H",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "7DH"
+   ],
+   "page": "3-69",
+   "line": 5457
+  },
+  {
+   "mnemonic": "CLS",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-70",
+   "line": 5500
+  },
+  {
+   "mnemonic": "CLS.H",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "7EH"
+   ],
+   "page": "3-71",
+   "line": 5544
+  },
+  {
+   "mnemonic": "CLZ",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-72",
+   "line": 5585
+  },
+  {
+   "mnemonic": "CLZ.H",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "7CH"
+   ],
+   "page": "3-73",
+   "line": 5626
+  },
+  {
+   "mnemonic": "CMOV",
+   "operands": "D[a], D[15], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 170,
+   "fixed": [],
+   "page": "3-74",
+   "line": 5670
+  },
+  {
+   "mnemonic": "CMOV",
+   "operands": "D[a], D[15], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 42,
+   "fixed": [],
+   "page": "3-74",
+   "line": 5680
+  },
+  {
+   "mnemonic": "CMOVN",
+   "operands": "D[a], D[15], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 234,
+   "fixed": [],
+   "page": "3-75",
+   "line": 5726
+  },
+  {
+   "mnemonic": "CMOVN",
+   "operands": "D[a], D[15], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 106,
+   "fixed": [],
+   "page": "3-75",
+   "line": 5736
+  },
+  {
+   "mnemonic": "CSUB",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 43,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-76",
+   "line": 5780
+  },
+  {
+   "mnemonic": "CSUBN",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 43,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-77",
+   "line": 5824
+  },
+  {
+   "mnemonic": "DEBUG",
+   "operands": "",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 0,
+   "fixed": [
+    "0AH"
+   ],
+   "page": "3-78",
+   "line": 5869
+  },
+  {
+   "mnemonic": "DEBUG",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-78",
+   "line": 5879
+  },
+  {
+   "mnemonic": "DEXTR",
+   "operands": "D[c], D[a], D[b], pos",
+   "format": "RRPW",
+   "mode": null,
+   "size": 4,
+   "op1": 119,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-79",
+   "line": 5924
+  },
+  {
+   "mnemonic": "DEXTR",
+   "operands": "D[c], D[a], D[b], D[d]",
+   "format": "RRRR",
+   "mode": null,
+   "size": 4,
+   "op1": 23,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-79",
+   "line": 5932
+  },
+  {
+   "mnemonic": "DISABLE",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-80",
+   "line": 5975
+  },
+  {
+   "mnemonic": "DISABLE",
+   "operands": "D[a]",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-80",
+   "line": 5983
+  },
+  {
+   "mnemonic": "DSYNC",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "12H"
+   ],
+   "page": "3-81",
+   "line": 6028
+  },
+  {
+   "mnemonic": "DVADJ",
+   "operands": "E[c], E[d], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "0DH",
+    "0H"
+   ],
+   "page": "3-82",
+   "line": 6075
+  },
+  {
+   "mnemonic": "DIV",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "20H",
+    "1H"
+   ],
+   "page": "3-84",
+   "line": 6156
+  },
+  {
+   "mnemonic": "DIV.U",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "21H",
+    "1H"
+   ],
+   "page": "3-84",
+   "line": 6182
+  },
+  {
+   "mnemonic": "DVINIT.B",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "5AH",
+    "0H"
+   ],
+   "page": "3-86",
+   "line": 6281
+  },
+  {
+   "mnemonic": "DVINIT.BU",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "4AH",
+    "0H"
+   ],
+   "page": "3-87",
+   "line": 6300
+  },
+  {
+   "mnemonic": "DVINIT.H",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "3AH",
+    "0H"
+   ],
+   "page": "3-87",
+   "line": 6309
+  },
+  {
+   "mnemonic": "DVINIT.HU",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "2AH",
+    "0H"
+   ],
+   "page": "3-87",
+   "line": 6319
+  },
+  {
+   "mnemonic": "DVINIT",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "1AH",
+    "0H"
+   ],
+   "page": "3-87",
+   "line": 6328
+  },
+  {
+   "mnemonic": "DVINIT.U",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "0AH",
+    "0H"
+   ],
+   "page": "3-87",
+   "line": 6336
+  },
+  {
+   "mnemonic": "DVSTEP",
+   "operands": "E[c], E[d], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "0FH",
+    "0H"
+   ],
+   "page": "3-89",
+   "line": 6419
+  },
+  {
+   "mnemonic": "DVSTEP.U",
+   "operands": "E[c], E[d], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "0EH",
+    "0H"
+   ],
+   "page": "3-89",
+   "line": 6440
+  },
+  {
+   "mnemonic": "ENABLE",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-91",
+   "line": 6500
+  },
+  {
+   "mnemonic": "EQ",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "10H"
+   ],
+   "page": "3-92",
+   "line": 6545
+  },
+  {
+   "mnemonic": "EQ",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "10H"
+   ],
+   "page": "3-92",
+   "line": 6554
+  },
+  {
+   "mnemonic": "EQ",
+   "operands": "D[15], D[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 186,
+   "fixed": [],
+   "page": "3-92",
+   "line": 6563
+  },
+  {
+   "mnemonic": "EQ",
+   "operands": "D[15], D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 58,
+   "fixed": [],
+   "page": "3-92",
+   "line": 6574
+  },
+  {
+   "mnemonic": "EQ.A",
+   "operands": "D[c], A[a], A[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "40H"
+   ],
+   "page": "3-94",
+   "line": 6629
+  },
+  {
+   "mnemonic": "EQ.B",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "50H"
+   ],
+   "page": "3-95",
+   "line": 6675
+  },
+  {
+   "mnemonic": "EQ.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "70H"
+   ],
+   "page": "3-95",
+   "line": 6686
+  },
+  {
+   "mnemonic": "EQ.W",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "90H"
+   ],
+   "page": "3-95",
+   "line": 6695
+  },
+  {
+   "mnemonic": "EQANY.B",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "56H"
+   ],
+   "page": "3-97",
+   "line": 6751
+  },
+  {
+   "mnemonic": "EQANY.B",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "56H"
+   ],
+   "page": "3-97",
+   "line": 6764
+  },
+  {
+   "mnemonic": "EQANY.H",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "76H"
+   ],
+   "page": "3-97",
+   "line": 6777
+  },
+  {
+   "mnemonic": "EQANY.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "76H"
+   ],
+   "page": "3-97",
+   "line": 6788
+  },
+  {
+   "mnemonic": "EQZ.A",
+   "operands": "D[c], A[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "48H"
+   ],
+   "page": "3-99",
+   "line": 6844
+  },
+  {
+   "mnemonic": "EXTR",
+   "operands": "D[c], D[a], pos, width",
+   "format": "RRPW",
+   "mode": null,
+   "size": 4,
+   "op1": 55,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-100",
+   "line": 6888
+  },
+  {
+   "mnemonic": "EXTR",
+   "operands": "D[c], D[a], E[d]",
+   "format": "RRRR",
+   "mode": null,
+   "size": 4,
+   "op1": 23,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-100",
+   "line": 6897
+  },
+  {
+   "mnemonic": "EXTR",
+   "operands": "D[c], D[a], D[d], width",
+   "format": "RRRW",
+   "mode": null,
+   "size": 4,
+   "op1": 87,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-100",
+   "line": 6907
+  },
+  {
+   "mnemonic": "EXTR.U",
+   "operands": "D[c], D[a], pos, width",
+   "format": "RRPW",
+   "mode": null,
+   "size": 4,
+   "op1": 55,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-100",
+   "line": 6916
+  },
+  {
+   "mnemonic": "EXTR.U",
+   "operands": "D[c], D[a], E[d]",
+   "format": "RRRR",
+   "mode": null,
+   "size": 4,
+   "op1": 23,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-100",
+   "line": 6925
+  },
+  {
+   "mnemonic": "EXTR.U",
+   "operands": "D[c], D[a], D[d], width",
+   "format": "RRRW",
+   "mode": null,
+   "size": 4,
+   "op1": 87,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-101",
+   "line": 6944
+  },
+  {
+   "mnemonic": "FCALL",
+   "operands": "disp24",
+   "format": "B",
+   "mode": null,
+   "size": 4,
+   "op1": 97,
+   "fixed": [],
+   "page": "3-102",
+   "line": 6992
+  },
+  {
+   "mnemonic": "FCALLA",
+   "operands": "disp24",
+   "format": "B",
+   "mode": null,
+   "size": 4,
+   "op1": 225,
+   "fixed": [],
+   "page": "3-103",
+   "line": 7037
+  },
+  {
+   "mnemonic": "FCALLI",
+   "operands": "A[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 45,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-104",
+   "line": 7082
+  },
+  {
+   "mnemonic": "FRET",
+   "operands": "",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 0,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-105",
+   "line": 7130
+  },
+  {
+   "mnemonic": "FRET",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-105",
+   "line": 7143
+  },
+  {
+   "mnemonic": "GE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "14H"
+   ],
+   "page": "3-106",
+   "line": 7191
+  },
+  {
+   "mnemonic": "GE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "14H"
+   ],
+   "page": "3-106",
+   "line": 7200
+  },
+  {
+   "mnemonic": "GE.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "15H"
+   ],
+   "page": "3-106",
+   "line": 7209
+  },
+  {
+   "mnemonic": "GE.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "15H"
+   ],
+   "page": "3-106",
+   "line": 7218
+  },
+  {
+   "mnemonic": "GE.A",
+   "operands": "D[c], A[a], A[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "43H"
+   ],
+   "page": "3-108",
+   "line": 7272
+  },
+  {
+   "mnemonic": "IMASK",
+   "operands": "E[c], const4, pos, width",
+   "format": "RCPW",
+   "mode": null,
+   "size": 4,
+   "op1": 183,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-109",
+   "line": 7318
+  },
+  {
+   "mnemonic": "IMASK",
+   "operands": "E[c], const4, D[d], width",
+   "format": "RCRW",
+   "mode": null,
+   "size": 4,
+   "op1": 215,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-109",
+   "line": 7328
+  },
+  {
+   "mnemonic": "IMASK",
+   "operands": "E[c], D[b], pos, width",
+   "format": "RRPW",
+   "mode": null,
+   "size": 4,
+   "op1": 55,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-109",
+   "line": 7338
+  },
+  {
+   "mnemonic": "IMASK",
+   "operands": "E[c], D[b], D[d], width",
+   "format": "RRRW",
+   "mode": null,
+   "size": 4,
+   "op1": 87,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-109",
+   "line": 7348
+  },
+  {
+   "mnemonic": "INS.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 103,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-111",
+   "line": 7406
+  },
+  {
+   "mnemonic": "INSN.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 103,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-111",
+   "line": 7414
+  },
+  {
+   "mnemonic": "INSERT",
+   "operands": "D[c], D[a], const4, pos, width",
+   "format": "RCPW",
+   "mode": null,
+   "size": 4,
+   "op1": 183,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-112",
+   "line": 7461
+  },
+  {
+   "mnemonic": "INSERT",
+   "operands": "D[c], D[a], const4, E[d]",
+   "format": "RCRR",
+   "mode": null,
+   "size": 4,
+   "op1": 151,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-112",
+   "line": 7471
+  },
+  {
+   "mnemonic": "INSERT",
+   "operands": "D[c], D[a], const4, D[d], width",
+   "format": "RCRW",
+   "mode": null,
+   "size": 4,
+   "op1": 215,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-112",
+   "line": 7482
+  },
+  {
+   "mnemonic": "INSERT",
+   "operands": "D[c], D[a], D[b], pos, width",
+   "format": "RRPW",
+   "mode": null,
+   "size": 4,
+   "op1": 55,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-112",
+   "line": 7492
+  },
+  {
+   "mnemonic": "INSERT",
+   "operands": "D[c], D[a], D[b], E[d]",
+   "format": "RRRR",
+   "mode": null,
+   "size": 4,
+   "op1": 23,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-113",
+   "line": 7510
+  },
+  {
+   "mnemonic": "INSERT",
+   "operands": "D[c], D[a], D[b], D[d], width",
+   "format": "RRRW",
+   "mode": null,
+   "size": 4,
+   "op1": 87,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-113",
+   "line": 7521
+  },
+  {
+   "mnemonic": "ISYNC",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "13H"
+   ],
+   "page": "3-114",
+   "line": 7571
+  },
+  {
+   "mnemonic": "IXMAX",
+   "operands": "E[c], E[d], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "0AH",
+    "0H"
+   ],
+   "page": "3-115",
+   "line": 7625
+  },
+  {
+   "mnemonic": "IXMAX.U",
+   "operands": "E[c], E[d], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "0BH",
+    "0H"
+   ],
+   "page": "3-115",
+   "line": 7644
+  },
+  {
+   "mnemonic": "IXMIN",
+   "operands": "E[c], E[d], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "08H",
+    "0H"
+   ],
+   "page": "3-117",
+   "line": 7722
+  },
+  {
+   "mnemonic": "IXMIN.U",
+   "operands": "E[c], E[d], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "09H",
+    "0H"
+   ],
+   "page": "3-117",
+   "line": 7741
+  },
+  {
+   "mnemonic": "J",
+   "operands": "disp24",
+   "format": "B",
+   "mode": null,
+   "size": 4,
+   "op1": 29,
+   "fixed": [],
+   "page": "3-119",
+   "line": 7808
+  },
+  {
+   "mnemonic": "J",
+   "operands": "disp8",
+   "format": "SB",
+   "mode": null,
+   "size": 2,
+   "op1": 60,
+   "fixed": [],
+   "page": "3-119",
+   "line": 7816
+  },
+  {
+   "mnemonic": "JA",
+   "operands": "disp24",
+   "format": "B",
+   "mode": null,
+   "size": 4,
+   "op1": 157,
+   "fixed": [],
+   "page": "3-120",
+   "line": 7860
+  },
+  {
+   "mnemonic": "JEQ",
+   "operands": "D[a], const4, disp15",
+   "format": "BRC",
+   "mode": null,
+   "size": 4,
+   "op1": 223,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-121",
+   "line": 7905
+  },
+  {
+   "mnemonic": "JEQ",
+   "operands": "D[a], D[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 95,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-121",
+   "line": 7913
+  },
+  {
+   "mnemonic": "JEQ",
+   "operands": "D[15], const4, disp4",
+   "format": "SBC",
+   "mode": null,
+   "size": 2,
+   "op1": 30,
+   "fixed": [],
+   "page": "3-121",
+   "line": 7921
+  },
+  {
+   "mnemonic": "JEQ",
+   "operands": "D[15], const4, disp4",
+   "format": "SBC",
+   "mode": null,
+   "size": 2,
+   "op1": 158,
+   "fixed": [],
+   "page": "3-121",
+   "line": 7931
+  },
+  {
+   "mnemonic": "JEQ",
+   "operands": "D[15], D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 62,
+   "fixed": [],
+   "page": "3-121",
+   "line": 7941
+  },
+  {
+   "mnemonic": "JEQ",
+   "operands": "D[15], D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 190,
+   "fixed": [],
+   "page": "3-121",
+   "line": 7951
+  },
+  {
+   "mnemonic": "JEQ.A",
+   "operands": "A[a], A[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 125,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-123",
+   "line": 8007
+  },
+  {
+   "mnemonic": "JGE",
+   "operands": "D[a], const4, disp15",
+   "format": "BRC",
+   "mode": null,
+   "size": 4,
+   "op1": 255,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-124",
+   "line": 8052
+  },
+  {
+   "mnemonic": "JGE",
+   "operands": "D[a], D[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 127,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-124",
+   "line": 8060
+  },
+  {
+   "mnemonic": "JGE.U",
+   "operands": "D[a], const4, disp15",
+   "format": "BRC",
+   "mode": null,
+   "size": 4,
+   "op1": 255,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-124",
+   "line": 8068
+  },
+  {
+   "mnemonic": "JGE.U",
+   "operands": "D[a], D[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 127,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-124",
+   "line": 8078
+  },
+  {
+   "mnemonic": "JGEZ",
+   "operands": "D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 206,
+   "fixed": [],
+   "page": "3-126",
+   "line": 8130
+  },
+  {
+   "mnemonic": "JGTZ",
+   "operands": "D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 78,
+   "fixed": [],
+   "page": "3-127",
+   "line": 8174
+  },
+  {
+   "mnemonic": "JI",
+   "operands": "A[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 45,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-128",
+   "line": 8220
+  },
+  {
+   "mnemonic": "JI",
+   "operands": "A[a]",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 220,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-128",
+   "line": 8228
+  },
+  {
+   "mnemonic": "JL",
+   "operands": "disp24",
+   "format": "B",
+   "mode": null,
+   "size": 4,
+   "op1": 93,
+   "fixed": [],
+   "page": "3-129",
+   "line": 8272
+  },
+  {
+   "mnemonic": "JLA",
+   "operands": "disp24",
+   "format": "B",
+   "mode": null,
+   "size": 4,
+   "op1": 221,
+   "fixed": [],
+   "page": "3-130",
+   "line": 8313
+  },
+  {
+   "mnemonic": "JLEZ",
+   "operands": "D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 142,
+   "fixed": [],
+   "page": "3-131",
+   "line": 8355
+  },
+  {
+   "mnemonic": "JLI",
+   "operands": "A[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 45,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-132",
+   "line": 8398
+  },
+  {
+   "mnemonic": "JLT",
+   "operands": "D[a], const4, disp15",
+   "format": "BRC",
+   "mode": null,
+   "size": 4,
+   "op1": 191,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-133",
+   "line": 8443
+  },
+  {
+   "mnemonic": "JLT",
+   "operands": "D[a], D[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 63,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-133",
+   "line": 8451
+  },
+  {
+   "mnemonic": "JLT.U",
+   "operands": "D[a], const4, disp15",
+   "format": "BRC",
+   "mode": null,
+   "size": 4,
+   "op1": 191,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-133",
+   "line": 8459
+  },
+  {
+   "mnemonic": "JLT.U",
+   "operands": "D[a], D[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 63,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-133",
+   "line": 8469
+  },
+  {
+   "mnemonic": "JLTZ",
+   "operands": "D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 14,
+   "fixed": [],
+   "page": "3-135",
+   "line": 8522
+  },
+  {
+   "mnemonic": "JNE",
+   "operands": "D[a], const4, disp15",
+   "format": "BRC",
+   "mode": null,
+   "size": 4,
+   "op1": 223,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-136",
+   "line": 8570
+  },
+  {
+   "mnemonic": "JNE",
+   "operands": "D[a], D[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 95,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-136",
+   "line": 8578
+  },
+  {
+   "mnemonic": "JNE",
+   "operands": "D[15], const4, disp4",
+   "format": "SBC",
+   "mode": null,
+   "size": 2,
+   "op1": 94,
+   "fixed": [],
+   "page": "3-136",
+   "line": 8586
+  },
+  {
+   "mnemonic": "JNE",
+   "operands": "D[15], const4, disp4",
+   "format": "SBC",
+   "mode": null,
+   "size": 2,
+   "op1": 222,
+   "fixed": [],
+   "page": "3-136",
+   "line": 8596
+  },
+  {
+   "mnemonic": "JNE",
+   "operands": "D[15], D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 126,
+   "fixed": [],
+   "page": "3-136",
+   "line": 8606
+  },
+  {
+   "mnemonic": "JNE",
+   "operands": "D[15], D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 254,
+   "fixed": [],
+   "page": "3-136",
+   "line": 8616
+  },
+  {
+   "mnemonic": "JNE.A",
+   "operands": "A[a], A[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 125,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-138",
+   "line": 8672
+  },
+  {
+   "mnemonic": "JNED",
+   "operands": "D[a], const4, disp15",
+   "format": "BRC",
+   "mode": null,
+   "size": 4,
+   "op1": 159,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-139",
+   "line": 8713
+  },
+  {
+   "mnemonic": "JNED",
+   "operands": "D[a], D[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 31,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-139",
+   "line": 8723
+  },
+  {
+   "mnemonic": "JNEI",
+   "operands": "D[a], const4, disp15",
+   "format": "BRC",
+   "mode": null,
+   "size": 4,
+   "op1": 159,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-140",
+   "line": 8767
+  },
+  {
+   "mnemonic": "JNEI",
+   "operands": "D[a], D[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 31,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-140",
+   "line": 8777
+  },
+  {
+   "mnemonic": "JNZ",
+   "operands": "D[15], disp8",
+   "format": "SB",
+   "mode": null,
+   "size": 2,
+   "op1": 238,
+   "fixed": [],
+   "page": "3-141",
+   "line": 8822
+  },
+  {
+   "mnemonic": "JNZ",
+   "operands": "D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 246,
+   "fixed": [],
+   "page": "3-141",
+   "line": 8832
+  },
+  {
+   "mnemonic": "JNZ.A",
+   "operands": "A[a], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 189,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-142",
+   "line": 8879
+  },
+  {
+   "mnemonic": "JNZ.A",
+   "operands": "A[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 124,
+   "fixed": [],
+   "page": "3-142",
+   "line": 8887
+  },
+  {
+   "mnemonic": "JNZ.T",
+   "operands": "D[a], n, disp15",
+   "format": "BRN",
+   "mode": null,
+   "size": 4,
+   "op1": 111,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-143",
+   "line": 8934
+  },
+  {
+   "mnemonic": "JNZ.T",
+   "operands": "D[15], n, disp4",
+   "format": "SBRN",
+   "mode": null,
+   "size": 2,
+   "op1": 174,
+   "fixed": [],
+   "page": "3-143",
+   "line": 8942
+  },
+  {
+   "mnemonic": "JZ",
+   "operands": "D[15], disp8",
+   "format": "SB",
+   "mode": null,
+   "size": 2,
+   "op1": 110,
+   "fixed": [],
+   "page": "3-144",
+   "line": 8988
+  },
+  {
+   "mnemonic": "JZ",
+   "operands": "D[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 118,
+   "fixed": [],
+   "page": "3-144",
+   "line": 8998
+  },
+  {
+   "mnemonic": "JZ.A",
+   "operands": "A[a], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 189,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-145",
+   "line": 9045
+  },
+  {
+   "mnemonic": "JZ.A",
+   "operands": "A[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 188,
+   "fixed": [],
+   "page": "3-145",
+   "line": 9053
+  },
+  {
+   "mnemonic": "JZ.T",
+   "operands": "D[a], n, disp15",
+   "format": "BRN",
+   "mode": null,
+   "size": 4,
+   "op1": 111,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-146",
+   "line": 9100
+  },
+  {
+   "mnemonic": "JZ.T",
+   "operands": "D[15], n, disp4",
+   "format": "SBRN",
+   "mode": null,
+   "size": 2,
+   "op1": 46,
+   "fixed": [],
+   "page": "3-146",
+   "line": 9108
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 133,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-147",
+   "line": 9156
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "26H"
+   ],
+   "page": "3-147",
+   "line": 9165
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[a], P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-147",
+   "line": 9174
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[a], P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "16H"
+   ],
+   "page": "3-147",
+   "line": 9187
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[a], A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-148",
+   "line": 9209
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[a], A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "16H"
+   ],
+   "page": "3-148",
+   "line": 9219
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[a], A[b], off16",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 153,
+   "fixed": [],
+   "page": "3-148",
+   "line": 9229
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[15], A[10], const8",
+   "format": "SC",
+   "mode": null,
+   "size": 2,
+   "op1": 216,
+   "fixed": [],
+   "page": "3-148",
+   "line": 9238
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[c], A[b]",
+   "format": "SLR",
+   "mode": null,
+   "size": 2,
+   "op1": 212,
+   "fixed": [],
+   "page": "3-148",
+   "line": 9248
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[c], A[b]",
+   "format": "SLR",
+   "mode": "Post-increment Addressing Mode",
+   "size": 2,
+   "op1": 196,
+   "fixed": [],
+   "page": "3-148",
+   "line": 9258
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[c], A[15], off4",
+   "format": "SLRO",
+   "mode": null,
+   "size": 2,
+   "op1": 200,
+   "fixed": [],
+   "page": "3-149",
+   "line": 9277
+  },
+  {
+   "mnemonic": "LD.A",
+   "operands": "A[15], A[b], off4",
+   "format": "SRO",
+   "mode": null,
+   "size": 2,
+   "op1": 204,
+   "fixed": [],
+   "page": "3-149",
+   "line": 9287
+  },
+  {
+   "mnemonic": "LD.B",
+   "operands": "D[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 5,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-150",
+   "line": 9335
+  },
+  {
+   "mnemonic": "LD.B",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "20H"
+   ],
+   "page": "3-150",
+   "line": 9344
+  },
+  {
+   "mnemonic": "LD.B",
+   "operands": "D[a], P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-150",
+   "line": 9353
+  },
+  {
+   "mnemonic": "LD.B",
+   "operands": "D[a], P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "10H"
+   ],
+   "page": "3-150",
+   "line": 9366
+  },
+  {
+   "mnemonic": "LD.B",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-151",
+   "line": 9388
+  },
+  {
+   "mnemonic": "LD.B",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "10H"
+   ],
+   "page": "3-151",
+   "line": 9398
+  },
+  {
+   "mnemonic": "LD.B",
+   "operands": "D[a], A[b], off16",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 121,
+   "fixed": [],
+   "page": "3-151",
+   "line": 9408
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 5,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-151",
+   "line": 9417
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "21H"
+   ],
+   "page": "3-151",
+   "line": 9426
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[a], P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-151",
+   "line": 9435
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[a], P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "11H"
+   ],
+   "page": "3-152",
+   "line": 9458
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-152",
+   "line": 9472
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "11H"
+   ],
+   "page": "3-152",
+   "line": 9482
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[a], A[b], off16",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 57,
+   "fixed": [],
+   "page": "3-152",
+   "line": 9492
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[c], A[b]",
+   "format": "SLR",
+   "mode": null,
+   "size": 2,
+   "op1": 20,
+   "fixed": [],
+   "page": "3-152",
+   "line": 9501
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[c], A[b]",
+   "format": "SLR",
+   "mode": "Post-increment Addressing Mode",
+   "size": 2,
+   "op1": 4,
+   "fixed": [],
+   "page": "3-153",
+   "line": 9521
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[c], A[15], off4",
+   "format": "SLRO",
+   "mode": null,
+   "size": 2,
+   "op1": 8,
+   "fixed": [],
+   "page": "3-153",
+   "line": 9532
+  },
+  {
+   "mnemonic": "LD.BU",
+   "operands": "D[15], A[b], off4",
+   "format": "SRO",
+   "mode": null,
+   "size": 2,
+   "op1": 12,
+   "fixed": [],
+   "page": "3-153",
+   "line": 9542
+  },
+  {
+   "mnemonic": "LD.D",
+   "operands": "E[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 133,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-154",
+   "line": 9586
+  },
+  {
+   "mnemonic": "LD.D",
+   "operands": "E[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "25H"
+   ],
+   "page": "3-154",
+   "line": 9595
+  },
+  {
+   "mnemonic": "LD.D",
+   "operands": "E[a], P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-154",
+   "line": 9604
+  },
+  {
+   "mnemonic": "LD.D",
+   "operands": "E[a], P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "15H"
+   ],
+   "page": "3-154",
+   "line": 9617
+  },
+  {
+   "mnemonic": "LD.D",
+   "operands": "E[a], A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-155",
+   "line": 9642
+  },
+  {
+   "mnemonic": "LD.D",
+   "operands": "E[a], A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "15H"
+   ],
+   "page": "3-155",
+   "line": 9652
+  },
+  {
+   "mnemonic": "LD.DA",
+   "operands": "P[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 133,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-156",
+   "line": 9698
+  },
+  {
+   "mnemonic": "LD.DA",
+   "operands": "P[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "27H"
+   ],
+   "page": "3-156",
+   "line": 9707
+  },
+  {
+   "mnemonic": "LD.DA",
+   "operands": "P[a], P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-156",
+   "line": 9716
+  },
+  {
+   "mnemonic": "LD.DA",
+   "operands": "P[a], P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "17H"
+   ],
+   "page": "3-156",
+   "line": 9729
+  },
+  {
+   "mnemonic": "LD.DA",
+   "operands": "P[a], A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-157",
+   "line": 9752
+  },
+  {
+   "mnemonic": "LD.DA",
+   "operands": "P[a], A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "17H"
+   ],
+   "page": "3-157",
+   "line": 9762
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 5,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-158",
+   "line": 9810
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "22H"
+   ],
+   "page": "3-158",
+   "line": 9819
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[a], P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-158",
+   "line": 9828
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[a], P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "12H"
+   ],
+   "page": "3-158",
+   "line": 9841
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-159",
+   "line": 9863
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "12H"
+   ],
+   "page": "3-159",
+   "line": 9873
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[a], A[b], off16",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 201,
+   "fixed": [],
+   "page": "3-159",
+   "line": 9883
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[c], A[b]",
+   "format": "SLR",
+   "mode": null,
+   "size": 2,
+   "op1": 148,
+   "fixed": [],
+   "page": "3-159",
+   "line": 9892
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[c], A[b]",
+   "format": "SLR",
+   "mode": "Post-increment Addressing Mode",
+   "size": 2,
+   "op1": 132,
+   "fixed": [],
+   "page": "3-159",
+   "line": 9902
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[c], A[15], off4",
+   "format": "SLRO",
+   "mode": null,
+   "size": 2,
+   "op1": 136,
+   "fixed": [],
+   "page": "3-159",
+   "line": 9913
+  },
+  {
+   "mnemonic": "LD.H",
+   "operands": "D[15], A[b], off4",
+   "format": "SRO",
+   "mode": null,
+   "size": 2,
+   "op1": 140,
+   "fixed": [],
+   "page": "3-160",
+   "line": 9930
+  },
+  {
+   "mnemonic": "LD.HU",
+   "operands": "D[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 5,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-160",
+   "line": 9940
+  },
+  {
+   "mnemonic": "LD.HU",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "23H"
+   ],
+   "page": "3-160",
+   "line": 9949
+  },
+  {
+   "mnemonic": "LD.HU",
+   "operands": "D[a], P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-160",
+   "line": 9958
+  },
+  {
+   "mnemonic": "LD.HU",
+   "operands": "D[a], P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "13H"
+   ],
+   "page": "3-160",
+   "line": 9971
+  },
+  {
+   "mnemonic": "LD.HU",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-161",
+   "line": 9994
+  },
+  {
+   "mnemonic": "LD.HU",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "13H"
+   ],
+   "page": "3-161",
+   "line": 10004
+  },
+  {
+   "mnemonic": "LD.HU",
+   "operands": "D[a], A[b], off16",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 185,
+   "fixed": [],
+   "page": "3-161",
+   "line": 10014
+  },
+  {
+   "mnemonic": "LD.Q",
+   "operands": "D[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 69,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-162",
+   "line": 10056
+  },
+  {
+   "mnemonic": "LD.Q",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "28H"
+   ],
+   "page": "3-162",
+   "line": 10065
+  },
+  {
+   "mnemonic": "LD.Q",
+   "operands": "D[a], P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-162",
+   "line": 10074
+  },
+  {
+   "mnemonic": "LD.Q",
+   "operands": "D[a], P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-162",
+   "line": 10087
+  },
+  {
+   "mnemonic": "LD.Q",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-162",
+   "line": 10101
+  },
+  {
+   "mnemonic": "LD.Q",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-163",
+   "line": 10119
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 133,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-164",
+   "line": 10164
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "24H"
+   ],
+   "page": "3-164",
+   "line": 10173
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[a], P[b]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-164",
+   "line": 10182
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[a], P[b], off10",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 41,
+   "fixed": [
+    "14H"
+   ],
+   "page": "3-164",
+   "line": 10195
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-165",
+   "line": 10218
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[a], A[b], off10",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 9,
+   "fixed": [
+    "14H"
+   ],
+   "page": "3-165",
+   "line": 10228
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[a], A[b], off16",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 25,
+   "fixed": [],
+   "page": "3-165",
+   "line": 10238
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[15], A[10], const8",
+   "format": "SC",
+   "mode": null,
+   "size": 2,
+   "op1": 88,
+   "fixed": [],
+   "page": "3-165",
+   "line": 10247
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[c], A[b]",
+   "format": "SLR",
+   "mode": null,
+   "size": 2,
+   "op1": 84,
+   "fixed": [],
+   "page": "3-165",
+   "line": 10257
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[c], A[b]",
+   "format": "SLR",
+   "mode": "Post-increment Addressing Mode",
+   "size": 2,
+   "op1": 68,
+   "fixed": [],
+   "page": "3-165",
+   "line": 10267
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[c], A[15], off4",
+   "format": "SLRO",
+   "mode": null,
+   "size": 2,
+   "op1": 72,
+   "fixed": [],
+   "page": "3-166",
+   "line": 10286
+  },
+  {
+   "mnemonic": "LD.W",
+   "operands": "D[15], A[b], off4",
+   "format": "SRO",
+   "mode": null,
+   "size": 2,
+   "op1": 76,
+   "fixed": [],
+   "page": "3-166",
+   "line": 10296
+  },
+  {
+   "mnemonic": "LDLCX",
+   "operands": "off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 21,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-167",
+   "line": 10341
+  },
+  {
+   "mnemonic": "LDLCX",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Index Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "24H"
+   ],
+   "page": "3-167",
+   "line": 10350
+  },
+  {
+   "mnemonic": "LDMST",
+   "operands": "off18, E[a]",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 229,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-168",
+   "line": 10393
+  },
+  {
+   "mnemonic": "LDMST",
+   "operands": "A[b], off10, E[a]",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "21H"
+   ],
+   "page": "3-168",
+   "line": 10402
+  },
+  {
+   "mnemonic": "LDMST",
+   "operands": "P[b], E[a]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 105,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-168",
+   "line": 10411
+  },
+  {
+   "mnemonic": "LDMST",
+   "operands": "P[b], off10, E[a]",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 105,
+   "fixed": [
+    "11H"
+   ],
+   "page": "3-168",
+   "line": 10424
+  },
+  {
+   "mnemonic": "LDMST",
+   "operands": "A[b], off10, E[a]",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-169",
+   "line": 10445
+  },
+  {
+   "mnemonic": "LDMST",
+   "operands": "A[b], off10, E[a]",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "11H"
+   ],
+   "page": "3-169",
+   "line": 10455
+  },
+  {
+   "mnemonic": "LDUCX",
+   "operands": "off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 21,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-170",
+   "line": 10499
+  },
+  {
+   "mnemonic": "LDUCX",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Index Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "25H"
+   ],
+   "page": "3-170",
+   "line": 10508
+  },
+  {
+   "mnemonic": "LEA",
+   "operands": "A[a], off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 197,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-171",
+   "line": 10550
+  },
+  {
+   "mnemonic": "LEA",
+   "operands": "A[a], A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "28H"
+   ],
+   "page": "3-171",
+   "line": 10559
+  },
+  {
+   "mnemonic": "LEA",
+   "operands": "A[a], A[b], off16",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 217,
+   "fixed": [],
+   "page": "3-171",
+   "line": 10568
+  },
+  {
+   "mnemonic": "LOOP",
+   "operands": "A[b], disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 253,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-172",
+   "line": 10614
+  },
+  {
+   "mnemonic": "LOOP",
+   "operands": "A[b], disp4",
+   "format": "SBR",
+   "mode": null,
+   "size": 2,
+   "op1": 252,
+   "fixed": [],
+   "page": "3-172",
+   "line": 10623
+  },
+  {
+   "mnemonic": "LOOPU",
+   "operands": "disp15",
+   "format": "BRR",
+   "mode": null,
+   "size": 4,
+   "op1": 253,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-173",
+   "line": 10668
+  },
+  {
+   "mnemonic": "LT",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "12H"
+   ],
+   "page": "3-174",
+   "line": 10718
+  },
+  {
+   "mnemonic": "LT",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "12H"
+   ],
+   "page": "3-174",
+   "line": 10727
+  },
+  {
+   "mnemonic": "LT",
+   "operands": "D[15], D[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 250,
+   "fixed": [],
+   "page": "3-174",
+   "line": 10736
+  },
+  {
+   "mnemonic": "LT",
+   "operands": "D[15], D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 122,
+   "fixed": [],
+   "page": "3-174",
+   "line": 10747
+  },
+  {
+   "mnemonic": "LT.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "13H"
+   ],
+   "page": "3-175",
+   "line": 10766
+  },
+  {
+   "mnemonic": "LT.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "13H"
+   ],
+   "page": "3-175",
+   "line": 10775
+  },
+  {
+   "mnemonic": "LT.A",
+   "operands": "D[c], A[a], A[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "42H"
+   ],
+   "page": "3-176",
+   "line": 10823
+  },
+  {
+   "mnemonic": "LT.B",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "52H"
+   ],
+   "page": "3-177",
+   "line": 10866
+  },
+  {
+   "mnemonic": "LT.BU",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "53H"
+   ],
+   "page": "3-177",
+   "line": 10877
+  },
+  {
+   "mnemonic": "LT.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "72H"
+   ],
+   "page": "3-178",
+   "line": 10925
+  },
+  {
+   "mnemonic": "LT.HU",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "73H"
+   ],
+   "page": "3-178",
+   "line": 10934
+  },
+  {
+   "mnemonic": "LT.W",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "92H"
+   ],
+   "page": "3-179",
+   "line": 10979
+  },
+  {
+   "mnemonic": "LT.WU",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "93H"
+   ],
+   "page": "3-179",
+   "line": 10987
+  },
+  {
+   "mnemonic": "MADD",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 19,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-180",
+   "line": 11031
+  },
+  {
+   "mnemonic": "MADD",
+   "operands": "E[c], E[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 19,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-180",
+   "line": 11041
+  },
+  {
+   "mnemonic": "MADD",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 3,
+   "fixed": [
+    "0AH"
+   ],
+   "page": "3-180",
+   "line": 11051
+  },
+  {
+   "mnemonic": "MADD",
+   "operands": "E[c], E[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 3,
+   "fixed": [
+    "6AH"
+   ],
+   "page": "3-180",
+   "line": 11061
+  },
+  {
+   "mnemonic": "MADDS",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 19,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-180",
+   "line": 11071
+  },
+  {
+   "mnemonic": "MADDS",
+   "operands": "E[c], E[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 19,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-181",
+   "line": 11090
+  },
+  {
+   "mnemonic": "MADDS",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 3,
+   "fixed": [
+    "8AH"
+   ],
+   "page": "3-181",
+   "line": 11100
+  },
+  {
+   "mnemonic": "MADDS",
+   "operands": "E[c], E[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 3,
+   "fixed": [
+    "EAH"
+   ],
+   "page": "3-181",
+   "line": 11110
+  },
+  {
+   "mnemonic": "MADD.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "1AH"
+   ],
+   "page": "3-183",
+   "line": 11183
+  },
+  {
+   "mnemonic": "MADD.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-183",
+   "line": 11198
+  },
+  {
+   "mnemonic": "MADD.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-183",
+   "line": 11213
+  },
+  {
+   "mnemonic": "MADD.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-184",
+   "line": 11237
+  },
+  {
+   "mnemonic": "MADDS.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "3AH"
+   ],
+   "page": "3-184",
+   "line": 11252
+  },
+  {
+   "mnemonic": "MADDS.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "39H"
+   ],
+   "page": "3-184",
+   "line": 11267
+  },
+  {
+   "mnemonic": "MADDS.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "38H"
+   ],
+   "page": "3-185",
+   "line": 11291
+  },
+  {
+   "mnemonic": "MADDS.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "3BH"
+   ],
+   "page": "3-185",
+   "line": 11306
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "D[c], D[d], D[a], D[b], n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-187",
+   "line": 11371
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "E[c], E[d], D[a], D[b], n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-187",
+   "line": 11381
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "D[c], D[d], D[a], D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-187",
+   "line": 11391
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "E[c], E[d], D[a], D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-187",
+   "line": 11401
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "D[c], D[d], D[a], D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-187",
+   "line": 11411
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "E[c], E[d], D[a], D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-188",
+   "line": 11430
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "D[c], D[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-188",
+   "line": 11440
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "E[c], E[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-188",
+   "line": 11452
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "D[c], D[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-188",
+   "line": 11464
+  },
+  {
+   "mnemonic": "MADD.Q",
+   "operands": "E[c], E[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-189",
+   "line": 11484
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "D[c], D[d], D[a], D[b], n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "22H"
+   ],
+   "page": "3-189",
+   "line": 11496
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "E[c], E[d], D[a], D[b], n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "3BH"
+   ],
+   "page": "3-189",
+   "line": 11506
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "D[c], D[d], D[a], D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "21H"
+   ],
+   "page": "3-189",
+   "line": 11516
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "E[c], E[d], D[a], D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "39H"
+   ],
+   "page": "3-189",
+   "line": 11526
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "D[c], D[d], D[a], D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "20H"
+   ],
+   "page": "3-189",
+   "line": 11536
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "E[c], E[d], D[a], D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "38H"
+   ],
+   "page": "3-190",
+   "line": 11555
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "D[c], D[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "25H"
+   ],
+   "page": "3-190",
+   "line": 11565
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "E[c], E[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "3DH"
+   ],
+   "page": "3-190",
+   "line": 11577
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "D[c], D[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "24H"
+   ],
+   "page": "3-190",
+   "line": 11589
+  },
+  {
+   "mnemonic": "MADDS.Q",
+   "operands": "E[c], E[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "3CH"
+   ],
+   "page": "3-190",
+   "line": 11601
+  },
+  {
+   "mnemonic": "MADD.U",
+   "operands": "E[c], E[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 19,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-193",
+   "line": 11693
+  },
+  {
+   "mnemonic": "MADD.U",
+   "operands": "E[c], E[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 3,
+   "fixed": [
+    "68H"
+   ],
+   "page": "3-193",
+   "line": 11703
+  },
+  {
+   "mnemonic": "MADDS.U",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 19,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-193",
+   "line": 11713
+  },
+  {
+   "mnemonic": "MADDS.U",
+   "operands": "E[c], E[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 19,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-193",
+   "line": 11723
+  },
+  {
+   "mnemonic": "MADDS.U",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 3,
+   "fixed": [
+    "88H"
+   ],
+   "page": "3-193",
+   "line": 11733
+  },
+  {
+   "mnemonic": "MADDS.U",
+   "operands": "E[c], E[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 3,
+   "fixed": [
+    "E8H"
+   ],
+   "page": "3-194",
+   "line": 11752
+  },
+  {
+   "mnemonic": "MADDM.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "1EH"
+   ],
+   "page": "3-195",
+   "line": 11814
+  },
+  {
+   "mnemonic": "MADDM.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-195",
+   "line": 11828
+  },
+  {
+   "mnemonic": "MADDM.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-195",
+   "line": 11842
+  },
+  {
+   "mnemonic": "MADDM.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "1FH"
+   ],
+   "page": "3-196",
+   "line": 11865
+  },
+  {
+   "mnemonic": "MADDMS.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "3EH"
+   ],
+   "page": "3-196",
+   "line": 11879
+  },
+  {
+   "mnemonic": "MADDMS.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "3DH"
+   ],
+   "page": "3-196",
+   "line": 11893
+  },
+  {
+   "mnemonic": "MADDMS.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "3CH"
+   ],
+   "page": "3-196",
+   "line": 11907
+  },
+  {
+   "mnemonic": "MADDMS.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "3FH"
+   ],
+   "page": "3-197",
+   "line": 11931
+  },
+  {
+   "mnemonic": "MADDR.H",
+   "operands": "D[c], D[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-198",
+   "line": 11988
+  },
+  {
+   "mnemonic": "MADDR.H",
+   "operands": "D[c], D[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-198",
+   "line": 12003
+  },
+  {
+   "mnemonic": "MADDR.H",
+   "operands": "D[c], D[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-198",
+   "line": 12018
+  },
+  {
+   "mnemonic": "MADDR.H",
+   "operands": "D[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "1EH"
+   ],
+   "page": "3-199",
+   "line": 12042
+  },
+  {
+   "mnemonic": "MADDR.H",
+   "operands": "D[c], D[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-199",
+   "line": 12057
+  },
+  {
+   "mnemonic": "MADDRS.H",
+   "operands": "D[c], D[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "2EH"
+   ],
+   "page": "3-199",
+   "line": 12072
+  },
+  {
+   "mnemonic": "MADDRS.H",
+   "operands": "D[c], D[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "2DH"
+   ],
+   "page": "3-200",
+   "line": 12096
+  },
+  {
+   "mnemonic": "MADDRS.H",
+   "operands": "D[c], D[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "2CH"
+   ],
+   "page": "3-200",
+   "line": 12112
+  },
+  {
+   "mnemonic": "MADDRS.H",
+   "operands": "D[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "3EH"
+   ],
+   "page": "3-200",
+   "line": 12129
+  },
+  {
+   "mnemonic": "MADDRS.H",
+   "operands": "D[c], D[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 131,
+   "fixed": [
+    "2FH"
+   ],
+   "page": "3-201",
+   "line": 12153
+  },
+  {
+   "mnemonic": "MADDR.Q",
+   "operands": "D[c], D[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-202",
+   "line": 12212
+  },
+  {
+   "mnemonic": "MADDR.Q",
+   "operands": "D[c], D[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-202",
+   "line": 12224
+  },
+  {
+   "mnemonic": "MADDRS.Q",
+   "operands": "D[c], D[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "27H"
+   ],
+   "page": "3-202",
+   "line": 12236
+  },
+  {
+   "mnemonic": "MADDRS.Q",
+   "operands": "D[c], D[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 67,
+   "fixed": [
+    "26H"
+   ],
+   "page": "3-202",
+   "line": 12248
+  },
+  {
+   "mnemonic": "MADDSU.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "1AH"
+   ],
+   "page": "3-204",
+   "line": 12312
+  },
+  {
+   "mnemonic": "MADDSU.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-204",
+   "line": 12327
+  },
+  {
+   "mnemonic": "MADDSU.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-204",
+   "line": 12342
+  },
+  {
+   "mnemonic": "MADDSU.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-205",
+   "line": 12366
+  },
+  {
+   "mnemonic": "MADDSUS.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "3AH"
+   ],
+   "page": "3-205",
+   "line": 12381
+  },
+  {
+   "mnemonic": "MADDSUS.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "39H"
+   ],
+   "page": "3-205",
+   "line": 12396
+  },
+  {
+   "mnemonic": "MADDSUS.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "38H"
+   ],
+   "page": "3-206",
+   "line": 12419
+  },
+  {
+   "mnemonic": "MADDSUS.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "3BH"
+   ],
+   "page": "3-206",
+   "line": 12434
+  },
+  {
+   "mnemonic": "MADDSUM.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "1EH"
+   ],
+   "page": "3-208",
+   "line": 12505
+  },
+  {
+   "mnemonic": "MADDSUM.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-208",
+   "line": 12519
+  },
+  {
+   "mnemonic": "MADDSUM.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-208",
+   "line": 12533
+  },
+  {
+   "mnemonic": "MADDSUM.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "1FH"
+   ],
+   "page": "3-209",
+   "line": 12557
+  },
+  {
+   "mnemonic": "MADDSUMS.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "3EH"
+   ],
+   "page": "3-209",
+   "line": 12571
+  },
+  {
+   "mnemonic": "MADDSUMS.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "3DH"
+   ],
+   "page": "3-209",
+   "line": 12585
+  },
+  {
+   "mnemonic": "MADDSUMS.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "3CH"
+   ],
+   "page": "3-210",
+   "line": 12607
+  },
+  {
+   "mnemonic": "MADDSUMS.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "3FH"
+   ],
+   "page": "3-210",
+   "line": 12621
+  },
+  {
+   "mnemonic": "MADDSUR.H",
+   "operands": "D[c], D[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-211",
+   "line": 12678
+  },
+  {
+   "mnemonic": "MADDSUR.H",
+   "operands": "D[c], D[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-211",
+   "line": 12693
+  },
+  {
+   "mnemonic": "MADDSUR.H",
+   "operands": "D[c], D[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-211",
+   "line": 12708
+  },
+  {
+   "mnemonic": "MADDSUR.H",
+   "operands": "D[c], D[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-212",
+   "line": 12732
+  },
+  {
+   "mnemonic": "MADDSURS.H",
+   "operands": "D[c], D[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "2EH"
+   ],
+   "page": "3-212",
+   "line": 12747
+  },
+  {
+   "mnemonic": "MADDSURS.H",
+   "operands": "D[c], D[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "2DH"
+   ],
+   "page": "3-212",
+   "line": 12763
+  },
+  {
+   "mnemonic": "MADDSURS.H",
+   "operands": "D[c], D[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "2CH"
+   ],
+   "page": "3-213",
+   "line": 12787
+  },
+  {
+   "mnemonic": "MADDSURS.H",
+   "operands": "D[c], D[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 195,
+   "fixed": [
+    "2FH"
+   ],
+   "page": "3-213",
+   "line": 12803
+  },
+  {
+   "mnemonic": "MAX",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "1AH"
+   ],
+   "page": "3-215",
+   "line": 12874
+  },
+  {
+   "mnemonic": "MAX",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "1AH"
+   ],
+   "page": "3-215",
+   "line": 12882
+  },
+  {
+   "mnemonic": "MAX.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-215",
+   "line": 12890
+  },
+  {
+   "mnemonic": "MAX.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-215",
+   "line": 12898
+  },
+  {
+   "mnemonic": "MAX.B",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "5AH"
+   ],
+   "page": "3-217",
+   "line": 12951
+  },
+  {
+   "mnemonic": "MAX.BU",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "5BH"
+   ],
+   "page": "3-217",
+   "line": 12962
+  },
+  {
+   "mnemonic": "MAX.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "7AH"
+   ],
+   "page": "3-218",
+   "line": 13009
+  },
+  {
+   "mnemonic": "MAX.HU",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "7BH"
+   ],
+   "page": "3-218",
+   "line": 13018
+  },
+  {
+   "mnemonic": "MFCR",
+   "operands": "D[c], const16",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 77,
+   "fixed": [],
+   "page": "3-219",
+   "line": 13063
+  },
+  {
+   "mnemonic": "MIN",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-220",
+   "line": 13107
+  },
+  {
+   "mnemonic": "MIN",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-220",
+   "line": 13115
+  },
+  {
+   "mnemonic": "MIN.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-220",
+   "line": 13123
+  },
+  {
+   "mnemonic": "MIN.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-220",
+   "line": 13131
+  },
+  {
+   "mnemonic": "MIN.B",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "58H"
+   ],
+   "page": "3-222",
+   "line": 13184
+  },
+  {
+   "mnemonic": "MIN.BU",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "59H"
+   ],
+   "page": "3-222",
+   "line": 13195
+  },
+  {
+   "mnemonic": "MIN.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "78H"
+   ],
+   "page": "3-223",
+   "line": 13242
+  },
+  {
+   "mnemonic": "MIN.HU",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "79H"
+   ],
+   "page": "3-223",
+   "line": 13251
+  },
+  {
+   "mnemonic": "MOV",
+   "operands": "D[c], const16",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 59,
+   "fixed": [],
+   "page": "3-224",
+   "line": 13301
+  },
+  {
+   "mnemonic": "MOV",
+   "operands": "E[c], const16",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 251,
+   "fixed": [],
+   "page": "3-224",
+   "line": 13309
+  },
+  {
+   "mnemonic": "MOV",
+   "operands": "D[c], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "1FH"
+   ],
+   "page": "3-224",
+   "line": 13317
+  },
+  {
+   "mnemonic": "MOV",
+   "operands": "E[c], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "80H"
+   ],
+   "page": "3-224",
+   "line": 13325
+  },
+  {
+   "mnemonic": "MOV",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "81H"
+   ],
+   "page": "3-224",
+   "line": 13333
+  },
+  {
+   "mnemonic": "MOV",
+   "operands": "D[15], const8",
+   "format": "SC",
+   "mode": null,
+   "size": 2,
+   "op1": 218,
+   "fixed": [],
+   "page": "3-224",
+   "line": 13341
+  },
+  {
+   "mnemonic": "MOV",
+   "operands": "D[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 130,
+   "fixed": [],
+   "page": "3-225",
+   "line": 13360
+  },
+  {
+   "mnemonic": "MOV",
+   "operands": "E[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 210,
+   "fixed": [],
+   "page": "3-225",
+   "line": 13370
+  },
+  {
+   "mnemonic": "MOV",
+   "operands": "D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 2,
+   "fixed": [],
+   "page": "3-225",
+   "line": 13380
+  },
+  {
+   "mnemonic": "MOV.A",
+   "operands": "A[c], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "63H"
+   ],
+   "page": "3-227",
+   "line": 13443
+  },
+  {
+   "mnemonic": "MOV.A",
+   "operands": "A[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 160,
+   "fixed": [],
+   "page": "3-227",
+   "line": 13451
+  },
+  {
+   "mnemonic": "MOV.A",
+   "operands": "A[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 96,
+   "fixed": [],
+   "page": "3-227",
+   "line": 13461
+  },
+  {
+   "mnemonic": "MOV.AA",
+   "operands": "A[c], A[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-228",
+   "line": 13507
+  },
+  {
+   "mnemonic": "MOV.AA",
+   "operands": "A[a], A[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 64,
+   "fixed": [],
+   "page": "3-228",
+   "line": 13515
+  },
+  {
+   "mnemonic": "MOV.D",
+   "operands": "D[c], A[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "4CH"
+   ],
+   "page": "3-229",
+   "line": 13560
+  },
+  {
+   "mnemonic": "MOV.D",
+   "operands": "D[a], A[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 128,
+   "fixed": [],
+   "page": "3-229",
+   "line": 13568
+  },
+  {
+   "mnemonic": "MOV.U",
+   "operands": "D[c], const16",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 187,
+   "fixed": [],
+   "page": "3-230",
+   "line": 13611
+  },
+  {
+   "mnemonic": "MOVH",
+   "operands": "D[c], const16",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 123,
+   "fixed": [],
+   "page": "3-231",
+   "line": 13651
+  },
+  {
+   "mnemonic": "MOVH.A",
+   "operands": "A[c], const16",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 145,
+   "fixed": [],
+   "page": "3-232",
+   "line": 13691
+  },
+  {
+   "mnemonic": "MSUB",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 51,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-233",
+   "line": 13734
+  },
+  {
+   "mnemonic": "MSUB",
+   "operands": "E[c], E[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 51,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-233",
+   "line": 13744
+  },
+  {
+   "mnemonic": "MSUB",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 35,
+   "fixed": [
+    "0AH"
+   ],
+   "page": "3-233",
+   "line": 13754
+  },
+  {
+   "mnemonic": "MSUB",
+   "operands": "E[c], E[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 35,
+   "fixed": [
+    "6AH"
+   ],
+   "page": "3-233",
+   "line": 13764
+  },
+  {
+   "mnemonic": "MSUBS",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 51,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-233",
+   "line": 13774
+  },
+  {
+   "mnemonic": "MSUBS",
+   "operands": "E[c], E[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 51,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-234",
+   "line": 13793
+  },
+  {
+   "mnemonic": "MSUBS",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 35,
+   "fixed": [
+    "8AH"
+   ],
+   "page": "3-234",
+   "line": 13803
+  },
+  {
+   "mnemonic": "MSUBS",
+   "operands": "E[c], E[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 35,
+   "fixed": [
+    "EAH"
+   ],
+   "page": "3-234",
+   "line": 13813
+  },
+  {
+   "mnemonic": "MSUB.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "1AH"
+   ],
+   "page": "3-236",
+   "line": 13885
+  },
+  {
+   "mnemonic": "MSUB.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-236",
+   "line": 13900
+  },
+  {
+   "mnemonic": "MSUB.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-236",
+   "line": 13915
+  },
+  {
+   "mnemonic": "MSUB.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-237",
+   "line": 13939
+  },
+  {
+   "mnemonic": "MSUBS.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "3AH"
+   ],
+   "page": "3-237",
+   "line": 13954
+  },
+  {
+   "mnemonic": "MSUBS.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "39H"
+   ],
+   "page": "3-237",
+   "line": 13969
+  },
+  {
+   "mnemonic": "MSUBS.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "38H"
+   ],
+   "page": "3-238",
+   "line": 13993
+  },
+  {
+   "mnemonic": "MSUBS.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "3BH"
+   ],
+   "page": "3-238",
+   "line": 14008
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "D[c], D[d], D[a], D[b], n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-240",
+   "line": 14076
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "E[c], E[d], D[a], D[b], n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-240",
+   "line": 14086
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "D[c], D[d], D[a], D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-240",
+   "line": 14096
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "E[c], E[d], D[a], D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-240",
+   "line": 14106
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "D[c], D[d], D[a], D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-241",
+   "line": 14124
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "E[c], E[d], D[a], D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-241",
+   "line": 14134
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "D[c], D[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-241",
+   "line": 14144
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "E[c], E[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-241",
+   "line": 14156
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "D[c], D[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-241",
+   "line": 14168
+  },
+  {
+   "mnemonic": "MSUB.Q",
+   "operands": "E[c], E[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-242",
+   "line": 14189
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "D[c], D[d], D[a], D[b], n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "22H"
+   ],
+   "page": "3-242",
+   "line": 14201
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "E[c], E[d], D[a], D[b], n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "3BH"
+   ],
+   "page": "3-242",
+   "line": 14211
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "D[c], D[d], D[a], D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "21H"
+   ],
+   "page": "3-242",
+   "line": 14221
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "E[c], E[d], D[a], D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "39H"
+   ],
+   "page": "3-242",
+   "line": 14231
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "D[c], D[d], D[a], D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "20H"
+   ],
+   "page": "3-242",
+   "line": 14241
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "E[c], E[d], D[a], D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "38H"
+   ],
+   "page": "3-243",
+   "line": 14260
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "D[c], D[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "25H"
+   ],
+   "page": "3-243",
+   "line": 14270
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "E[c], E[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "3DH"
+   ],
+   "page": "3-243",
+   "line": 14282
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "D[c], D[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "24H"
+   ],
+   "page": "3-243",
+   "line": 14294
+  },
+  {
+   "mnemonic": "MSUBS.Q",
+   "operands": "E[c], E[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "3CH"
+   ],
+   "page": "3-244",
+   "line": 14314
+  },
+  {
+   "mnemonic": "MSUB.U",
+   "operands": "E[c], E[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 51,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-246",
+   "line": 14398
+  },
+  {
+   "mnemonic": "MSUB.U",
+   "operands": "E[c], E[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 35,
+   "fixed": [
+    "68H"
+   ],
+   "page": "3-246",
+   "line": 14408
+  },
+  {
+   "mnemonic": "MSUBS.U",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 51,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-246",
+   "line": 14418
+  },
+  {
+   "mnemonic": "MSUBS.U",
+   "operands": "E[c], E[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 51,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-246",
+   "line": 14428
+  },
+  {
+   "mnemonic": "MSUBS.U",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 35,
+   "fixed": [
+    "88H"
+   ],
+   "page": "3-246",
+   "line": 14438
+  },
+  {
+   "mnemonic": "MSUBS.U",
+   "operands": "E[c], E[d], D[a], D[b]",
+   "format": "RRR2",
+   "mode": null,
+   "size": 4,
+   "op1": 35,
+   "fixed": [
+    "E8H"
+   ],
+   "page": "3-247",
+   "line": 14457
+  },
+  {
+   "mnemonic": "MSUBAD.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "1AH"
+   ],
+   "page": "3-248",
+   "line": 14523
+  },
+  {
+   "mnemonic": "MSUBAD.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-248",
+   "line": 14538
+  },
+  {
+   "mnemonic": "MSUBAD.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-248",
+   "line": 14553
+  },
+  {
+   "mnemonic": "MSUBAD.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-249",
+   "line": 14576
+  },
+  {
+   "mnemonic": "MSUBADS.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "3AH"
+   ],
+   "page": "3-249",
+   "line": 14591
+  },
+  {
+   "mnemonic": "MSUBADS.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "39H"
+   ],
+   "page": "3-249",
+   "line": 14606
+  },
+  {
+   "mnemonic": "MSUBADS.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "38H"
+   ],
+   "page": "3-250",
+   "line": 14629
+  },
+  {
+   "mnemonic": "MSUBADS.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "3BH"
+   ],
+   "page": "3-250",
+   "line": 14644
+  },
+  {
+   "mnemonic": "MSUBADM.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "1EH"
+   ],
+   "page": "3-252",
+   "line": 14716
+  },
+  {
+   "mnemonic": "MSUBADM.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-252",
+   "line": 14730
+  },
+  {
+   "mnemonic": "MSUBADM.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-252",
+   "line": 14744
+  },
+  {
+   "mnemonic": "MSUBADM.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "1FH"
+   ],
+   "page": "3-253",
+   "line": 14768
+  },
+  {
+   "mnemonic": "MSUBADMS.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "3EH"
+   ],
+   "page": "3-253",
+   "line": 14782
+  },
+  {
+   "mnemonic": "MSUBADMS.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "3DH"
+   ],
+   "page": "3-253",
+   "line": 14796
+  },
+  {
+   "mnemonic": "MSUBADMS.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "3CH"
+   ],
+   "page": "3-254",
+   "line": 14818
+  },
+  {
+   "mnemonic": "MSUBADMS.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "3FH"
+   ],
+   "page": "3-254",
+   "line": 14832
+  },
+  {
+   "mnemonic": "MSUBADR.H",
+   "operands": "D[c], D[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-255",
+   "line": 14889
+  },
+  {
+   "mnemonic": "MSUBADR.H",
+   "operands": "D[c], D[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-255",
+   "line": 14904
+  },
+  {
+   "mnemonic": "MSUBADR.H",
+   "operands": "D[c], D[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-255",
+   "line": 14919
+  },
+  {
+   "mnemonic": "MSUBADR.H",
+   "operands": "D[c], D[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-256",
+   "line": 14943
+  },
+  {
+   "mnemonic": "MSUBADRS.H",
+   "operands": "D[c], D[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "2EH"
+   ],
+   "page": "3-256",
+   "line": 14958
+  },
+  {
+   "mnemonic": "MSUBADRS.H",
+   "operands": "D[c], D[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "2DH"
+   ],
+   "page": "3-256",
+   "line": 14974
+  },
+  {
+   "mnemonic": "MSUBADRS.H",
+   "operands": "D[c], D[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "2CH"
+   ],
+   "page": "3-257",
+   "line": 14998
+  },
+  {
+   "mnemonic": "MSUBADRS.H",
+   "operands": "D[c], D[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 227,
+   "fixed": [
+    "2FH"
+   ],
+   "page": "3-257",
+   "line": 15014
+  },
+  {
+   "mnemonic": "MSUBM.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "1EH"
+   ],
+   "page": "3-259",
+   "line": 15085
+  },
+  {
+   "mnemonic": "MSUBM.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-259",
+   "line": 15099
+  },
+  {
+   "mnemonic": "MSUBM.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-259",
+   "line": 15113
+  },
+  {
+   "mnemonic": "MSUBM.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "1FH"
+   ],
+   "page": "3-260",
+   "line": 15137
+  },
+  {
+   "mnemonic": "MSUBMS.H",
+   "operands": "E[c], E[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "3EH"
+   ],
+   "page": "3-260",
+   "line": 15151
+  },
+  {
+   "mnemonic": "MSUBMS.H",
+   "operands": "E[c], E[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "3DH"
+   ],
+   "page": "3-260",
+   "line": 15165
+  },
+  {
+   "mnemonic": "MSUBMS.H",
+   "operands": "E[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "3CH"
+   ],
+   "page": "3-261",
+   "line": 15187
+  },
+  {
+   "mnemonic": "MSUBMS.H",
+   "operands": "E[c], E[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "3FH"
+   ],
+   "page": "3-261",
+   "line": 15201
+  },
+  {
+   "mnemonic": "MSUBR.H",
+   "operands": "D[c], D[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-262",
+   "line": 15258
+  },
+  {
+   "mnemonic": "MSUBR.H",
+   "operands": "D[c], D[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-262",
+   "line": 15273
+  },
+  {
+   "mnemonic": "MSUBR.H",
+   "operands": "D[c], D[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-262",
+   "line": 15288
+  },
+  {
+   "mnemonic": "MSUBR.H",
+   "operands": "D[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "1EH"
+   ],
+   "page": "3-263",
+   "line": 15312
+  },
+  {
+   "mnemonic": "MSUBR.H",
+   "operands": "D[c], D[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-263",
+   "line": 15327
+  },
+  {
+   "mnemonic": "MSUBRS.H",
+   "operands": "D[c], D[d], D[a], D[b] LL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "2EH"
+   ],
+   "page": "3-263",
+   "line": 15342
+  },
+  {
+   "mnemonic": "MSUBRS.H",
+   "operands": "D[c], D[d], D[a], D[b] LU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "2DH"
+   ],
+   "page": "3-264",
+   "line": 15366
+  },
+  {
+   "mnemonic": "MSUBRS.H",
+   "operands": "D[c], D[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "2CH"
+   ],
+   "page": "3-264",
+   "line": 15382
+  },
+  {
+   "mnemonic": "MSUBRS.H",
+   "operands": "D[c], E[d], D[a], D[b] UL, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "3EH"
+   ],
+   "page": "3-264",
+   "line": 15398
+  },
+  {
+   "mnemonic": "MSUBRS.H",
+   "operands": "D[c], D[d], D[a], D[b] UU, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 163,
+   "fixed": [
+    "2FH"
+   ],
+   "page": "3-265",
+   "line": 15423
+  },
+  {
+   "mnemonic": "MSUBR.Q",
+   "operands": "D[c], D[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-266",
+   "line": 15482
+  },
+  {
+   "mnemonic": "MSUBR.Q",
+   "operands": "D[c], D[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-266",
+   "line": 15494
+  },
+  {
+   "mnemonic": "MSUBRS.Q",
+   "operands": "D[c], D[d], D[a] L, D[b] L, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "27H"
+   ],
+   "page": "3-266",
+   "line": 15506
+  },
+  {
+   "mnemonic": "MSUBRS.Q",
+   "operands": "D[c], D[d], D[a] U, D[b] U, n",
+   "format": "RRR1",
+   "mode": null,
+   "size": 4,
+   "op1": 99,
+   "fixed": [
+    "26H"
+   ],
+   "page": "3-266",
+   "line": 15518
+  },
+  {
+   "mnemonic": "MTCR",
+   "operands": "const16, D[a]",
+   "format": "RLC",
+   "mode": null,
+   "size": 4,
+   "op1": 205,
+   "fixed": [],
+   "page": "3-268",
+   "line": 15579
+  },
+  {
+   "mnemonic": "MUL",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 83,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-269",
+   "line": 15623
+  },
+  {
+   "mnemonic": "MUL",
+   "operands": "E[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 83,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-269",
+   "line": 15633
+  },
+  {
+   "mnemonic": "MUL",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR2",
+   "mode": null,
+   "size": 4,
+   "op1": 115,
+   "fixed": [
+    "0AH"
+   ],
+   "page": "3-269",
+   "line": 15643
+  },
+  {
+   "mnemonic": "MUL",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR2",
+   "mode": null,
+   "size": 4,
+   "op1": 115,
+   "fixed": [
+    "6AH"
+   ],
+   "page": "3-269",
+   "line": 15653
+  },
+  {
+   "mnemonic": "MUL",
+   "operands": "D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 226,
+   "fixed": [],
+   "page": "3-269",
+   "line": 15663
+  },
+  {
+   "mnemonic": "MULS",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 83,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-270",
+   "line": 15683
+  },
+  {
+   "mnemonic": "MULS",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR2",
+   "mode": null,
+   "size": 4,
+   "op1": 115,
+   "fixed": [
+    "8AH"
+   ],
+   "page": "3-270",
+   "line": 15693
+  },
+  {
+   "mnemonic": "MUL.H",
+   "operands": "E[c], D[a], D[b] LL, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "1AH"
+   ],
+   "page": "3-272",
+   "line": 15766
+  },
+  {
+   "mnemonic": "MUL.H",
+   "operands": "E[c], D[a], D[b] LU, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-272",
+   "line": 15779
+  },
+  {
+   "mnemonic": "MUL.H",
+   "operands": "E[c], D[a], D[b] UL, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-272",
+   "line": 15792
+  },
+  {
+   "mnemonic": "MUL.H",
+   "operands": "E[c], D[a], D[b] UU, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-273",
+   "line": 15813
+  },
+  {
+   "mnemonic": "MUL.Q",
+   "operands": "D[c], D[a], D[b], n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-274",
+   "line": 15863
+  },
+  {
+   "mnemonic": "MUL.Q",
+   "operands": "E[c], D[a], D[b], n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "1BH"
+   ],
+   "page": "3-274",
+   "line": 15873
+  },
+  {
+   "mnemonic": "MUL.Q",
+   "operands": "D[c], D[a], D[b] L, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-274",
+   "line": 15883
+  },
+  {
+   "mnemonic": "MUL.Q",
+   "operands": "E[c], D[a], D[b] L, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "19H"
+   ],
+   "page": "3-274",
+   "line": 15893
+  },
+  {
+   "mnemonic": "MUL.Q",
+   "operands": "D[c], D[a], D[b] U, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-274",
+   "line": 15903
+  },
+  {
+   "mnemonic": "MUL.Q",
+   "operands": "E[c], D[a], D[b] U, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-275",
+   "line": 15923
+  },
+  {
+   "mnemonic": "MUL.Q",
+   "operands": "D[c], D[a] L, D[b] L, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-275",
+   "line": 15933
+  },
+  {
+   "mnemonic": "MUL.Q",
+   "operands": "D[c], D[a] U, D[b] U, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-275",
+   "line": 15944
+  },
+  {
+   "mnemonic": "MUL.U",
+   "operands": "E[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 83,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-277",
+   "line": 16018
+  },
+  {
+   "mnemonic": "MUL.U",
+   "operands": "E[c], D[a], D[b]",
+   "format": "RR2",
+   "mode": null,
+   "size": 4,
+   "op1": 115,
+   "fixed": [
+    "68H"
+   ],
+   "page": "3-277",
+   "line": 16028
+  },
+  {
+   "mnemonic": "MULS.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 83,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-277",
+   "line": 16038
+  },
+  {
+   "mnemonic": "MULS.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR2",
+   "mode": null,
+   "size": 4,
+   "op1": 115,
+   "fixed": [
+    "88H"
+   ],
+   "page": "3-277",
+   "line": 16048
+  },
+  {
+   "mnemonic": "MULM.H",
+   "operands": "E[c], D[a], D[b] LL, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "1EH"
+   ],
+   "page": "3-279",
+   "line": 16116
+  },
+  {
+   "mnemonic": "MULM.H",
+   "operands": "E[c], D[a], D[b] LU, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "1DH"
+   ],
+   "page": "3-279",
+   "line": 16130
+  },
+  {
+   "mnemonic": "MULM.H",
+   "operands": "E[c], D[a], D[b] UL, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "1CH"
+   ],
+   "page": "3-279",
+   "line": 16144
+  },
+  {
+   "mnemonic": "MULM.H",
+   "operands": "E[c], D[a], D[b] UU, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "1FH"
+   ],
+   "page": "3-280",
+   "line": 16166
+  },
+  {
+   "mnemonic": "MULMS.H",
+   "operands": "E[c], D[a], D[b] LL, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "3EH"
+   ],
+   "page": "3-281",
+   "line": 16211
+  },
+  {
+   "mnemonic": "MULMS.H",
+   "operands": "E[c], D[a], D[b] LU, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "3DH"
+   ],
+   "page": "3-281",
+   "line": 16219
+  },
+  {
+   "mnemonic": "MULMS.H",
+   "operands": "E[c], D[a], D[b] UL, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "3CH"
+   ],
+   "page": "3-281",
+   "line": 16227
+  },
+  {
+   "mnemonic": "MULR.H",
+   "operands": "D[c], D[a], D[b] LL, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-282",
+   "line": 16282
+  },
+  {
+   "mnemonic": "MULR.H",
+   "operands": "D[c], D[a], D[b] LU, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-282",
+   "line": 16295
+  },
+  {
+   "mnemonic": "MULR.H",
+   "operands": "D[c], D[a], D[b] UL, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-282",
+   "line": 16308
+  },
+  {
+   "mnemonic": "MULR.H",
+   "operands": "D[c], D[a], D[b] UU, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 179,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-283",
+   "line": 16329
+  },
+  {
+   "mnemonic": "MULR.Q",
+   "operands": "D[c], D[a] L, D[b] L, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-284",
+   "line": 16379
+  },
+  {
+   "mnemonic": "MULR.Q",
+   "operands": "D[c], D[a] U, D[b] U, n",
+   "format": "RR1",
+   "mode": null,
+   "size": 4,
+   "op1": 147,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-284",
+   "line": 16390
+  },
+  {
+   "mnemonic": "NAND",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "09H"
+   ],
+   "page": "3-285",
+   "line": 16434
+  },
+  {
+   "mnemonic": "NAND",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "09H"
+   ],
+   "page": "3-285",
+   "line": 16442
+  },
+  {
+   "mnemonic": "NAND.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 7,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-286",
+   "line": 16483
+  },
+  {
+   "mnemonic": "NE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "11H"
+   ],
+   "page": "3-287",
+   "line": 16525
+  },
+  {
+   "mnemonic": "NE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "11H"
+   ],
+   "page": "3-287",
+   "line": 16534
+  },
+  {
+   "mnemonic": "NE.A",
+   "operands": "D[c], A[a], A[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "41H"
+   ],
+   "page": "3-288",
+   "line": 16576
+  },
+  {
+   "mnemonic": "NEZ.A",
+   "operands": "D[c], A[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "49H"
+   ],
+   "page": "3-289",
+   "line": 16616
+  },
+  {
+   "mnemonic": "NOP",
+   "operands": "",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 0,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-290",
+   "line": 16657
+  },
+  {
+   "mnemonic": "NOP",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-290",
+   "line": 16667
+  },
+  {
+   "mnemonic": "NOR",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "0BH"
+   ],
+   "page": "3-291",
+   "line": 16710
+  },
+  {
+   "mnemonic": "NOR",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "0BH"
+   ],
+   "page": "3-291",
+   "line": 16718
+  },
+  {
+   "mnemonic": "NOR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 135,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-292",
+   "line": 16759
+  },
+  {
+   "mnemonic": "NOT",
+   "operands": "D[a]",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 70,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-293",
+   "line": 16800
+  },
+  {
+   "mnemonic": "OR",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "0AH"
+   ],
+   "page": "3-294",
+   "line": 16848
+  },
+  {
+   "mnemonic": "OR",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "0AH"
+   ],
+   "page": "3-294",
+   "line": 16856
+  },
+  {
+   "mnemonic": "OR",
+   "operands": "D[15], const8",
+   "format": "SC",
+   "mode": null,
+   "size": 2,
+   "op1": 150,
+   "fixed": [],
+   "page": "3-294",
+   "line": 16864
+  },
+  {
+   "mnemonic": "OR",
+   "operands": "D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 166,
+   "fixed": [],
+   "page": "3-294",
+   "line": 16874
+  },
+  {
+   "mnemonic": "OR.AND.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 199,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-296",
+   "line": 16937
+  },
+  {
+   "mnemonic": "OR.ANDN.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 199,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-296",
+   "line": 16945
+  },
+  {
+   "mnemonic": "OR.NOR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 199,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-296",
+   "line": 16953
+  },
+  {
+   "mnemonic": "OR.OR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 199,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-296",
+   "line": 16961
+  },
+  {
+   "mnemonic": "OR.EQ",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "27H"
+   ],
+   "page": "3-298",
+   "line": 17016
+  },
+  {
+   "mnemonic": "OR.EQ",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "27H"
+   ],
+   "page": "3-298",
+   "line": 17024
+  },
+  {
+   "mnemonic": "OR.GE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "2BH"
+   ],
+   "page": "3-299",
+   "line": 17069
+  },
+  {
+   "mnemonic": "OR.GE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "2BH"
+   ],
+   "page": "3-299",
+   "line": 17077
+  },
+  {
+   "mnemonic": "OR.GE.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "2CH"
+   ],
+   "page": "3-299",
+   "line": 17085
+  },
+  {
+   "mnemonic": "OR.GE.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "2CH"
+   ],
+   "page": "3-299",
+   "line": 17093
+  },
+  {
+   "mnemonic": "OR.LT",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "29H"
+   ],
+   "page": "3-301",
+   "line": 17148
+  },
+  {
+   "mnemonic": "OR.LT",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "29H"
+   ],
+   "page": "3-301",
+   "line": 17156
+  },
+  {
+   "mnemonic": "OR.LT.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "2AH"
+   ],
+   "page": "3-301",
+   "line": 17164
+  },
+  {
+   "mnemonic": "OR.LT.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "2AH"
+   ],
+   "page": "3-301",
+   "line": 17172
+  },
+  {
+   "mnemonic": "OR.NE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "28H"
+   ],
+   "page": "3-303",
+   "line": 17224
+  },
+  {
+   "mnemonic": "OR.NE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "28H"
+   ],
+   "page": "3-303",
+   "line": 17232
+  },
+  {
+   "mnemonic": "OR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 135,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-304",
+   "line": 17273
+  },
+  {
+   "mnemonic": "ORN",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-305",
+   "line": 17315
+  },
+  {
+   "mnemonic": "ORN",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "0FH"
+   ],
+   "page": "3-305",
+   "line": 17323
+  },
+  {
+   "mnemonic": "ORN.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 7,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-306",
+   "line": 17364
+  },
+  {
+   "mnemonic": "PACK",
+   "operands": "D[c], E[d], D[a]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "00H",
+    "0H"
+   ],
+   "page": "3-307",
+   "line": 17416
+  },
+  {
+   "mnemonic": "PARITY",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "02H",
+    "0H"
+   ],
+   "page": "3-309",
+   "line": 17498
+  },
+  {
+   "mnemonic": "RESTORE",
+   "operands": "D[a]",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "0EH"
+   ],
+   "page": "3-310",
+   "line": 17541
+  },
+  {
+   "mnemonic": "RET",
+   "operands": "",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 0,
+   "fixed": [
+    "09H"
+   ],
+   "page": "3-311",
+   "line": 17584
+  },
+  {
+   "mnemonic": "RET",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-311",
+   "line": 17604
+  },
+  {
+   "mnemonic": "RFE",
+   "operands": "",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 0,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-313",
+   "line": 17677
+  },
+  {
+   "mnemonic": "RFE",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-313",
+   "line": 17698
+  },
+  {
+   "mnemonic": "RFM",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-315",
+   "line": 17766
+  },
+  {
+   "mnemonic": "RSLCX",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "09H"
+   ],
+   "page": "3-316",
+   "line": 17817
+  },
+  {
+   "mnemonic": "RSTV",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 47,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-317",
+   "line": 17862
+  },
+  {
+   "mnemonic": "RSUB",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-318",
+   "line": 17905
+  },
+  {
+   "mnemonic": "RSUB",
+   "operands": "D[a]",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 50,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-318",
+   "line": 17914
+  },
+  {
+   "mnemonic": "RSUBS",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "0AH"
+   ],
+   "page": "3-319",
+   "line": 17964
+  },
+  {
+   "mnemonic": "RSUBS.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "0BH"
+   ],
+   "page": "3-319",
+   "line": 17973
+  },
+  {
+   "mnemonic": "SAT.B",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "5EH"
+   ],
+   "page": "3-320",
+   "line": 18024
+  },
+  {
+   "mnemonic": "SAT.B",
+   "operands": "D[a]",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 50,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-320",
+   "line": 18033
+  },
+  {
+   "mnemonic": "SAT.BU",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "5FH"
+   ],
+   "page": "3-321",
+   "line": 18081
+  },
+  {
+   "mnemonic": "SAT.BU",
+   "operands": "D[a]",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 50,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-321",
+   "line": 18089
+  },
+  {
+   "mnemonic": "SAT.H",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "7EH"
+   ],
+   "page": "3-322",
+   "line": 18136
+  },
+  {
+   "mnemonic": "SAT.H",
+   "operands": "D[a]",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 50,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-322",
+   "line": 18145
+  },
+  {
+   "mnemonic": "SAT.HU",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "7FH"
+   ],
+   "page": "3-323",
+   "line": 18193
+  },
+  {
+   "mnemonic": "SAT.HU",
+   "operands": "D[a]",
+   "format": "SR",
+   "mode": null,
+   "size": 2,
+   "op1": 50,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-323",
+   "line": 18201
+  },
+  {
+   "mnemonic": "SEL",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 171,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-324",
+   "line": 18246
+  },
+  {
+   "mnemonic": "SEL",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 43,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-324",
+   "line": 18254
+  },
+  {
+   "mnemonic": "SELN",
+   "operands": "D[c], D[d], D[a], const9",
+   "format": "RCR",
+   "mode": null,
+   "size": 4,
+   "op1": 171,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-325",
+   "line": 18296
+  },
+  {
+   "mnemonic": "SELN",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 43,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-325",
+   "line": 18304
+  },
+  {
+   "mnemonic": "SH",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-326",
+   "line": 18357
+  },
+  {
+   "mnemonic": "SH",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-326",
+   "line": 18365
+  },
+  {
+   "mnemonic": "SH",
+   "operands": "D[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 6,
+   "fixed": [],
+   "page": "3-326",
+   "line": 18373
+  },
+  {
+   "mnemonic": "SH.EQ",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "37H"
+   ],
+   "page": "3-328",
+   "line": 18430
+  },
+  {
+   "mnemonic": "SH.EQ",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "37H"
+   ],
+   "page": "3-328",
+   "line": 18438
+  },
+  {
+   "mnemonic": "SH.GE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "3BH"
+   ],
+   "page": "3-329",
+   "line": 18483
+  },
+  {
+   "mnemonic": "SH.GE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "3BH"
+   ],
+   "page": "3-329",
+   "line": 18491
+  },
+  {
+   "mnemonic": "SH.GE.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "3CH"
+   ],
+   "page": "3-329",
+   "line": 18499
+  },
+  {
+   "mnemonic": "SH.GE.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "3CH"
+   ],
+   "page": "3-329",
+   "line": 18507
+  },
+  {
+   "mnemonic": "SH.H",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "40H"
+   ],
+   "page": "3-331",
+   "line": 18564
+  },
+  {
+   "mnemonic": "SH.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "40H"
+   ],
+   "page": "3-331",
+   "line": 18575
+  },
+  {
+   "mnemonic": "SH.LT",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "39H"
+   ],
+   "page": "3-332",
+   "line": 18622
+  },
+  {
+   "mnemonic": "SH.LT",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "39H"
+   ],
+   "page": "3-332",
+   "line": 18630
+  },
+  {
+   "mnemonic": "SH.LT.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "3AH"
+   ],
+   "page": "3-332",
+   "line": 18638
+  },
+  {
+   "mnemonic": "SH.LT.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "3AH"
+   ],
+   "page": "3-332",
+   "line": 18646
+  },
+  {
+   "mnemonic": "SH.NE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "38H"
+   ],
+   "page": "3-334",
+   "line": 18700
+  },
+  {
+   "mnemonic": "SH.NE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "38H"
+   ],
+   "page": "3-334",
+   "line": 18708
+  },
+  {
+   "mnemonic": "SH.AND.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 39,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-335",
+   "line": 18763
+  },
+  {
+   "mnemonic": "SH.ANDN.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 39,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-335",
+   "line": 18771
+  },
+  {
+   "mnemonic": "SH.NAND.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 167,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-335",
+   "line": 18779
+  },
+  {
+   "mnemonic": "SH.NOR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 39,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-335",
+   "line": 18787
+  },
+  {
+   "mnemonic": "SH.OR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 39,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-336",
+   "line": 18802
+  },
+  {
+   "mnemonic": "SH.ORN.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 167,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-336",
+   "line": 18810
+  },
+  {
+   "mnemonic": "SH.XNOR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 167,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-336",
+   "line": 18818
+  },
+  {
+   "mnemonic": "SH.XOR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 167,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-336",
+   "line": 18826
+  },
+  {
+   "mnemonic": "SHA",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-337",
+   "line": 18889
+  },
+  {
+   "mnemonic": "SHA",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-337",
+   "line": 18906
+  },
+  {
+   "mnemonic": "SHA",
+   "operands": "D[a], const4",
+   "format": "SRC",
+   "mode": null,
+   "size": 2,
+   "op1": 134,
+   "fixed": [],
+   "page": "3-338",
+   "line": 18932
+  },
+  {
+   "mnemonic": "SHA.H",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "41H"
+   ],
+   "page": "3-339",
+   "line": 18997
+  },
+  {
+   "mnemonic": "SHA.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "41H"
+   ],
+   "page": "3-339",
+   "line": 19016
+  },
+  {
+   "mnemonic": "SHAS",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-341",
+   "line": 19081
+  },
+  {
+   "mnemonic": "SHAS",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-341",
+   "line": 19096
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "off18, A[a]",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 165,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-343",
+   "line": 19158
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "A[b], off10, A[a]",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "26H"
+   ],
+   "page": "3-343",
+   "line": 19167
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "P[b], A[a]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-343",
+   "line": 19176
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "P[b], off10, A[a]",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "16H"
+   ],
+   "page": "3-343",
+   "line": 19189
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "A[b], off10, A[a]",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "06H"
+   ],
+   "page": "3-344",
+   "line": 19211
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "A[b], off10, A[a]",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "16H"
+   ],
+   "page": "3-344",
+   "line": 19221
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "A[b], off16, A[a]",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 181,
+   "fixed": [],
+   "page": "3-344",
+   "line": 19231
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "A[10], const8, A[15]",
+   "format": "SC",
+   "mode": null,
+   "size": 2,
+   "op1": 248,
+   "fixed": [],
+   "page": "3-344",
+   "line": 19240
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "A[b], off4, A[15]",
+   "format": "SRO",
+   "mode": null,
+   "size": 2,
+   "op1": 236,
+   "fixed": [],
+   "page": "3-344",
+   "line": 19250
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "A[b], A[a]",
+   "format": "SSR",
+   "mode": null,
+   "size": 2,
+   "op1": 244,
+   "fixed": [],
+   "page": "3-344",
+   "line": 19260
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "A[b], A[a]",
+   "format": "SSR",
+   "mode": "Post-increment Addressing Mode",
+   "size": 2,
+   "op1": 228,
+   "fixed": [],
+   "page": "3-345",
+   "line": 19278
+  },
+  {
+   "mnemonic": "ST.A",
+   "operands": "A[15], off4, A[a]",
+   "format": "SSRO",
+   "mode": null,
+   "size": 2,
+   "op1": 232,
+   "fixed": [],
+   "page": "3-345",
+   "line": 19289
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "off18, D[a]",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 37,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-346",
+   "line": 19337
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "20H"
+   ],
+   "page": "3-346",
+   "line": 19346
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "P[b], D[a]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-346",
+   "line": 19355
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "P[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "10H"
+   ],
+   "page": "3-346",
+   "line": 19368
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-347",
+   "line": 19390
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "10H"
+   ],
+   "page": "3-347",
+   "line": 19400
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "A[b], off16, D[a]",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 233,
+   "fixed": [],
+   "page": "3-347",
+   "line": 19410
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "A[b], off4, D[15]",
+   "format": "SRO",
+   "mode": null,
+   "size": 2,
+   "op1": 44,
+   "fixed": [],
+   "page": "3-347",
+   "line": 19419
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "A[b], D[a]",
+   "format": "SSR",
+   "mode": null,
+   "size": 2,
+   "op1": 52,
+   "fixed": [],
+   "page": "3-347",
+   "line": 19429
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "A[b], D[a]",
+   "format": "SSR",
+   "mode": "Post-increment Addressing Mode",
+   "size": 2,
+   "op1": 36,
+   "fixed": [],
+   "page": "3-347",
+   "line": 19439
+  },
+  {
+   "mnemonic": "ST.B",
+   "operands": "A[15], off4, D[a]",
+   "format": "SSRO",
+   "mode": null,
+   "size": 2,
+   "op1": 40,
+   "fixed": [],
+   "page": "3-348",
+   "line": 19458
+  },
+  {
+   "mnemonic": "ST.D",
+   "operands": "off18, E[a]",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 165,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-349",
+   "line": 19505
+  },
+  {
+   "mnemonic": "ST.D",
+   "operands": "A[b], off10, E[a]",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "25H"
+   ],
+   "page": "3-349",
+   "line": 19514
+  },
+  {
+   "mnemonic": "ST.D",
+   "operands": "P[b], E[a]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-349",
+   "line": 19523
+  },
+  {
+   "mnemonic": "ST.D",
+   "operands": "P[b], off10, E[a]",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "15H"
+   ],
+   "page": "3-349",
+   "line": 19536
+  },
+  {
+   "mnemonic": "ST.D",
+   "operands": "A[b], off10, E[a]",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "05H"
+   ],
+   "page": "3-350",
+   "line": 19564
+  },
+  {
+   "mnemonic": "ST.D",
+   "operands": "A[b], off10, E[a]",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "15H"
+   ],
+   "page": "3-350",
+   "line": 19574
+  },
+  {
+   "mnemonic": "ST.DA",
+   "operands": "off18, P[a]",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 165,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-351",
+   "line": 19620
+  },
+  {
+   "mnemonic": "ST.DA",
+   "operands": "A[b], off10, P[a]",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "27H"
+   ],
+   "page": "3-351",
+   "line": 19629
+  },
+  {
+   "mnemonic": "ST.DA",
+   "operands": "P[b], P[a]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-351",
+   "line": 19638
+  },
+  {
+   "mnemonic": "ST.DA",
+   "operands": "P[b], off10, P[a]",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "17H"
+   ],
+   "page": "3-351",
+   "line": 19651
+  },
+  {
+   "mnemonic": "ST.DA",
+   "operands": "A[b], off10, P[a]",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "07H"
+   ],
+   "page": "3-352",
+   "line": 19675
+  },
+  {
+   "mnemonic": "ST.DA",
+   "operands": "A[b], off10, P[a]",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "17H"
+   ],
+   "page": "3-352",
+   "line": 19685
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "off18, D[a]",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 37,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-353",
+   "line": 19731
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "22H"
+   ],
+   "page": "3-353",
+   "line": 19740
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "P[b], D[a]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-353",
+   "line": 19749
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "P[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "12H"
+   ],
+   "page": "3-353",
+   "line": 19762
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-354",
+   "line": 19784
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "12H"
+   ],
+   "page": "3-354",
+   "line": 19794
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "A[b], off16, D[a]",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 249,
+   "fixed": [],
+   "page": "3-354",
+   "line": 19804
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "A[b], off4, D[15]",
+   "format": "SRO",
+   "mode": null,
+   "size": 2,
+   "op1": 172,
+   "fixed": [],
+   "page": "3-354",
+   "line": 19813
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "A[b], D[a]",
+   "format": "SSR",
+   "mode": null,
+   "size": 2,
+   "op1": 180,
+   "fixed": [],
+   "page": "3-354",
+   "line": 19823
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "A[b], D[a]",
+   "format": "SSR",
+   "mode": "Post-increment Addressing Mode",
+   "size": 2,
+   "op1": 164,
+   "fixed": [],
+   "page": "3-354",
+   "line": 19833
+  },
+  {
+   "mnemonic": "ST.H",
+   "operands": "A[15], off4, D[a]",
+   "format": "SSRO",
+   "mode": null,
+   "size": 2,
+   "op1": 168,
+   "fixed": [],
+   "page": "3-355",
+   "line": 19852
+  },
+  {
+   "mnemonic": "ST.Q",
+   "operands": "off18, D[a]",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 101,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-356",
+   "line": 19897
+  },
+  {
+   "mnemonic": "ST.Q",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "28H"
+   ],
+   "page": "3-356",
+   "line": 19906
+  },
+  {
+   "mnemonic": "ST.Q",
+   "operands": "P[b], D[a]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-356",
+   "line": 19915
+  },
+  {
+   "mnemonic": "ST.Q",
+   "operands": "P[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-356",
+   "line": 19928
+  },
+  {
+   "mnemonic": "ST.Q",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-356",
+   "line": 19942
+  },
+  {
+   "mnemonic": "ST.Q",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "18H"
+   ],
+   "page": "3-357",
+   "line": 19960
+  },
+  {
+   "mnemonic": "ST.T",
+   "operands": "off18, bpos3, b",
+   "format": "ABSB",
+   "mode": null,
+   "size": 4,
+   "op1": 213,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-358",
+   "line": 20003
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "off18, D[a]",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 165,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-359",
+   "line": 20046
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "24H"
+   ],
+   "page": "3-359",
+   "line": 20055
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "P[b], D[a]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-359",
+   "line": 20064
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "P[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 169,
+   "fixed": [
+    "14H"
+   ],
+   "page": "3-359",
+   "line": 20077
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-360",
+   "line": 20101
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 137,
+   "fixed": [
+    "14H"
+   ],
+   "page": "3-360",
+   "line": 20111
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "A[b], off16, D[a]",
+   "format": "BOL",
+   "mode": "Base + Long Offset Addressing Mode",
+   "size": 4,
+   "op1": 89,
+   "fixed": [],
+   "page": "3-360",
+   "line": 20121
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "A[10], const8, D[15]",
+   "format": "SC",
+   "mode": null,
+   "size": 2,
+   "op1": 120,
+   "fixed": [],
+   "page": "3-360",
+   "line": 20130
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "A[b], off4, D[15]",
+   "format": "SRO",
+   "mode": null,
+   "size": 2,
+   "op1": 108,
+   "fixed": [],
+   "page": "3-360",
+   "line": 20140
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "A[b], D[a]",
+   "format": "SSR",
+   "mode": null,
+   "size": 2,
+   "op1": 116,
+   "fixed": [],
+   "page": "3-360",
+   "line": 20150
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "A[b], D[a]",
+   "format": "SSR",
+   "mode": "Post-increment Addressing Mode",
+   "size": 2,
+   "op1": 100,
+   "fixed": [],
+   "page": "3-361",
+   "line": 20168
+  },
+  {
+   "mnemonic": "ST.W",
+   "operands": "A[15], off4, D[a]",
+   "format": "SSRO",
+   "mode": null,
+   "size": 2,
+   "op1": 104,
+   "fixed": [],
+   "page": "3-361",
+   "line": 20179
+  },
+  {
+   "mnemonic": "STLCX",
+   "operands": "off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 21,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-362",
+   "line": 20224
+  },
+  {
+   "mnemonic": "STLCX",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Index Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "26H"
+   ],
+   "page": "3-362",
+   "line": 20233
+  },
+  {
+   "mnemonic": "STUCX",
+   "operands": "off18",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 21,
+   "fixed": [
+    "01H"
+   ],
+   "page": "3-363",
+   "line": 20276
+  },
+  {
+   "mnemonic": "STUCX",
+   "operands": "A[b], off10",
+   "format": "BO",
+   "mode": "Base + Short Index Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "27H"
+   ],
+   "page": "3-363",
+   "line": 20285
+  },
+  {
+   "mnemonic": "SUB",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-364",
+   "line": 20329
+  },
+  {
+   "mnemonic": "SUB",
+   "operands": "D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 162,
+   "fixed": [],
+   "page": "3-364",
+   "line": 20338
+  },
+  {
+   "mnemonic": "SUB",
+   "operands": "D[a], D[15], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 82,
+   "fixed": [],
+   "page": "3-364",
+   "line": 20349
+  },
+  {
+   "mnemonic": "SUB",
+   "operands": "D[15], D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 90,
+   "fixed": [],
+   "page": "3-364",
+   "line": 20360
+  },
+  {
+   "mnemonic": "SUB.A",
+   "operands": "A[c], A[a], A[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 1,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-366",
+   "line": 20420
+  },
+  {
+   "mnemonic": "SUB.A",
+   "operands": "A[10], const8",
+   "format": "SC",
+   "mode": null,
+   "size": 2,
+   "op1": 32,
+   "fixed": [],
+   "page": "3-366",
+   "line": 20428
+  },
+  {
+   "mnemonic": "SUB.B",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "48H"
+   ],
+   "page": "3-367",
+   "line": 20474
+  },
+  {
+   "mnemonic": "SUB.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "68H"
+   ],
+   "page": "3-367",
+   "line": 20486
+  },
+  {
+   "mnemonic": "SUBC",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-369",
+   "line": 20563
+  },
+  {
+   "mnemonic": "SUBS",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "0AH"
+   ],
+   "page": "3-370",
+   "line": 20613
+  },
+  {
+   "mnemonic": "SUBS",
+   "operands": "D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 98,
+   "fixed": [],
+   "page": "3-370",
+   "line": 20622
+  },
+  {
+   "mnemonic": "SUBS.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "0BH"
+   ],
+   "page": "3-370",
+   "line": 20633
+  },
+  {
+   "mnemonic": "SUBS.H",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "6AH"
+   ],
+   "page": "3-372",
+   "line": 20697
+  },
+  {
+   "mnemonic": "SUBS.HU",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "6BH"
+   ],
+   "page": "3-372",
+   "line": 20707
+  },
+  {
+   "mnemonic": "SUBX",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-374",
+   "line": 20771
+  },
+  {
+   "mnemonic": "SVLCX",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "08H"
+   ],
+   "page": "3-375",
+   "line": 20815
+  },
+  {
+   "mnemonic": "SWAP.W",
+   "operands": "off18, D[a]",
+   "format": "ABS",
+   "mode": "Absolute Addressing Mode",
+   "size": 4,
+   "op1": 229,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-376",
+   "line": 20864
+  },
+  {
+   "mnemonic": "SWAP.W",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Base + Short Offset Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "20H"
+   ],
+   "page": "3-376",
+   "line": 20875
+  },
+  {
+   "mnemonic": "SWAP.W",
+   "operands": "P[b], D[a]",
+   "format": "BO",
+   "mode": "Bit-reverse Addressing Mode",
+   "size": 4,
+   "op1": 105,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-376",
+   "line": 20886
+  },
+  {
+   "mnemonic": "SWAP.W",
+   "operands": "P[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Circular Addressing Mode",
+   "size": 4,
+   "op1": 105,
+   "fixed": [
+    "10H"
+   ],
+   "page": "3-376",
+   "line": 20901
+  },
+  {
+   "mnemonic": "SWAP.W",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Post-increment Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "00H"
+   ],
+   "page": "3-377",
+   "line": 20926
+  },
+  {
+   "mnemonic": "SWAP.W",
+   "operands": "A[b], off10, D[a]",
+   "format": "BO",
+   "mode": "Pre-increment Addressing Mode",
+   "size": 4,
+   "op1": 73,
+   "fixed": [
+    "10H"
+   ],
+   "page": "3-377",
+   "line": 20938
+  },
+  {
+   "mnemonic": "SYSCALL",
+   "operands": "const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 173,
+   "fixed": [
+    "04H"
+   ],
+   "page": "3-378",
+   "line": 20982
+  },
+  {
+   "mnemonic": "TRAPSV",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "15H"
+   ],
+   "page": "3-379",
+   "line": 21022
+  },
+  {
+   "mnemonic": "TRAPV",
+   "operands": "",
+   "format": "SYS",
+   "mode": null,
+   "size": 4,
+   "op1": 13,
+   "fixed": [
+    "14H"
+   ],
+   "page": "3-380",
+   "line": 21062
+  },
+  {
+   "mnemonic": "UNPACK",
+   "operands": "E[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "08H",
+    "0H"
+   ],
+   "page": "3-381",
+   "line": 21111
+  },
+  {
+   "mnemonic": "XNOR",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-383",
+   "line": 21182
+  },
+  {
+   "mnemonic": "XNOR",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "0DH"
+   ],
+   "page": "3-383",
+   "line": 21190
+  },
+  {
+   "mnemonic": "XNOR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 7,
+   "fixed": [
+    "02H"
+   ],
+   "page": "3-384",
+   "line": 21231
+  },
+  {
+   "mnemonic": "XOR",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 143,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-385",
+   "line": 21276
+  },
+  {
+   "mnemonic": "XOR",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 15,
+   "fixed": [
+    "0CH"
+   ],
+   "page": "3-385",
+   "line": 21284
+  },
+  {
+   "mnemonic": "XOR",
+   "operands": "D[a], D[b]",
+   "format": "SRR",
+   "mode": null,
+   "size": 2,
+   "op1": 198,
+   "fixed": [],
+   "page": "3-385",
+   "line": 21292
+  },
+  {
+   "mnemonic": "XOR.EQ",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "2FH"
+   ],
+   "page": "3-386",
+   "line": 21336
+  },
+  {
+   "mnemonic": "XOR.EQ",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "2FH"
+   ],
+   "page": "3-386",
+   "line": 21344
+  },
+  {
+   "mnemonic": "XOR.GE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "33H"
+   ],
+   "page": "3-387",
+   "line": 21389
+  },
+  {
+   "mnemonic": "XOR.GE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "33H"
+   ],
+   "page": "3-387",
+   "line": 21397
+  },
+  {
+   "mnemonic": "XOR.GE.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "34H"
+   ],
+   "page": "3-387",
+   "line": 21405
+  },
+  {
+   "mnemonic": "XOR.GE.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "34H"
+   ],
+   "page": "3-387",
+   "line": 21413
+  },
+  {
+   "mnemonic": "XOR.LT",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "31H"
+   ],
+   "page": "3-389",
+   "line": 21468
+  },
+  {
+   "mnemonic": "XOR.LT",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "31H"
+   ],
+   "page": "3-389",
+   "line": 21476
+  },
+  {
+   "mnemonic": "XOR.LT.U",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "32H"
+   ],
+   "page": "3-389",
+   "line": 21484
+  },
+  {
+   "mnemonic": "XOR.LT.U",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "32H"
+   ],
+   "page": "3-389",
+   "line": 21492
+  },
+  {
+   "mnemonic": "XOR.NE",
+   "operands": "D[c], D[a], const9",
+   "format": "RC",
+   "mode": null,
+   "size": 4,
+   "op1": 139,
+   "fixed": [
+    "30H"
+   ],
+   "page": "3-391",
+   "line": 21544
+  },
+  {
+   "mnemonic": "XOR.NE",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 11,
+   "fixed": [
+    "30H"
+   ],
+   "page": "3-391",
+   "line": 21552
+  },
+  {
+   "mnemonic": "XOR.T",
+   "operands": "D[c], D[a], pos1, D[b], pos2",
+   "format": "BIT",
+   "mode": null,
+   "size": 4,
+   "op1": 7,
+   "fixed": [
+    "03H"
+   ],
+   "page": "3-392",
+   "line": 21593
+  },
+  {
+   "mnemonic": "ADD.F",
+   "operands": "D[c], D[d], D[a]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "02H",
+    "1H"
+   ],
+   "page": "3-394",
+   "line": 21676
+  },
+  {
+   "mnemonic": "CMP.F",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "00H",
+    "1H"
+   ],
+   "page": "3-395",
+   "line": 21741
+  },
+  {
+   "mnemonic": "DIV.F",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "05H",
+    "1H"
+   ],
+   "page": "3-396",
+   "line": 21789
+  },
+  {
+   "mnemonic": "FTOI",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "10H",
+    "1H"
+   ],
+   "page": "3-397",
+   "line": 21846
+  },
+  {
+   "mnemonic": "FTOIZ",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "13H",
+    "1H"
+   ],
+   "page": "3-398",
+   "line": 21893
+  },
+  {
+   "mnemonic": "FTOQ31",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "11H",
+    "1H"
+   ],
+   "page": "3-399",
+   "line": 21948
+  },
+  {
+   "mnemonic": "FTOQ31Z",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "18H",
+    "1H"
+   ],
+   "page": "3-400",
+   "line": 22006
+  },
+  {
+   "mnemonic": "FTOU",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "12H",
+    "1H"
+   ],
+   "page": "3-401",
+   "line": 22054
+  },
+  {
+   "mnemonic": "FTOUZ",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "17H",
+    "1H"
+   ],
+   "page": "3-402",
+   "line": 22101
+  },
+  {
+   "mnemonic": "ITOF",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "14H",
+    "1H"
+   ],
+   "page": "3-403",
+   "line": 22148
+  },
+  {
+   "mnemonic": "MADD.F",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "06H",
+    "1H"
+   ],
+   "page": "3-404",
+   "line": 22192
+  },
+  {
+   "mnemonic": "MSUB.F",
+   "operands": "D[c], D[d], D[a], D[b]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "07H",
+    "1H"
+   ],
+   "page": "3-406",
+   "line": 22268
+  },
+  {
+   "mnemonic": "MUL.F",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "04H",
+    "1H"
+   ],
+   "page": "3-408",
+   "line": 22342
+  },
+  {
+   "mnemonic": "Q31TOF",
+   "operands": "D[c], D[a], D[b]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "15H",
+    "1H"
+   ],
+   "page": "3-409",
+   "line": 22404
+  },
+  {
+   "mnemonic": "QSEED.F",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "19H",
+    "1H"
+   ],
+   "page": "3-410",
+   "line": 22454
+  },
+  {
+   "mnemonic": "SUB.F",
+   "operands": "D[c], D[d], D[a]",
+   "format": "RRR",
+   "mode": null,
+   "size": 4,
+   "op1": 107,
+   "fixed": [
+    "03H",
+    "1H"
+   ],
+   "page": "3-411",
+   "line": 22505
+  },
+  {
+   "mnemonic": "UPDFL",
+   "operands": "D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "0CH",
+    "1H"
+   ],
+   "page": "3-412",
+   "line": 22567
+  },
+  {
+   "mnemonic": "UTOF",
+   "operands": "D[c], D[a]",
+   "format": "RR",
+   "mode": null,
+   "size": 4,
+   "op1": 75,
+   "fixed": [
+    "16H",
+    "1H"
+   ],
+   "page": "3-413",
+   "line": 22615
+  }
+ ]
+}

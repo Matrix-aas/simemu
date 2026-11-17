@@ -1,0 +1,21 @@
+[package]
+name = "tricore-core"
+version.workspace = true
+edition.workspace = true
+license-file.workspace = true
+authors.workspace = true
+description = "Native Infineon TriCore 1.3 / 1.3.1 / 1.6 CPU core: predecoded-block interpreter with exact instruction counting"
+
+[features]
+default = []
+unicorn = ["unicorn-tricore-sys/link", "simemu-tc1791/unicorn"]
+trace-data-stores = []
+
+[dependencies]
+
+[dev-dependencies]
+# Oracle for instruction-level differential tests (src/testutil/oracle.rs).
+unicorn-tricore-sys = { path = "../unicorn-tricore-sys" }
+# Board recorder for the record/replay differential harness (tests/board_replay.rs). A dev-dependency
+# so that simemu-tc1791 can later depend on this crate without a cycle.
+simemu-tc1791 = { path = "../simemu-tc1791" }

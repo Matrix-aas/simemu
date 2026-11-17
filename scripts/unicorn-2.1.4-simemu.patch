@@ -1,0 +1,1162 @@
+--- a/include/uc_priv.h
++++ b/include/uc_priv.h
+@@ -170,6 +170,41 @@
+     void *callback;      // a uc_cb_* type
+     void *user_data;
+     GHashTable *hooked_regions; // The regions this hook instrumented on
++    bool code_indexed; // SIMEMU: accounted in the code hook index
++};
++
++// SIMEMU inline block accounting, see uc_ctl 0x5151 and translator_loop().
++// classify(user, pc, size, &n, &bit) returns nonzero if the block must always call the block
++// hook; otherwise n is its instruction count and bit its region bit tested against *seen.
++typedef uint32_t (*uc_simemu_classify_t)(void *user, uint64_t pc, uint32_t size,
++                                         uint64_t *n, uint32_t *bit);
++struct uc_simemu_bc {
++    uint64_t *executed;
++    const uint64_t *limit;
++    const uint8_t *stop;
++    const uint16_t *seen;
++    uint32_t *last_pc;
++    uc_simemu_classify_t classify;
++    void *user;
++};
++
++// SIMEMU TriCore ISA fixes reported by uc_ctl 0x5152 (bit set = fixed in this build):
++// 1 psw_read keeps PSW[24] (RM[0]); 2 fpu_set_state maps PSW.RM to softfloat;
++// 4 SRO LD.H scales off4 by 2; 8 MTCR ICR keeps ICR.PIPN and MFCR/MTCR ICR use the TCG global;
++// 16 UPDFL updates PSW[31:24] under its mask (RM included, unmasked flags kept);
++// 32 RET keeps PSW[25:24] (RM) on TC1.3.1/TC1.6.
++#define UC_SIMEMU_ISA_FIXES 0x3f
++
++// SIMEMU exact instruction timing (uc_ctl 0x5153, needs the inline block accounting): a
++// peripheral access sees *executed = instructions retired before the accessing instruction, the
++// accessing instruction always ends its translation block (so a stop requested by the access takes
++// effect at the next instruction), and *truncate != 0 set by the block hook re-runs the block
++// limited to that many instructions (quanta end at an exact instruction count).
++struct uc_simemu_exact {
++    uint64_t *truncate;
++    uint32_t *io_sites;   // sorted guest PCs of instructions that accessed MMIO
++    uint32_t n_io_sites;
++    uint32_t cap_io_sites;
+ };
+ 
+ // Add an inline hook to helper_table
+@@ -250,6 +285,8 @@
+      !((hh)->to_delete))
+ 
+ #define HOOK_EXISTS(uc, idx) ((uc)->hook[idx##_IDX].head != NULL)
++#define UC_CODE_HOOK_BUCKETS 4096
++#define UC_CODE_HOOK_BUCKET(addr) ((((addr) >> 1) ^ ((addr) >> 13)) & (UC_CODE_HOOK_BUCKETS - 1))
+ #define HOOK_EXISTS_BOUNDED(uc, idx, addr)                                     \
+     _hook_exists_bounded((uc)->hook[idx##_IDX].head, addr)
+ 
+@@ -428,6 +465,11 @@
+ #endif
+     GArray *unmapped_regions;
+     int32_t snapshot_level;
++    MemoryRegion *mm_cache; // SIMEMU: last find_memory_mapping result
++    struct uc_simemu_bc *simemu_bc; // SIMEMU: inline block accounting (uc_ctl 0x5151)
++    struct uc_simemu_exact *simemu_exact; // SIMEMU: exact instruction timing (uc_ctl 0x5153)
++    struct list *code_hook_buckets; // SIMEMU: single-address UC_HOOK_CODE hooks by address
++    int code_hooks_ranged;          // SIMEMU: UC_HOOK_CODE hooks covering more than one address
+     uint64_t nested; // the nested level of all exposed API
+     bool thread_executable_entry;
+     bool current_executable;
+--- a/qemu/accel/tcg/cputlb.c
++++ b/qemu/accel/tcg/cputlb.c
+@@ -729,10 +729,20 @@
+     for (mmu_idx = 0; mmu_idx < NB_MMU_MODES; mmu_idx++) {
+         unsigned int i;
+         unsigned int n = tlb_n_entries(&env_tlb(env)->f[mmu_idx]);
++        /* SIMEMU: a page's entry can only sit at its direct-mapped slot (or in the victim TLB). */
++        target_ulong base = start1 & TARGET_PAGE_MASK;
++        uint64_t span = (uint64_t)length + (start1 - base), off;
+ 
+-        for (i = 0; i < n; i++) {
+-            tlb_reset_dirty_range_by_vaddr_locked(uc, &env_tlb(env)->f[mmu_idx].table[i],
+-                                                  start1, length);
++        if (span / TARGET_PAGE_SIZE < n) {
++            for (off = 0; off < span; off += TARGET_PAGE_SIZE) {
++                tlb_reset_dirty_range_by_vaddr_locked(uc, tlb_entry(env, mmu_idx, base + off),
++                                                      start1, length);
++            }
++        } else {
++            for (i = 0; i < n; i++) {
++                tlb_reset_dirty_range_by_vaddr_locked(uc, &env_tlb(env)->f[mmu_idx].table[i],
++                                                      start1, length);
++            }
+         }
+ 
+         for (i = 0; i < CPU_VTLB_SIZE; i++) {
+@@ -1024,6 +1034,9 @@
+     MemoryRegion *mr;
+     uint64_t val;
+     MemTxResult r;
++#ifdef TARGET_TRICORE
++    uint64_t back;
++#endif
+ 
+     section = iotlb_to_section(cpu, iotlbentry->addr, iotlbentry->attrs);
+     mr = section->mr;
+@@ -1032,8 +1045,16 @@
+     if (!cpu->can_do_io) {
+         cpu_io_recompile(cpu, retaddr);
+     }
++#ifdef TARGET_TRICORE
++    back = simemu_io_begin(cpu, retaddr); /* SIMEMU: exact instruction count during the access */
++#endif
+ 
+     r = memory_region_dispatch_read(uc, mr, mr_offset, &val, op, iotlbentry->attrs);
++#ifdef TARGET_TRICORE
++    if (back) {
++        *uc->simemu_bc->executed += back;
++    }
++#endif
+     if (r != MEMTX_OK) {
+ #if 0
+         hwaddr physaddr = mr_offset +
+@@ -1058,6 +1079,9 @@
+     MemoryRegionSection *section;
+     MemoryRegion *mr;
+     MemTxResult r;
++#ifdef TARGET_TRICORE
++    uint64_t back;
++#endif
+ 
+     section = iotlb_to_section(cpu, iotlbentry->addr, iotlbentry->attrs);
+     mr = section->mr;
+@@ -1066,8 +1090,16 @@
+         cpu_io_recompile(cpu, retaddr);
+     }
+     cpu->mem_io_pc = retaddr;
++#ifdef TARGET_TRICORE
++    back = simemu_io_begin(cpu, retaddr); /* SIMEMU: exact instruction count during the access */
++#endif
+ 
+     r = memory_region_dispatch_write(uc, mr, mr_offset, val, op, iotlbentry->attrs);
++#ifdef TARGET_TRICORE
++    if (back) {
++        *uc->simemu_bc->executed += back;
++    }
++#endif
+     if (r != MEMTX_OK) {
+ #if 0
+         hwaddr physaddr = mr_offset +
+@@ -1878,6 +1910,28 @@
+  * We don't bother with this widened value for SOFTMMU_CODE_ACCESS.
+  */
+ 
++/* SIMEMU: what helper_check_exit_request did after every guest access, now done in the slow
++ * path of guest (JIT) accesses only: callbacks (MMIO, memory hooks) can only run here. */
++static inline void uc_exit_check_after_access(CPUArchState *env, uintptr_t retaddr)
++{
++#ifdef TARGET_TRICORE
++    struct uc_struct *uc = env->uc;
++
++    if (unlikely(cpu_loop_exit_requested(uc->cpu))) {
++        if (uc->nested_level == 1) {
++            tb_exec_unlock(uc);
++        }
++        uc->cpu->tcg_exit_req = 0;
++        if (uc->skip_sync_pc_on_exit) {
++            uc->skip_sync_pc_on_exit = false;
++            cpu_loop_exit(uc->cpu);
++        } else {
++            cpu_loop_exit_restore(uc->cpu, retaddr);
++        }
++    }
++#endif
++}
++
+ static uint64_t full_ldub_mmu(CPUArchState *env, target_ulong addr,
+                               TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+@@ -1887,7 +1941,9 @@
+ tcg_target_ulong helper_ret_ldub_mmu(CPUArchState *env, target_ulong addr,
+                                      TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+-    return full_ldub_mmu(env, addr, oi, retaddr);
++    tcg_target_ulong r = full_ldub_mmu(env, addr, oi, retaddr);
++    uc_exit_check_after_access(env, retaddr);
++    return r;
+ }
+ 
+ static uint64_t full_le_lduw_mmu(CPUArchState *env, target_ulong addr,
+@@ -1900,7 +1956,9 @@
+ tcg_target_ulong helper_le_lduw_mmu(CPUArchState *env, target_ulong addr,
+                                     TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+-    return full_le_lduw_mmu(env, addr, oi, retaddr);
++    tcg_target_ulong r = full_le_lduw_mmu(env, addr, oi, retaddr);
++    uc_exit_check_after_access(env, retaddr);
++    return r;
+ }
+ 
+ static uint64_t full_be_lduw_mmu(CPUArchState *env, target_ulong addr,
+@@ -1913,7 +1971,9 @@
+ tcg_target_ulong helper_be_lduw_mmu(CPUArchState *env, target_ulong addr,
+                                     TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+-    return full_be_lduw_mmu(env, addr, oi, retaddr);
++    tcg_target_ulong r = full_be_lduw_mmu(env, addr, oi, retaddr);
++    uc_exit_check_after_access(env, retaddr);
++    return r;
+ }
+ 
+ static uint64_t full_le_ldul_mmu(CPUArchState *env, target_ulong addr,
+@@ -1926,7 +1986,9 @@
+ tcg_target_ulong helper_le_ldul_mmu(CPUArchState *env, target_ulong addr,
+                                     TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+-    return full_le_ldul_mmu(env, addr, oi, retaddr);
++    tcg_target_ulong r = full_le_ldul_mmu(env, addr, oi, retaddr);
++    uc_exit_check_after_access(env, retaddr);
++    return r;
+ }
+ 
+ static uint64_t full_be_ldul_mmu(CPUArchState *env, target_ulong addr,
+@@ -1939,21 +2001,41 @@
+ tcg_target_ulong helper_be_ldul_mmu(CPUArchState *env, target_ulong addr,
+                                     TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+-    return full_be_ldul_mmu(env, addr, oi, retaddr);
++    tcg_target_ulong r = full_be_ldul_mmu(env, addr, oi, retaddr);
++    uc_exit_check_after_access(env, retaddr);
++    return r;
++}
++
++static uint64_t full_le_ldq_mmu(CPUArchState *env, target_ulong addr,
++                                TCGMemOpIdx oi, uintptr_t retaddr)
++{
++    return load_helper(env, addr, oi, retaddr, MO_LEQ, false, full_le_ldq_mmu);
+ }
+ 
+ uint64_t helper_le_ldq_mmu(CPUArchState *env, target_ulong addr,
+                            TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+-    return load_helper(env, addr, oi, retaddr, MO_LEQ, false,
+-                       helper_le_ldq_mmu);
++    uint64_t r = full_le_ldq_mmu(env, addr, oi, retaddr);
++    if (retaddr) {
++        uc_exit_check_after_access(env, retaddr);
++    }
++    return r;
+ }
+ 
++static uint64_t full_be_ldq_mmu(CPUArchState *env, target_ulong addr,
++                                TCGMemOpIdx oi, uintptr_t retaddr)
++{
++    return load_helper(env, addr, oi, retaddr, MO_BEQ, false, full_be_ldq_mmu);
++}
++
+ uint64_t helper_be_ldq_mmu(CPUArchState *env, target_ulong addr,
+                            TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+-    return load_helper(env, addr, oi, retaddr, MO_BEQ, false,
+-                       helper_be_ldq_mmu);
++    uint64_t r = full_be_ldq_mmu(env, addr, oi, retaddr);
++    if (retaddr) {
++        uc_exit_check_after_access(env, retaddr);
++    }
++    return r;
+ }
+ 
+ /*
+@@ -2455,42 +2537,49 @@
+                         TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+     store_helper(env, addr, val, oi, retaddr, MO_UB);
++    uc_exit_check_after_access(env, retaddr);
+ }
+ 
+ void helper_le_stw_mmu(CPUArchState *env, target_ulong addr, uint16_t val,
+                        TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+     store_helper(env, addr, val, oi, retaddr, MO_LEUW);
++    uc_exit_check_after_access(env, retaddr);
+ }
+ 
+ void helper_be_stw_mmu(CPUArchState *env, target_ulong addr, uint16_t val,
+                        TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+     store_helper(env, addr, val, oi, retaddr, MO_BEUW);
++    uc_exit_check_after_access(env, retaddr);
+ }
+ 
+ void helper_le_stl_mmu(CPUArchState *env, target_ulong addr, uint32_t val,
+                        TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+     store_helper(env, addr, val, oi, retaddr, MO_LEUL);
++    uc_exit_check_after_access(env, retaddr);
+ }
+ 
+ void helper_be_stl_mmu(CPUArchState *env, target_ulong addr, uint32_t val,
+                        TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+     store_helper(env, addr, val, oi, retaddr, MO_BEUL);
++    uc_exit_check_after_access(env, retaddr);
+ }
+ 
+ void helper_le_stq_mmu(CPUArchState *env, target_ulong addr, uint64_t val,
+                        TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+     store_helper(env, addr, val, oi, retaddr, MO_LEQ);
++    uc_exit_check_after_access(env, retaddr);
+ }
+ 
+ void helper_be_stq_mmu(CPUArchState *env, target_ulong addr, uint64_t val,
+                        TCGMemOpIdx oi, uintptr_t retaddr)
+ {
+     store_helper(env, addr, val, oi, retaddr, MO_BEQ);
++    uc_exit_check_after_access(env, retaddr);
+ }
+ 
+ /*
+--- a/qemu/accel/tcg/tcg-runtime.c
++++ b/qemu/accel/tcg/tcg-runtime.c
+@@ -185,4 +185,25 @@
+             cpu_loop_exit_restore(uc->cpu, GETPC());
+         }
+     }
+-}
+\ No newline at end of file
++}
++
++/* SIMEMU exact instruction timing (uc_ctl 0x5153): called after the block hook of a block that
++ * took the slow path. When the hook asked for the block limited to *truncate instructions (the
++ * quantum ends inside it), leave it before any of its instructions ran (PC was synced before the
++ * hook) and translate the limited block next. */
++void HELPER(simemu_truncate)(void *p)
++{
++#ifdef TARGET_TRICORE
++    uc_engine *uc = p;
++    struct uc_simemu_exact *x = uc->simemu_exact;
++
++    if (x && *x->truncate) {
++        uint64_t n = *x->truncate;
++        *x->truncate = 0;
++        if (!uc->stop_request) {
++            uc->cpu->cflags_next_tb = curr_cflags() | (uint32_t)MIN(n, (uint64_t)CF_COUNT_MASK);
++            cpu_loop_exit(uc->cpu);
++        }
++    }
++#endif
++}
+--- a/qemu/accel/tcg/tcg-runtime.h
++++ b/qemu/accel/tcg/tcg-runtime.h
+@@ -260,4 +260,5 @@
+ 
+ DEF_HELPER_FLAGS_5(gvec_bitsel, TCG_CALL_NO_RWG, void, ptr, ptr, ptr, ptr, i32)
+ 
+-DEF_HELPER_2(check_exit_request, void, ptr, i32)
+\ No newline at end of file
++DEF_HELPER_2(check_exit_request, void, ptr, i32)
++DEF_HELPER_1(simemu_truncate, void, ptr)
+--- a/qemu/accel/tcg/translate-all.c
++++ b/qemu/accel/tcg/translate-all.c
+@@ -355,7 +355,110 @@
+ 
+     return r;
+ }
++
++#ifdef TARGET_TRICORE
++/* SIMEMU exact instruction timing (uc_ctl 0x5153), see struct uc_simemu_exact. */
+ 
++/* Is `pc` the address of an instruction that accessed a peripheral (it ends its block)? */
++bool simemu_is_io_site(struct uc_struct *uc, target_ulong pc)
++{
++    struct uc_simemu_exact *x = uc->simemu_exact;
++    uint32_t lo = 0, hi = x->n_io_sites;
++
++    while (lo < hi) {
++        uint32_t mid = lo + (hi - lo) / 2;
++        if (x->io_sites[mid] < pc) {
++            lo = mid + 1;
++        } else {
++            hi = mid;
++        }
++    }
++    return lo < x->n_io_sites && x->io_sites[lo] == pc;
++}
++
++static void simemu_add_io_site(struct uc_struct *uc, uint32_t pc)
++{
++    struct uc_simemu_exact *x = uc->simemu_exact;
++    uint32_t i = 0;
++
++    if (simemu_is_io_site(uc, pc)) {
++        return;
++    }
++    if (x->n_io_sites == x->cap_io_sites) {
++        uint32_t cap = x->cap_io_sites ? 2 * x->cap_io_sites : 256;
++        uint32_t *p = realloc(x->io_sites, cap * sizeof(*p));
++        if (p == NULL) {
++            return; /* no room: the site keeps being re-executed at a block end */
++        }
++        x->io_sites = p;
++        x->cap_io_sites = cap;
++    }
++    while (i < x->n_io_sites && x->io_sites[i] < pc) {
++        i++;
++    }
++    memmove(&x->io_sites[i + 1], &x->io_sites[i], (x->n_io_sites - i) * sizeof(uint32_t));
++    x->io_sites[i] = pc;
++    x->n_io_sites++;
++}
++
++/* Called before a peripheral access of translated code (io_readx/io_writex). The block prologue
++ * counted the whole block in *executed; while the access runs, *executed must be the number of
++ * instructions retired before the accessing one, and the accessing instruction must be the last of
++ * its block, so that a stop requested by the access takes effect at the next instruction (QEMU's
++ * deterministic I/O rule, cf. cpu_io_recompile). An instruction found in the middle of a block is
++ * recorded as an I/O site (blocks are then translated to end after it), the block is dropped and
++ * the instruction is executed again from its start; nothing of it has run yet. Returns the amount
++ * taken off *executed, to be added back after the access. */
++uint64_t simemu_io_begin(CPUState *cpu, uintptr_t retaddr)
++{
++    struct uc_struct *uc = cpu->uc;
++    TCGContext *tcg_ctx = uc->tcg_ctx;
++    TranslationBlock *tb;
++    target_ulong data[TARGET_INSN_START_WORDS] = { 0 };
++    uintptr_t host_pc, searched;
++    uint8_t *p;
++    uint64_t back, *executed;
++    int i, j;
++
++    if (!uc->simemu_exact || !uc->simemu_bc || !retaddr ||
++        retaddr - (uintptr_t)tcg_ctx->code_gen_buffer >= tcg_ctx->code_gen_buffer_size) {
++        return 0;
++    }
++    tb = tcg_tb_lookup(tcg_ctx, retaddr);
++    if (!tb) {
++        return 0;
++    }
++    data[0] = tb->pc;
++    host_pc = (uintptr_t)tb->tc.ptr;
++    p = (uint8_t *)tb->tc.ptr + tb->tc.size;
++    searched = retaddr - GETPC_ADJ;
++    for (i = 0; i < tb->icount; ++i) {
++        for (j = 0; j < TARGET_INSN_START_WORDS; ++j) {
++            data[j] += decode_sleb128(&p);
++        }
++        host_pc += decode_sleb128(&p);
++        if (host_pc > searched) {
++            break;
++        }
++    }
++    if (i >= tb->icount) {
++        return 0;
++    }
++    executed = uc->simemu_bc->executed;
++    back = MIN((uint64_t)(tb->icount - i), *executed);
++    if (i + 1 < tb->icount) {
++        simemu_add_io_site(uc, (uint32_t)data[0]);
++        *executed -= back;
++        restore_state_to_opc(cpu->env_ptr, tb, data);
++        tb_phys_invalidate(tcg_ctx, tb, -1);
++        cpu_loop_exit_noexc(cpu);
++    }
++    *executed -= back;
++    return back;
++}
++
++#endif
++
+ static void page_init(struct uc_struct *uc)
+ {
+     page_size_init(uc);
+@@ -2039,6 +2142,14 @@
+         unsigned long b;
+ 
+         nr = start & ~TARGET_PAGE_MASK;
++        if (len > 8) {
++            /* SIMEMU: wide probe_access() writes (64-byte context saves): the single-word
++             * check below would shift by len and miss bits beyond the first bitmap word. */
++            if (find_next_bit(p->code_bitmap, nr + len, nr) < nr + len) {
++                goto do_invalidate;
++            }
++            return;
++        }
+         b = p->code_bitmap[BIT_WORD(nr)] >> (nr & (BITS_PER_LONG - 1));
+         if (b & ((1 << len) - 1)) {
+             goto do_invalidate;
+--- a/qemu/accel/tcg/translator.c
++++ b/qemu/accel/tcg/translator.c
+@@ -40,6 +40,10 @@
+     TCGContext *tcg_ctx = uc->tcg_ctx;
+     TCGOp *prev_op = NULL;
+     bool block_hook = false;
++    TCGLabel *bc_done = NULL;
++#ifdef TARGET_TRICORE
++    target_ulong insn_pc;
++#endif
+ 
+     /* Initialize DisasContext */
+     db->tb = tb;
+@@ -75,9 +79,92 @@
+      */
+     if (HOOK_EXISTS_BOUNDED(uc, UC_HOOK_BLOCK, tb->pc)) {
+         ops->pc_sync(db, cpu);
++        if (uc->simemu_bc) {
++            // SIMEMU: inline fast path; every condition is re-read at run time, the per-block
++            // values (simemu_n/slow/bit) are read from the TB, filled in after translation.
++            struct uc_simemu_bc *bc = uc->simemu_bc;
++            TCGLabel *slow = gen_new_label(tcg_ctx);
++            TCGv_ptr p;
++            TCGv_i32 a, b;
++            TCGv_i64 e, n;
++
++            bc_done = gen_new_label(tcg_ctx);
++            p = tcg_const_ptr(tcg_ctx, tb);
++            a = tcg_temp_new_i32(tcg_ctx);
++            tcg_gen_ld_i32(tcg_ctx, a, p, offsetof(TranslationBlock, simemu_slow));
++            tcg_gen_brcondi_i32(tcg_ctx, TCG_COND_NE, a, 0, slow);
++            tcg_temp_free_i32(tcg_ctx, a);
++            tcg_temp_free_ptr(tcg_ctx, p);
++
++            p = tcg_const_ptr(tcg_ctx, (void *)bc->stop);
++            a = tcg_temp_new_i32(tcg_ctx);
++            tcg_gen_ld8u_i32(tcg_ctx, a, p, 0);
++            tcg_gen_brcondi_i32(tcg_ctx, TCG_COND_NE, a, 0, slow);
++            tcg_temp_free_i32(tcg_ctx, a);
++            tcg_temp_free_ptr(tcg_ctx, p);
++
++            p = tcg_const_ptr(tcg_ctx, (void *)bc->seen);
++            a = tcg_temp_new_i32(tcg_ctx);
++            b = tcg_temp_new_i32(tcg_ctx);
++            tcg_gen_ld16u_i32(tcg_ctx, a, p, 0);
++            tcg_temp_free_ptr(tcg_ctx, p);
++            p = tcg_const_ptr(tcg_ctx, tb);
++            tcg_gen_ld_i32(tcg_ctx, b, p, offsetof(TranslationBlock, simemu_bit));
++            tcg_gen_and_i32(tcg_ctx, a, a, b);
++            tcg_gen_brcondi_i32(tcg_ctx, TCG_COND_EQ, a, 0, slow);
++            tcg_temp_free_i32(tcg_ctx, a);
++            tcg_temp_free_i32(tcg_ctx, b);
++            tcg_temp_free_ptr(tcg_ctx, p);
++
++            e = tcg_temp_new_i64(tcg_ctx);
++            n = tcg_temp_new_i64(tcg_ctx);
++            p = tcg_const_ptr(tcg_ctx, tb);
++            tcg_gen_ld_i64(tcg_ctx, n, p, offsetof(TranslationBlock, simemu_n));
++            tcg_temp_free_ptr(tcg_ctx, p);
++            p = tcg_const_ptr(tcg_ctx, bc->executed);
++            tcg_gen_ld_i64(tcg_ctx, e, p, 0);
++            tcg_temp_free_ptr(tcg_ctx, p);
++            tcg_gen_add_i64(tcg_ctx, e, e, n);
++            p = tcg_const_ptr(tcg_ctx, (void *)bc->limit);
++            tcg_gen_ld_i64(tcg_ctx, n, p, 0);
++            tcg_temp_free_ptr(tcg_ctx, p);
++            tcg_gen_brcond_i64(tcg_ctx, TCG_COND_GTU, e, n, slow);
++            tcg_temp_free_i64(tcg_ctx, e);
++            tcg_temp_free_i64(tcg_ctx, n);
++
++            // fast path (new basic block: values reloaded)
++            e = tcg_temp_new_i64(tcg_ctx);
++            n = tcg_temp_new_i64(tcg_ctx);
++            p = tcg_const_ptr(tcg_ctx, tb);
++            tcg_gen_ld_i64(tcg_ctx, n, p, offsetof(TranslationBlock, simemu_n));
++            tcg_temp_free_ptr(tcg_ctx, p);
++            p = tcg_const_ptr(tcg_ctx, bc->executed);
++            tcg_gen_ld_i64(tcg_ctx, e, p, 0);
++            tcg_gen_add_i64(tcg_ctx, e, e, n);
++            tcg_gen_st_i64(tcg_ctx, e, p, 0);
++            tcg_temp_free_ptr(tcg_ctx, p);
++            tcg_temp_free_i64(tcg_ctx, e);
++            tcg_temp_free_i64(tcg_ctx, n);
++            p = tcg_const_ptr(tcg_ctx, bc->last_pc);
++            a = tcg_const_i32(tcg_ctx, (uint32_t)db->pc_first);
++            tcg_gen_st_i32(tcg_ctx, a, p, 0);
++            tcg_temp_free_i32(tcg_ctx, a);
++            tcg_temp_free_ptr(tcg_ctx, p);
++            tcg_gen_br(tcg_ctx, bc_done);
++            gen_set_label(tcg_ctx, slow);
++        }
+         prev_op = tcg_last_op(tcg_ctx);
+         block_hook = true;
+         gen_uc_tracecode(tcg_ctx, 0xf8f8f8f8, UC_HOOK_BLOCK_IDX, uc, db->pc_first);
++        if (uc->simemu_exact) {
++            // SIMEMU: the hook may ask for this block limited to fewer instructions
++            TCGv_ptr tuc = tcg_const_ptr(tcg_ctx, uc);
++            gen_helper_simemu_truncate(tcg_ctx, tuc);
++            tcg_temp_free_ptr(tcg_ctx, tuc);
++        }
++        if (bc_done) {
++            gen_set_label(tcg_ctx, bc_done);
++        }
+     }
+ 
+     // tcg_dump_ops(tcg_ctx, false, "translator loop");
+@@ -122,6 +209,9 @@
+            update db->pc_next and db->is_jmp to indicate what should be
+            done next -- either exiting this loop or locate the start of
+            the next instruction.  */
++#ifdef TARGET_TRICORE
++        insn_pc = db->pc_next;
++#endif
+         ops->translate_insn(db, cpu);
+         // tcg_dump_ops(tcg_ctx, false, "insn translate");
+ 
+@@ -129,6 +219,13 @@
+         if (db->is_jmp != DISAS_NEXT) {
+             break;
+         }
++#ifdef TARGET_TRICORE
++        /* SIMEMU: an instruction that accesses peripherals ends its block (exact timing) */
++        if (uc->simemu_exact && simemu_is_io_site(uc, insn_pc)) {
++            db->is_jmp = DISAS_TOO_MANY;
++            break;
++        }
++#endif
+ 
+         /* Stop translation if the output buffer is full,
+            or we have executed all of the allowed instructions.  */
+@@ -167,5 +264,20 @@
+         }
+ 
+         tcg_op->args[1] = db->tb->size;
++
++        // SIMEMU: classify the translated block for the inline accounting prologue
++        db->tb->simemu_slow = 1;
++        db->tb->simemu_n = 0;
++        db->tb->simemu_bit = 0;
++        if (bc_done) {
++            uint64_t n = 0;
++            uint32_t bit = 0;
++            struct uc_simemu_bc *bc = uc->simemu_bc;
++            if (bc->classify(bc->user, db->tb->pc, db->tb->size, &n, &bit) == 0) {
++                db->tb->simemu_n = n;
++                db->tb->simemu_bit = bit;
++                db->tb->simemu_slow = 0;
++            }
++        }
+     }
+ }
+--- a/qemu/include/exec/exec-all.h
++++ b/qemu/include/exec/exec-all.h
+@@ -307,6 +307,10 @@
+                            size <= TARGET_PAGE_SIZE) */
+     uint16_t icount;
+     uint32_t cflags;    /* compile flags */
++    /* SIMEMU inline block accounting (filled after translation, read by the block prologue) */
++    uint64_t simemu_n;
++    uint32_t simemu_slow;
++    uint32_t simemu_bit;
+ #define CF_COUNT_MASK  0x00007fff
+ #define CF_LAST_IO     0x00008000 /* Last insn may be an IO access.  */
+ #define CF_NOCACHE     0x00010000 /* To be freed after execution */
+@@ -388,6 +392,9 @@
+                                    target_ulong cs_base, uint32_t flags,
+                                    uint32_t cf_mask);
+ void tb_set_jmp_target(TranslationBlock *tb, int n, uintptr_t addr);
++/* SIMEMU exact instruction timing (TriCore only, translate-all.c) */
++uint64_t simemu_io_begin(CPUState *cpu, uintptr_t retaddr);
++bool simemu_is_io_site(struct uc_struct *uc, target_ulong pc);
+ void tb_exec_lock(struct uc_struct*);
+ void tb_exec_unlock(struct uc_struct*);
+ 
+--- a/qemu/softmmu/memory.c
++++ b/qemu/softmmu/memory.c
+@@ -1041,6 +1041,7 @@
+     }
+ 
+     as->current_map = new_view;
++    as->uc->mm_cache = NULL; // SIMEMU: topology changed
+     if (old_view) {
+         flatview_unref(old_view);
+     }
+--- a/qemu/target/tricore/fpu_helper.c
++++ b/qemu/target/tricore/fpu_helper.c
+@@ -465,14 +465,9 @@
+ 
+ void helper_updfl(CPUTriCoreState *env, uint32_t arg)
+ {
+-    env->FPU_FS =  extract32(arg, 7, 1) & extract32(arg, 15, 1);
+-    env->FPU_FI = (extract32(arg, 6, 1) & extract32(arg, 14, 1)) << 31;
+-    env->FPU_FV = (extract32(arg, 5, 1) & extract32(arg, 13, 1)) << 31;
+-    env->FPU_FZ = (extract32(arg, 4, 1) & extract32(arg, 12, 1)) << 31;
+-    env->FPU_FU = (extract32(arg, 3, 1) & extract32(arg, 11, 1)) << 31;
+-    /* clear FX and RM */
+-    env->PSW &= ~(extract32(arg, 10, 1) << 26);
+-    env->PSW |= (extract32(arg, 2, 1) & extract32(arg, 10, 1)) << 26;
++    /* SIMEMU: PSW[31:24] = (PSW[31:24] & ~D[a][15:8]) | (D[a][7:0] & D[a][15:8]) (TC1.6 V2
++     * UPDFL); the stock helper cleared the unmasked flags and never updated RM */
++    uint32_t mask = extract32(arg, 8, 8) << 24;
+ 
+-    fpu_set_state(env);
++    psw_write(env, (psw_read(env) & ~mask) | ((arg << 24) & mask));
+ }
+--- a/qemu/target/tricore/helper.c
++++ b/qemu/target/tricore/helper.c
+@@ -129,7 +129,11 @@
+ 
+ void fpu_set_state(CPUTriCoreState *env)
+ {
+-    set_float_rounding_mode(env->PSW & MASK_PSW_FPU_RM, &env->fp_status);
++    /* SIMEMU: PSW.RM (bits 25:24) 00 nearest, 01 +inf, 10 -inf, 11 zero (TC1.6 V1 11.3.2);
++     * the stock code passed the unshifted field, a softfloat mode outside the enum */
++    static const int rm[4] = {float_round_nearest_even, float_round_up,
++                              float_round_down, float_round_to_zero};
++    set_float_rounding_mode(rm[extract32(env->PSW, 24, 2)], &env->fp_status);
+     set_flush_inputs_to_zero(1, &env->fp_status);
+     set_flush_to_zero(1, &env->fp_status);
+     set_default_nan_mode(1, &env->fp_status);
+@@ -137,8 +141,8 @@
+ 
+ uint32_t psw_read(CPUTriCoreState *env)
+ {
+-    /* clear all USB bits */
+-    env->PSW &= 0x6ffffff;
++    /* clear all USB bits (SIMEMU: 31:27 only; the stock mask 0x6ffffff also cleared RM[0]) */
++    env->PSW &= 0x7ffffff;
+     /* now set them from the cache */
+     env->PSW |= ((env->PSW_USB_C != 0) << 31);
+     env->PSW |= ((env->PSW_USB_V   & (1 << 31))  >> 1);
+--- a/qemu/target/tricore/op_helper.c
++++ b/qemu/target/tricore/op_helper.c
+@@ -2342,10 +2342,48 @@
+     int mask = (1u << (7 - lo)) - 1;
+     int count = *psw & mask;
+     return count == 0;
++}
++
++/* SIMEMU: host address of the 64-byte context save area at `ea` if it is ordinary RAM and no
++ * memory hook can observe the accesses (self-modifying-code checks are done by probe_access for
++ * the whole area); NULL selects the per-word path. */
++static void *csa_host(CPUTriCoreState *env, uint32_t ea, MMUAccessType type)
++{
++    struct uc_struct *uc = env->uc;
++    MemoryRegion *mr;
++
++    if ((ea & 63) != 0 || HOOK_EXISTS(uc, UC_HOOK_MEM_READ) ||
++        HOOK_EXISTS(uc, UC_HOOK_MEM_WRITE) || HOOK_EXISTS(uc, UC_HOOK_MEM_READ_AFTER)) {
++        return NULL;
++    }
++    mr = uc->memory_mapping(uc, ea);
++    if (mr == NULL ||
++        !(mr->perms & (type == MMU_DATA_STORE ? UC_PROT_WRITE : UC_PROT_READ))) {
++        return NULL;
++    }
++    return probe_access(env, ea, 64, type, cpu_mmu_index(env, false), 0);
++}
++
++static void csa_store(uint8_t *h, const uint32_t w[16])
++{
++    int i;
++    for (i = 0; i < 16; i++) {
++        stl_le_p(h + 4 * i, w[i]);
++    }
+ }
+ 
+ static void save_context_upper(CPUTriCoreState *env, int ea)
+ {
++    uint8_t *h = csa_host(env, ea, MMU_DATA_STORE);
++    if (h) {
++        const uint32_t w[16] = {
++            env->PCXI, psw_read(env), env->gpr_a[10], env->gpr_a[11],
++            env->gpr_d[8], env->gpr_d[9], env->gpr_d[10], env->gpr_d[11],
++            env->gpr_a[12], env->gpr_a[13], env->gpr_a[14], env->gpr_a[15],
++            env->gpr_d[12], env->gpr_d[13], env->gpr_d[14], env->gpr_d[15]};
++        csa_store(h, w);
++        return;
++    }
+     cpu_stl_data(env, ea, env->PCXI);
+     cpu_stl_data(env, ea+4, psw_read(env));
+     cpu_stl_data(env, ea+8, env->gpr_a[10]);
+@@ -2366,6 +2404,16 @@
+ 
+ static void save_context_lower(CPUTriCoreState *env, int ea)
+ {
++    uint8_t *h = csa_host(env, ea, MMU_DATA_STORE);
++    if (h) {
++        const uint32_t w[16] = {
++            env->PCXI, env->gpr_a[11], env->gpr_a[2], env->gpr_a[3],
++            env->gpr_d[0], env->gpr_d[1], env->gpr_d[2], env->gpr_d[3],
++            env->gpr_a[4], env->gpr_a[5], env->gpr_a[6], env->gpr_a[7],
++            env->gpr_d[4], env->gpr_d[5], env->gpr_d[6], env->gpr_d[7]};
++        csa_store(h, w);
++        return;
++    }
+     cpu_stl_data(env, ea, env->PCXI);
+     cpu_stl_data(env, ea+4, env->gpr_a[11]);
+     cpu_stl_data(env, ea+8, env->gpr_a[2]);
+@@ -2387,6 +2435,26 @@
+ static void restore_context_upper(CPUTriCoreState *env, int ea,
+                                   target_ulong *new_PCXI, target_ulong *new_PSW)
+ {
++    uint8_t *h = csa_host(env, ea, MMU_DATA_LOAD);
++    if (h) {
++        *new_PCXI = ldl_le_p(h);
++        *new_PSW = ldl_le_p(h + 4);
++        env->gpr_a[10] = ldl_le_p(h + 8);
++        env->gpr_a[11] = ldl_le_p(h + 12);
++        env->gpr_d[8] = ldl_le_p(h + 16);
++        env->gpr_d[9] = ldl_le_p(h + 20);
++        env->gpr_d[10] = ldl_le_p(h + 24);
++        env->gpr_d[11] = ldl_le_p(h + 28);
++        env->gpr_a[12] = ldl_le_p(h + 32);
++        env->gpr_a[13] = ldl_le_p(h + 36);
++        env->gpr_a[14] = ldl_le_p(h + 40);
++        env->gpr_a[15] = ldl_le_p(h + 44);
++        env->gpr_d[12] = ldl_le_p(h + 48);
++        env->gpr_d[13] = ldl_le_p(h + 52);
++        env->gpr_d[14] = ldl_le_p(h + 56);
++        env->gpr_d[15] = ldl_le_p(h + 60);
++        return;
++    }
+     *new_PCXI = cpu_ldl_data(env, ea);
+     *new_PSW = cpu_ldl_data(env, ea+4);
+     env->gpr_a[10] = cpu_ldl_data(env, ea+8);
+@@ -2408,6 +2476,26 @@
+ static void restore_context_lower(CPUTriCoreState *env, int ea,
+                                   target_ulong *ra, target_ulong *pcxi)
+ {
++    uint8_t *h = csa_host(env, ea, MMU_DATA_LOAD);
++    if (h) {
++        *pcxi = ldl_le_p(h);
++        *ra = ldl_le_p(h + 4);
++        env->gpr_a[2] = ldl_le_p(h + 8);
++        env->gpr_a[3] = ldl_le_p(h + 12);
++        env->gpr_d[0] = ldl_le_p(h + 16);
++        env->gpr_d[1] = ldl_le_p(h + 20);
++        env->gpr_d[2] = ldl_le_p(h + 24);
++        env->gpr_d[3] = ldl_le_p(h + 28);
++        env->gpr_a[4] = ldl_le_p(h + 32);
++        env->gpr_a[5] = ldl_le_p(h + 36);
++        env->gpr_a[6] = ldl_le_p(h + 40);
++        env->gpr_a[7] = ldl_le_p(h + 44);
++        env->gpr_d[4] = ldl_le_p(h + 48);
++        env->gpr_d[5] = ldl_le_p(h + 52);
++        env->gpr_d[6] = ldl_le_p(h + 56);
++        env->gpr_d[7] = ldl_le_p(h + 60);
++        return;
++    }
+     *pcxi = cpu_ldl_data(env, ea);
+     *ra = cpu_ldl_data(env, ea+4);
+     env->gpr_a[2] = cpu_ldl_data(env, ea+8);
+@@ -2528,7 +2616,9 @@
+     /* PCXI = new_PCXI; */
+     env->PCXI = new_PCXI;
+ 
+-    if (tricore_feature(env, TRICORE_FEATURE_13)) {
++    /* SIMEMU: TC1.3.1 and TC1.6 keep PSW[25:24] (RM; TC1.6 V2 RET); the stock code tested
++     * FEATURE_13, which every model has, and restored RM from the CSA */
++    if (!tricore_feature(env, TRICORE_FEATURE_131)) {
+         /* PSW = new_PSW */
+         psw_write(env, new_PSW);
+     } else {
+--- a/qemu/target/tricore/translate.c
++++ b/qemu/target/tricore/translate.c
+@@ -373,6 +373,10 @@
+     /* since we're caching PSW make this a special case */
+     if (offset == 0xfe04) {
+         gen_helper_psw_read(tcg_ctx, ret, tcg_ctx->cpu_env);
++    } else if (offset == 0xfe2c) {
++        /* SIMEMU: through the TCG global ENABLE/DISABLE/RESTORE update (a raw load reads a
++         * stale ICR while the global lives in a host register) */
++        tcg_gen_mov_tl(tcg_ctx, ret, tcg_ctx->cpu_ICR);
+     } else {
+         switch (offset) {
+ #include "csfr.def"
+@@ -405,6 +409,14 @@
+         /* since we're caching PSW make this a special case */
+         if (offset == 0xfe04) {
+             gen_helper_psw_write(tcg_ctx, tcg_ctx->cpu_env, r1);
++        } else if (offset == 0xfe2c) {
++            /* SIMEMU: ICR.PIPN (23:16) is read-only; written through the TCG global (see
++             * gen_mfcr) */
++            TCGv t = tcg_temp_new(tcg_ctx);
++            tcg_gen_andi_tl(tcg_ctx, t, r1, ~MASK_ICR_PIPN);
++            tcg_gen_andi_tl(tcg_ctx, tcg_ctx->cpu_ICR, tcg_ctx->cpu_ICR, MASK_ICR_PIPN);
++            tcg_gen_or_tl(tcg_ctx, tcg_ctx->cpu_ICR, tcg_ctx->cpu_ICR, t);
++            tcg_temp_free(tcg_ctx, t);
+         } else {
+             switch (offset) {
+ #include "csfr.def"
+@@ -3684,12 +3696,12 @@
+ /* SR-format jumps */
+     case OPC1_16_SR_JI:
+         tcg_gen_andi_tl(tcg_ctx, tcg_ctx->cpu_PC, tcg_ctx->cpu_gpr_a[r1], 0xfffffffe);
+-        tcg_gen_exit_tb(tcg_ctx, NULL, 0);
++        tcg_gen_lookup_and_goto_ptr(tcg_ctx);
+         break;
+     case OPC2_32_SYS_RET:
+     case OPC2_16_SR_RET:
+         gen_helper_ret(tcg_ctx, tcg_ctx->cpu_env);
+-        tcg_gen_exit_tb(tcg_ctx, NULL, 0);
++        tcg_gen_lookup_and_goto_ptr(tcg_ctx);
+         break;
+ /* B-format */
+     case OPC1_32_B_CALLA:
+@@ -4169,7 +4181,8 @@
+         gen_offset_ld(ctx, tcg_ctx->cpu_gpr_d[15], tcg_ctx->cpu_gpr_a[r2], address, MO_UB);
+         break;
+     case OPC1_16_SRO_LD_H:
+-        gen_offset_ld(ctx, tcg_ctx->cpu_gpr_d[15], tcg_ctx->cpu_gpr_a[r2], address, MO_LESW);
++        /* SIMEMU: EA = A[b] + zero_ext(2 * off4) (TC1.6 V2 LD.H) */
++        gen_offset_ld(ctx, tcg_ctx->cpu_gpr_d[15], tcg_ctx->cpu_gpr_a[r2], address * 2, MO_LESW);
+         break;
+     case OPC1_16_SRO_LD_W:
+         gen_offset_ld(ctx, tcg_ctx->cpu_gpr_d[15], tcg_ctx->cpu_gpr_a[r2], address * 4, MO_LESL);
+@@ -6911,7 +6924,7 @@
+     default:
+         generate_trap(ctx, TRAPC_INSN_ERR, TIN2_IOPC);
+     }
+-    tcg_gen_exit_tb(tcg_ctx, NULL, 0);
++    tcg_gen_lookup_and_goto_ptr(tcg_ctx);
+     ctx->base.is_jmp = DISAS_NORETURN;
+ }
+ 
+--- a/qemu/target/tricore/unicorn.c
++++ b/qemu/target/tricore/unicorn.c
+@@ -182,6 +182,7 @@
+         case UC_TRICORE_REG_PSW:
+             CHECK_REG_TYPE(uint32_t);
+             env->PSW = *(uint32_t *)value;
++            fpu_set_state(env); // SIMEMU: FPU rounding follows PSW.RM
+             break;
+         case UC_TRICORE_REG_PSW_USB_C:
+             CHECK_REG_TYPE(uint32_t);
+--- a/qemu/tcg/tcg-op.c
++++ b/qemu/tcg/tcg-op.c
+@@ -2882,6 +2882,14 @@
+         tcg_gen_mb(tcg_ctx, type | TCG_BAR_SC);
+     }
+ }
++
++/* SIMEMU: on TriCore an exit requested during a guest memory access is detected in the
++ * softmmu slow path (the only place where callbacks run), see uc_exit_check_after_access(). */
++#ifdef TARGET_TRICORE
++#define UC_CHECK_EXIT_AFTER_ACCESS(s) do { } while (0)
++#else
++#define UC_CHECK_EXIT_AFTER_ACCESS(s) check_exit_request(s)
++#endif
+ 
+ void tcg_gen_qemu_ld_i32(TCGContext *tcg_ctx, TCGv_i32 val, TCGv addr, TCGArg idx, MemOp memop)
+ {
+@@ -2917,7 +2925,7 @@
+         }
+     }
+ 
+-    check_exit_request(tcg_ctx);
++    UC_CHECK_EXIT_AFTER_ACCESS(tcg_ctx);
+ }
+ 
+ void tcg_gen_qemu_st_i32(TCGContext *tcg_ctx, TCGv_i32 val, TCGv addr, TCGArg idx, MemOp memop)
+@@ -2952,7 +2960,7 @@
+         tcg_temp_free_i32(tcg_ctx, swap);
+     }
+ 
+-    check_exit_request(tcg_ctx);
++    UC_CHECK_EXIT_AFTER_ACCESS(tcg_ctx);
+ }
+ 
+ void tcg_gen_qemu_ld_i64(TCGContext *tcg_ctx, TCGv_i64 val, TCGv addr, TCGArg idx, MemOp memop)
+@@ -2967,7 +2975,7 @@
+         } else {
+             tcg_gen_movi_i32(tcg_ctx, TCGV_HIGH(tcg_ctx, val), 0);
+         }
+-        check_exit_request(tcg_ctx);
++        UC_CHECK_EXIT_AFTER_ACCESS(tcg_ctx);
+         return;
+     }
+ #endif
+@@ -3009,7 +3017,7 @@
+             g_assert_not_reached();
+         }
+     }
+-    check_exit_request(tcg_ctx);
++    UC_CHECK_EXIT_AFTER_ACCESS(tcg_ctx);
+ }
+ 
+ void tcg_gen_qemu_st_i64(TCGContext *tcg_ctx, TCGv_i64 val, TCGv addr, TCGArg idx, MemOp memop)
+@@ -3019,7 +3027,7 @@
+ #if TCG_TARGET_REG_BITS == 32
+     if ((memop & MO_SIZE) < MO_64) {
+         tcg_gen_qemu_st_i32(tcg_ctx, TCGV_LOW(tcg_ctx, val), addr, idx, memop);
+-        check_exit_request(tcg_ctx);
++        UC_CHECK_EXIT_AFTER_ACCESS(tcg_ctx);
+         return;
+     }
+ #endif
+@@ -3055,7 +3063,7 @@
+     if (swap) {
+         tcg_temp_free_i64(tcg_ctx, swap);
+     }
+-    check_exit_request(tcg_ctx);
++    UC_CHECK_EXIT_AFTER_ACCESS(tcg_ctx);
+ }
+ 
+ static void tcg_gen_ext_i32(TCGContext *tcg_ctx, TCGv_i32 ret, TCGv_i32 val, MemOp opc)
+--- a/qemu/unicorn_common.h
++++ b/qemu/unicorn_common.h
+@@ -176,11 +176,21 @@
+ {
+     hwaddr xlat = 0;
+     hwaddr len = 1;
+-    MemoryRegion *mr = address_space_translate(&uc->address_space_memory, address, &xlat, &len, false, MEMTXATTRS_UNSPECIFIED);
++    MemoryRegion *mr = uc->mm_cache;
+ 
++    // SIMEMU: regions mapped directly into system memory have absolute [addr, end); with
++    // snapshots (nested copy-on-write containers) the cache is not used.
++    if (mr && address >= mr->addr && address < mr->end) {
++        return mr;
++    }
++    mr = address_space_translate(&uc->address_space_memory, address, &xlat, &len, false, MEMTXATTRS_UNSPECIFIED);
++
+     if (mr == &uc->io_mem_unassigned) {
+         return NULL;
+     }
++    if (uc->snapshot_level == 0 && mr->container == uc->system_memory) {
++        uc->mm_cache = mr;
++    }
+     return mr;
+ }
+ 
+--- a/uc.c
++++ b/uc.c
+@@ -561,9 +561,20 @@
+ 
+     for (i = 0; i < UC_HOOK_MAX; i++) {
+         list_clear(&uc->hook[i]);
++    }
++    if (uc->code_hook_buckets) {
++        for (i = 0; i < UC_CODE_HOOK_BUCKETS; i++) {
++            list_clear(&uc->code_hook_buckets[i]);
++        }
++        free(uc->code_hook_buckets);
+     }
+ 
+     free(uc->mapped_blocks);
++    free(uc->simemu_bc);
++    if (uc->simemu_exact) {
++        free(uc->simemu_exact->io_sites);
++        free(uc->simemu_exact);
++    }
+ 
+     g_tree_destroy(uc->ctl_exits);
+ 
+@@ -1062,6 +1073,15 @@
+     for (cur = uc->hooks_to_del.head;
+          cur != NULL && (hook = (struct hook *)cur->data); cur = cur->next) {
+         assert(hook->to_delete);
++        if (hook->code_indexed) {
++            // SIMEMU: code hook index
++            hook->code_indexed = false;
++            if (hook->begin == hook->end) {
++                list_remove(&uc->code_hook_buckets[UC_CODE_HOOK_BUCKET(hook->begin)], hook);
++            } else {
++                uc->code_hooks_ranged--;
++            }
++        }
+         for (i = 0; i < UC_HOOK_MAX; i++) {
+             if (list_remove(&uc->hook[i], (void *)hook)) {
+                 break;
+@@ -1999,6 +2019,25 @@
+         return UC_ERR_OK;
+     }
+ 
++    if (type & UC_HOOK_CODE) {
++        // SIMEMU: code hook index (see helper_uc_tracecode)
++        if (begin == end) {
++            if (uc->code_hook_buckets == NULL) {
++                uc->code_hook_buckets =
++                    calloc(UC_CODE_HOOK_BUCKETS, sizeof(struct list));
++            }
++            if (uc->code_hook_buckets == NULL ||
++                list_append(&uc->code_hook_buckets[UC_CODE_HOOK_BUCKET(begin)], hook) == NULL) {
++                free(hook);
++                restore_jit_state(uc);
++                return UC_ERR_NOMEM;
++            }
++        } else {
++            uc->code_hooks_ranged++;
++        }
++        hook->code_indexed = true;
++    }
++
+     while ((type >> i) > 0) {
+         if ((type >> i) & 1) {
+             // TODO: invalid hook error?
+@@ -2127,8 +2166,13 @@
+         revert_uc_emu_stop(uc);
+     }
+ 
+-    for (cur = uc->hook[index].head;
+-         cur != NULL && (hook = (struct hook *)cur->data); cur = cur->next) {
++    cur = uc->hook[index].head;
++    if (index == UC_HOOK_CODE_IDX && size != 0 && uc->code_hooks_ranged == 0 &&
++        uc->code_hook_buckets != NULL) {
++        // SIMEMU: only single-address code hooks exist: walk this address' bucket
++        cur = uc->code_hook_buckets[UC_CODE_HOOK_BUCKET((uint64_t)address)].head;
++    }
++    for (; cur != NULL && (hook = (struct hook *)cur->data); cur = cur->next) {
+         if (hook->to_delete) {
+             continue;
+         }
+@@ -2632,6 +2676,65 @@
+     va_start(args, control);
+ 
+     switch (type) {
++    case 0x5152: // SIMEMU: TriCore ISA fixes of this build (uint32_t * <- mask, see uc_priv.h)
++        if (rw == UC_CTL_IO_READ) {
++            *va_arg(args, uint32_t *) = UC_SIMEMU_ISA_FIXES;
++        } else {
++            err = UC_ERR_ARG;
++        }
++        break;
++
++    case 0x5153: { // SIMEMU: exact instruction timing (uint64_t *truncate, NULL disables)
++        if (rw == UC_CTL_IO_WRITE) {
++            uint64_t *truncate = va_arg(args, uint64_t *);
++            UC_INIT(uc);
++            if (truncate && (uc->simemu_bc == NULL || uc->arch != UC_ARCH_TRICORE)) {
++                err = UC_ERR_ARG; // needs the inline block accounting of a TriCore build
++            } else {
++                if (uc->simemu_exact) {
++                    free(uc->simemu_exact->io_sites);
++                    free(uc->simemu_exact);
++                    uc->simemu_exact = NULL;
++                }
++                if (truncate) {
++                    uc->simemu_exact = calloc(1, sizeof(*uc->simemu_exact));
++                    if (uc->simemu_exact == NULL) {
++                        err = UC_ERR_NOMEM;
++                    } else {
++                        uc->simemu_exact->truncate = truncate;
++                    }
++                }
++                uc->tb_flush(uc);
++            }
++            restore_jit_state(uc);
++        } else {
++            err = UC_ERR_ARG;
++        }
++        break;
++    }
++
++    case 0x5151: { // SIMEMU: inline block accounting (struct uc_simemu_bc *, NULL disables)
++        if (rw == UC_CTL_IO_WRITE) {
++            struct uc_simemu_bc *cfg = va_arg(args, struct uc_simemu_bc *);
++            UC_INIT(uc);
++            free(uc->simemu_bc);
++            uc->simemu_bc = NULL;
++            if (cfg) {
++                uc->simemu_bc = malloc(sizeof(*cfg));
++                if (uc->simemu_bc == NULL) {
++                    err = UC_ERR_NOMEM;
++                } else {
++                    *uc->simemu_bc = *cfg;
++                }
++            }
++            uc->tb_flush(uc);
++            restore_jit_state(uc);
++        } else {
++            err = UC_ERR_ARG;
++        }
++        break;
++    }
++
+     case UC_CTL_UC_MODE: {
+         if (rw == UC_CTL_IO_READ) {
+             int *pmode = va_arg(args, int *);

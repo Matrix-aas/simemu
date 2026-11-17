@@ -1,0 +1,38 @@
+[package]
+name = "simemu-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license-file.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme.workspace = true
+keywords.workspace = true
+categories.workspace = true
+description = "CLI runner, Lawicel/SLCAN TCP adapter, log forensics, and browser co-simulation studio for SIMEMU"
+
+[lib]
+name = "simemu_cli"
+path = "src/lib.rs"
+doctest = false
+
+[[bin]]
+name = "simemu"
+path = "src/main.rs"
+
+[features]
+default = ["studio", "bridge"]
+studio = ["bridge", "dep:simemu-acoustics"]
+bridge = ["dep:simemu-bridge"]
+unicorn = ["simemu-tc1791/unicorn"]
+trace-data-stores = ["simemu-tc1791/trace-data-stores"]
+
+[dependencies]
+unicorn-tricore-sys = { path = "../unicorn-tricore-sys" }
+simemu-tc1791 = { path = "../simemu-tc1791" }
+simemu-physics = { path = "../simemu-physics" }
+simemu-acoustics = { path = "../simemu-acoustics", optional = true }
+simemu-damos = { path = "../simemu-damos" }
+simemu-bridge = { path = "../simemu-bridge", optional = true }
+serde.workspace = true
+serde_json.workspace = true

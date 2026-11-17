@@ -1,0 +1,11 @@
+[package]
+name = "simemu-physics"
+version.workspace = true
+edition.workspace = true
+license-file.workspace = true
+authors.workspace = true
+description = "First-principles engine, turbocharger, dual-clutch transmission, hydraulics and vehicle plant models for SIMEMU."
+
+[dependencies]
+nalgebra.workspace = true
+serde.workspace = true

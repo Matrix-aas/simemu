@@ -1,0 +1,10 @@
+[package]
+name = "simemu-acoustics"
+version.workspace = true
+edition.workspace = true
+license-file.workspace = true
+authors.workspace = true
+description = "Physics-driven acoustic synthesis and 1-D duct modelling for the SIMEMU virtual engine/drivetrain bench."
+
+[dependencies]
+simemu-physics = { path = "../simemu-physics" }

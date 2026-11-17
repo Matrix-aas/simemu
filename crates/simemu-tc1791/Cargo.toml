@@ -1,0 +1,24 @@
+[package]
+name = "simemu-tc1791"
+description = "Infineon AUDO TriCore MCU peripherals and ECU/TCU board hardware models (SIMOS18.1 TC1791, DQ200 TC1784, DQ250 TC1766)"
+version.workspace = true
+edition.workspace = true
+license-file.workspace = true
+authors.workspace = true
+
+[features]
+default = []
+unicorn = ["unicorn-tricore-sys/link"]
+trace-data-stores = ["tricore-core/trace-data-stores"]
+
+[dependencies]
+unicorn-tricore-sys = { path = "../unicorn-tricore-sys" }
+tricore-core = { path = "../tricore-core" }
+serde.workspace = true
+
+[dev-dependencies]
+# boot_regression.rs: images completed like the studio loads them (apply_post_programming)
+simemu-damos = { path = "../simemu-damos" }
+simemu-bridge = { path = "../simemu-bridge" }
+# oil_sensors.rs: the oil level sender model drives the firmware's G266 input
+simemu-physics = { path = "../simemu-physics" }
